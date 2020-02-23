@@ -3,6 +3,7 @@
 [ext_resource path="res://MC.tscn" type="PackedScene" id=1]
 
 [node name="Node2D" type="Node2D"]
+position = Vector2( -1, 329.128 )
 
 [node name="KinematicBody2D" parent="." instance=ExtResource( 1 )]
 position = Vector2( 56, 50 )
