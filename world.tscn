@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://KinematicBody2D.gd" type="Script" id=1]
 [ext_resource path="res://images/MC/MC-1.png" type="Texture" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://images/MC/MC-3.png" type="Texture" id=4]
 [ext_resource path="res://bluekey.gd" type="Script" id=5]
 [ext_resource path="res://images/Items/bluekey.png" type="Texture" id=6]
+[ext_resource path="res://images/tilesets/basic.tres" type="TileSet" id=7]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -24,12 +25,14 @@ animations = [ {
 extents = Vector2( 13, 24 )
 
 [sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 10.3342, 10.0336 )
+extents = Vector2( 16.5859, 10.0336 )
 
 [node name="World" type="Node"]
 
-[node name="MC_Sprite" type="KinematicBody2D" parent="."]
-position = Vector2( 41.7842, 412.236 )
+[node name="MC_Sprite" type="KinematicBody2D" parent="." groups=[
+"player",
+]]
+position = Vector2( 27.7349, 405.752 )
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_group_": true
@@ -43,17 +46,35 @@ animation = "idle"
 position = Vector2( 0, 1 )
 shape = SubResource( 2 )
 
-[node name="bluekey" type="Area2D" parent="."]
-position = Vector2( 233.264, 426.069 )
+[node name="keyObject" type="RigidBody2D" parent="." groups=[
+"inventoryItem",
+]]
 collision_layer = 2
 collision_mask = 2
+gravity_scale = 0.0
 script = ExtResource( 5 )
 
-[node name="Sprite" type="Sprite" parent="bluekey"]
+[node name="bluekey" type="Area2D" parent="keyObject"]
+position = Vector2( 296.181, 418.315 )
+gravity_point = true
+gravity_vec = Vector2( 0, 0 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="keyObject/bluekey"]
 position = Vector2( 1.02673, 2.82336 )
 scale = Vector2( 0.775414, 0.695201 )
 texture = ExtResource( 6 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="bluekey"]
-position = Vector2( 2.59714, 2.81018 )
+[node name="CollisionShape2D" type="CollisionShape2D" parent="keyObject/bluekey"]
+position = Vector2( 1.55856, 2.81018 )
+scale = Vector2( 1, 1 )
 shape = SubResource( 3 )
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource( 7 )
+cell_size = Vector2( 16, 16 )
+cell_quadrant_size = 25
+format = 1
+tile_data = PoolIntArray( 1769472, 1, 0, 1769473, 1, 0, 1769474, 1, 0, 1769475, 1, 0, 1769476, 1, 0, 1769477, 1, 0, 1769478, 1, 0, 1769479, 1, 0, 1769480, 1, 0, 1769481, 1, 0, 1769482, 1, 0, 1769483, 1, 0, 1769484, 0, 0, 1769485, 0, 0, 1769486, 0, 0, 1769487, 0, 0, 1769488, 0, 0, 1769489, 0, 0, 1769490, 0, 0, 1769491, 0, 0, 1769492, 0, 0, 1769493, 0, 0, 1769494, 0, 0, 1769495, 0, 0 )
