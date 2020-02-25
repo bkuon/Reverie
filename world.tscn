@@ -24,11 +24,13 @@ animations = [ {
 extents = Vector2( 13, 24 )
 
 [sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 10.3342, 10.0336 )
+extents = Vector2( 14.028, 10.0336 )
 
 [node name="World" type="Node"]
 
-[node name="MC_Sprite" type="KinematicBody2D" parent="."]
+[node name="MC_Sprite" type="KinematicBody2D" parent="." groups=[
+"player",
+]]
 position = Vector2( 41.7842, 412.236 )
 script = ExtResource( 1 )
 __meta__ = {
@@ -43,17 +45,28 @@ animation = "idle"
 position = Vector2( 0, 1 )
 shape = SubResource( 2 )
 
-[node name="bluekey" type="Area2D" parent="."]
-position = Vector2( 233.264, 426.069 )
+[node name="keyObject" type="RigidBody2D" parent="." groups=[
+"inventoryItem",
+]]
 collision_layer = 2
 collision_mask = 2
+gravity_scale = 0.0
 script = ExtResource( 5 )
 
-[node name="Sprite" type="Sprite" parent="bluekey"]
+[node name="bluekey" type="Area2D" parent="keyObject"]
+position = Vector2( 309.884, 422.833 )
+gravity_point = true
+gravity_vec = Vector2( 0, 0 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="keyObject/bluekey"]
 position = Vector2( 1.02673, 2.82336 )
 scale = Vector2( 0.775414, 0.695201 )
 texture = ExtResource( 6 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="bluekey"]
-position = Vector2( 2.59714, 2.81018 )
+[node name="CollisionShape2D" type="CollisionShape2D" parent="keyObject/bluekey"]
+position = Vector2( 0.0884094, 2.81018 )
+scale = Vector2( 1, 1 )
 shape = SubResource( 3 )
