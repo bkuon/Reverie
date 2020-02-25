@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://pausePopup.gd" type="Script" id=1]
+
+[node name="pausePopup" type="WindowDialog"]
+pause_mode = 2
+margin_left = 12.2079
+margin_top = 35.8615
+margin_right = 199.208
+margin_bottom = 244.862
+script = ExtResource( 1 )
