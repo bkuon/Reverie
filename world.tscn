@@ -69,7 +69,6 @@ texture = ExtResource( 6 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="keyObject/bluekey"]
 position = Vector2( 1.55856, 2.81018 )
-scale = Vector2( 1, 1 )
 shape = SubResource( 3 )
 
 [node name="TileMap" type="TileMap" parent="."]
