@@ -19,10 +19,10 @@ func _input(event):
 						open = !open
 						if open == true:
 							door.texture = dooropen
-							$doorObj.collision_layer = 2 #change collision layer so it no longer colides
+							$CollisionShape2D2.disabled = true #change collision layer so it no longer colides
 						elif open == false:
 							door.texture = doorclosed
-							$doorObj.collision_layer = 1 #change collision layer so it collides
+							$CollisionShape2D2.disabled = false #change collision layer so it collides
 
 
 func _on_door_body_entered(body):
