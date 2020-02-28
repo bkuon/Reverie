@@ -44,9 +44,12 @@ extents = Vector2( 8.93102, 27.976 )
 extents = Vector2( 16.2286, 25.9858 )
 
 [sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 13.7324, 27.8863 )
+
+[sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 11.0656, 15.163 )
 
-[sub_resource type="SpriteFrames" id=6]
+[sub_resource type="SpriteFrames" id=7]
 animations = [ {
 "frames": [ ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 14 ), ExtResource( 13 ) ],
 "loop": false,
@@ -54,7 +57,7 @@ animations = [ {
 "speed": 40.0
 } ]
 
-[sub_resource type="RectangleShape2D" id=7]
+[sub_resource type="RectangleShape2D" id=8]
 extents = Vector2( 20.8072, 15.8378 )
 
 [node name="World" type="Node"]
@@ -121,8 +124,13 @@ z_index = -1
 texture = ExtResource( 8 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="doorObject/doorObj"]
+
 position = Vector2( -158.994, 61.0124 )
 shape = SubResource( 4 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="doorObject"]
+position = Vector2( 196.944, 405.818 )
+shape = SubResource( 5 )
 
 [node name="Coin" type="Node2D" parent="."]
 editor/display_folded = true
@@ -135,7 +143,7 @@ __meta__ = {
 texture = ExtResource( 9 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Coin"]
-shape = SubResource( 5 )
+shape = SubResource( 6 )
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource( 10 )
@@ -163,11 +171,11 @@ texture = ExtResource( 12 )
 [node name="button" type="AnimatedSprite" parent="button/table_button"]
 position = Vector2( 101.83, 398.051 )
 scale = Vector2( 1.74634, 1.99512 )
-frames = SubResource( 6 )
+frames = SubResource( 7 )
 animation = "pressIn"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="button/table_button"]
 position = Vector2( 104.258, 415.99 )
 z_index = 2
-shape = SubResource( 7 )
+shape = SubResource( 8 )
 [connection signal="body_entered" from="doorObject/doorObj" to="doorObject" method="_on_door_body_entered"]
