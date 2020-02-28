@@ -2,8 +2,7 @@ extends StaticBody2D
 
 var pressed = false
 #onready var door = get_tree().get_root().get_node("World/doorObject/doorObj")
-#onready var globals = get_node("Globals.gd")
-#var unlocked = globals.unlocked
+onready var globals = get_node("/root/Globals")
 
 func _input(event):
 	if event is InputEventKey:
@@ -14,6 +13,6 @@ func _input(event):
 					print("Button press")
 					$table_button/button.play("pressIn")
 					if pressed == false:
-						#globals.unlocked = true
+						globals.unlocked = true
 						pressed == true
 
