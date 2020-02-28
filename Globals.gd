@@ -6,6 +6,7 @@ const WORLD_PATH = "res://world.tscn"
 
 var popup = null
 var canvas_layer = null
+var unlocked = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
