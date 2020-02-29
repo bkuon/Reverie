@@ -18,4 +18,4 @@ position = Vector2( 60.6777, 214.684 )
 
 [node name="Door" parent="." instance=ExtResource( 3 )]
 position = Vector2( 23.932, 204.44 )
-world_scene = ""
+world_scene = "res://world.tscn"
