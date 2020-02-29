@@ -23,6 +23,11 @@ func _physics_process(delta):
 	elif Input.is_action_just_pressed("interact"):
 		if obj and obj_name != "" and obj_name != "Door" and obj.can_speak:
 			get_node("../DialogueParser").init_dialogue(obj_name)
+	#elif is_on_floor():
+		#if Input.is_action_just_pressed("ui_up")
+			#motion.y = JUMP
+		#else:
+			#$sprite.play("jump")
 	else:
 		motion.x=0
 		$sprite.play("idle")
