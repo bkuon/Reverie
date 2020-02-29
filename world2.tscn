@@ -17,5 +17,5 @@ tile_data = PoolIntArray( 786432, 1, 0, 983040, 1, 0, 983041, 1, 0, 983042, 1, 0
 position = Vector2( 60.6777, 214.684 )
 
 [node name="Door" parent="." instance=ExtResource( 3 )]
-position = Vector2( 23.2686, 207.094 )
+position = Vector2( 23.932, 204.44 )
 world_scene = ""
