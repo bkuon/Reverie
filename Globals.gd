@@ -1,38 +1,44 @@
 extends Node
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+# Declare member variables here.
 const POPUP_SCENE = preload("res://pausePopup.tscn")
+const DIALOGUE_SCENE = preload("res://DialougeBox.tscn")
+
 const WORLD_PATH = "res://world.tscn"
 
 var popup = null
 var canvas_layer = null
+var dialogue = null
+var dialogueStart=true
+
+var unlocked = false
+var coinCounter = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	canvas_layer = CanvasLayer.new()
 	add_child(canvas_layer)
-
-
-func load_new_scene(new_scene_path):
-     get_tree().change_scene(new_scene_path)
 	
-func _process(delta):
-	if Input.is_action_just_pressed("pause"):
-		popup_closed()
-		print("hold on")
-		popup = POPUP_SCENE.instance()
-		
-		canvas_layer.add_child(popup)
-		popup.popup()
-		get_tree().paused = true
-		
-			
-			
-func popup_closed():
-    get_tree().paused = false
+# global functions are currently:
+# pause menu
+# dialogue interface
 
-    if popup != null:
-        popup.queue_free()
-        popup = null
+func _input(event):
+	if Input.is_action_pressed("pause"):
+		
+		if popup==null:
+			popup = POPUP_SCENE.instance() 
+			canvas_layer.add_child(popup)
+			popup.show()
+
+		elif Input.is_action_pressed("pause") && popup!= null:
+			popup.queue_free()
+			popup=null
+			
+	if dialogueStart:
+		if dialogue==null:
+			dialogue = DIALOGUE_SCENE.instance() 
+			canvas_layer.add_child(dialogue)
+			dialogue.show()
+			
+

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/tile2.png-95f2582acb21a4b93bd8c024967e5cb1.stex"
+path="res://.import/MC-2.png-c555e6424666797fcb0d953bf9576c32.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/Items/tile2.png"
-dest_files=[ "res://.import/tile2.png-95f2582acb21a4b93bd8c024967e5cb1.stex" ]
+source_file="res://game/images/MC/MC-2.png"
+dest_files=[ "res://.import/MC-2.png-c555e6424666797fcb0d953bf9576c32.stex" ]
 
 [params]
 
