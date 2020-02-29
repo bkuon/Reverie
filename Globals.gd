@@ -16,9 +16,9 @@ var coinCounter = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-    canvas_layer = CanvasLayer.new()
-    add_child(canvas_layer)
-    
+	canvas_layer = CanvasLayer.new()
+	add_child(canvas_layer)
+	
 # global functions are currently:
 # pause menu
 # dialogue interface

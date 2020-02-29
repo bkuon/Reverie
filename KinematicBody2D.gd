@@ -6,6 +6,8 @@ const JUMP = 500
 const RESISTANCE = Vector2(0,-1)
 
 var motion = Vector2()
+var obj_name: String
+var obj
 
 func _physics_process(delta):
 	#motion.y += GRAVITY
@@ -18,6 +20,9 @@ func _physics_process(delta):
 		motion.x = -SPEED
 		$sprite.flip_h = true
 		$sprite.play("walk")
+	elif Input.is_action_just_pressed("interact"):
+		if obj and obj_name != "" and obj.can_speak:
+			get_node("../DialogueParser").init_dialogue(obj_name)
 	else:
 		motion.x=0
 		$sprite.play("idle")
@@ -25,3 +30,17 @@ func _physics_process(delta):
 	move_and_slide(motion,RESISTANCE)
 	
 
+#signals when player is touching object. 
+#gets object name for DialogueParser
+func _on_Area2D_area_entered(area):
+	obj_name = area.name
+	obj = area.get_parent()
+	
+	
+func _on_Area2D_area_exited(area):
+	obj = ""
+	
+# custom signal says that the item has been checked for/ or has finished dialogue
+func _on_DialogueParser_done_talking():
+	obj.can_interact = true
+	obj.can_speak = false

@@ -5,11 +5,14 @@ onready var globals = get_node("/root/Globals")
 var dooropen = preload("res://images/Items/dooropen.png")
 var doorclosed = preload("res://images/Items/doorclosed.png")
 
+var can_speak = false
+var can_interact = true
+
 onready var door = get_node("doorObj/doorSprite")
 
 func _input(event):
 	if event is InputEventKey:
-		if event.pressed and event.scancode == KEY_Z:
+		if event.pressed and event.scancode == KEY_Z and can_interact:
 			var unlocked = globals.unlocked
 			var bodies = $doorObj.get_overlapping_bodies()
 			for b in bodies:

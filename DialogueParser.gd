@@ -82,7 +82,7 @@ func clear_buttons():
 #loads JSON files as Dictionary
 func load_dialog(file_path):
 	var file = File.new()
-	assert file.file_exists(file_path)
+	assert(file.file_exists(file_path))
 	file.open(file_path, file.READ)
 	var dialog = parse_json(file.get_as_text())
 	return dialog

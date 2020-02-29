@@ -2,6 +2,8 @@ extends StaticBody2D
 
 # Declare member variables here. Examples:
 onready var globals = get_node("/root/Globals")
+var can_speak = false
+var can_interact = true
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
