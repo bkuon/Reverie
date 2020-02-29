@@ -1,0 +1,22 @@
+{
+  "NPC": {
+    "start": false,
+    "has_choice" : true,
+    "decided" : false
+  },
+  "doorObj": {
+    "start": false,
+    "has_choice": false,
+    "decided" : false
+  },
+  "bluekey": {
+    "start": false,
+    "has_choice": false,
+    "decided": false
+  },
+  "Coin": {
+    "start": false,
+    "has_choice": false,
+    "decided": false
+  }
+}
