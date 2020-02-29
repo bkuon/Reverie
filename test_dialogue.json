@@ -1,0 +1,34 @@
+{
+  "Flags": {
+    "start" : "false",
+    "have_key": "false",
+  },
+  "NPC": {
+    "start": [
+      "hi",
+      "I'm Bob!",
+      "Do you have a name?."
+    ],
+    "choices": {
+      "I have no name.": "oh no",
+      "I don't wanna say.": "ok?"
+    },
+  },
+  "doorObj" : {
+    "start" : [
+      
+    ]
+  },
+  "Coin" : {
+    "start" : [
+      
+    ]
+  },
+  "bluekey" : {
+    "start" : [
+      "A key!",
+      "Press z to pick it up." 
+    ]
+  }
+  
+}
