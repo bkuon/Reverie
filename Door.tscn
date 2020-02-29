@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Door.gd" type="Script" id=1]
+[ext_resource path="res://images/Environment/door.png" type="Texture" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 26.2919, 31.5248 )
+
+[node name="Door" type="Area2D"]
+position = Vector2( -1.52588e-005, -0.663422 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+world_scene = "res://world2.tscn"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -1.11993, 1.35443 )
+shape = SubResource( 1 )
+
+[node name="sprite" type="Sprite" parent="."]
+position = Vector2( -0.0863647, 2.20927 )
+scale = Vector2( 2.7696, 2.80532 )
+texture = ExtResource( 2 )

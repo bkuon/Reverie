@@ -7,7 +7,7 @@ const RESISTANCE = Vector2(0,-1)
 
 var motion = Vector2()
 var obj_name: String
-var obj
+var obj = null
 
 func _physics_process(delta):
 	#motion.y += GRAVITY
@@ -21,7 +21,7 @@ func _physics_process(delta):
 		$sprite.flip_h = true
 		$sprite.play("walk")
 	elif Input.is_action_just_pressed("interact"):
-		if obj and obj_name != "" and obj.can_speak:
+		if obj and obj_name != "" and obj_name != "Door" and obj.can_speak:
 			get_node("../DialogueParser").init_dialogue(obj_name)
 	else:
 		motion.x=0
