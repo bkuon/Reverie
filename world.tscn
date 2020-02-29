@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://KinematicBody2D.gd" type="Script" id=1]
 [ext_resource path="res://images/MC/MC-1.png" type="Texture" id=2]
@@ -22,7 +22,6 @@
 [ext_resource path="res://images/npcIdle.png" type="Texture" id=20]
 [ext_resource path="res://DialogueParser.gd" type="Script" id=21]
 [ext_resource path="res://Door.tscn" type="PackedScene" id=22]
-[ext_resource path="res://Door.gd" type="Script" id=23]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -261,13 +260,9 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Door" type="Area2D" parent="." instance=ExtResource( 22 )]
+[node name="Door" parent="." instance=ExtResource( 22 )]
 position = Vector2( 466.43, 398.821 )
 z_index = -1
-script = ExtResource( 23 )
-__meta__ = {
-"_edit_group_": true
-}
 [connection signal="area_entered" from="MC_Sprite/Area2D" to="MC_Sprite" method="_on_Area2D_area_entered"]
 [connection signal="area_exited" from="MC_Sprite/Area2D" to="MC_Sprite" method="_on_Area2D_area_exited"]
 [connection signal="done_talking" from="DialogueParser" to="MC_Sprite" method="_on_DialogueParser_done_talking"]
