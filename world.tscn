@@ -44,7 +44,8 @@ extents = Vector2( 11.0656, 15.163 )
 [sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 16.2286, 25.9858 )
 
-[sub_resource type="SpriteFrames" id=7]
+[sub_resource type="SpriteFrames" id=6]
+
 animations = [ {
 "frames": [ ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 13 ), ExtResource( 12 ) ],
 "loop": false,
@@ -52,7 +53,7 @@ animations = [ {
 "speed": 40.0
 } ]
 
-[sub_resource type="RectangleShape2D" id=8]
+[sub_resource type="RectangleShape2D" id=7]
 extents = Vector2( 20.8072, 15.8378 )
 
 [node name="World" type="Node"]
@@ -151,13 +152,13 @@ texture = ExtResource( 11 )
 [node name="button" type="AnimatedSprite" parent="button/table_button"]
 position = Vector2( 101.83, 398.051 )
 scale = Vector2( 1.74634, 1.99512 )
-frames = SubResource( 7 )
+frames = SubResource( 6 )
 animation = "pressIn"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="button/table_button"]
 position = Vector2( 104.258, 415.99 )
 z_index = 2
-shape = SubResource( 8 )
+shape = SubResource( 7 )
 
 [node name="CoinObject" type="StaticBody2D" parent="."]
 editor/display_folded = true

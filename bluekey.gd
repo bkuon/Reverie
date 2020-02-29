@@ -10,6 +10,7 @@ func _input(event):
 			for b in bodies:
 				if b.name == "MC_Sprite":
 					# add object to inventory here
+					print("Blue Key added to Inventory.")
 					queue_free()
 			
 			
