@@ -146,7 +146,7 @@ tile_data = PoolIntArray( 1769472, 1, 0, 1769473, 1, 0, 1769474, 1, 0, 1769475, 
 script = ExtResource( 10 )
 
 [node name="table_button" type="Area2D" parent="button"]
-position = Vector2( -1.52588e-05, 0 )
+position = Vector2( -1.52588e-005, 0 )
 collision_layer = 2
 __meta__ = {
 "_edit_group_": true
