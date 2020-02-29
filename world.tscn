@@ -1,5 +1,4 @@
 [gd_scene load_steps=32 format=2]
-
 [ext_resource path="res://KinematicBody2D.gd" type="Script" id=1]
 [ext_resource path="res://images/MC/MC-1.png" type="Texture" id=2]
 [ext_resource path="res://images/MC/MC-2.png" type="Texture" id=3]
@@ -70,7 +69,7 @@ extents = Vector2( 16, 29.6226 )
 [node name="MC_Sprite" parent="." instance=ExtResource( 1 )]
 position = Vector2( 70.2379, 447.24 )
 
-[node name="Door" parent="." instance=ExtResource( 2 )]
+[node name="Door" parent="." instance=ExtResource( 22 )]
 position = Vector2( 415.001, 440.001 )
 
 [node name="Area2D" type="Area2D" parent="MC_Sprite"]
