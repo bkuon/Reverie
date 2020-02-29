@@ -1,0 +1,51 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Dialouge.gd" type="Script" id=1]
+[ext_resource path="res://icon.png" type="Texture" id=2]
+
+
+[node name="DialougeBox" type="Control"]
+pause_mode = 2
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -5.89063
+margin_top = -342.38
+margin_right = -5.89063
+margin_bottom = -342.38
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Panel" type="Panel" parent="."]
+margin_left = 14.0067
+margin_top = 363.975
+margin_right = 511.007
+margin_bottom = 483.975
+
+[node name="Timer" type="Timer" parent="Panel"]
+pause_mode = 2
+wait_time = 0.05
+autostart = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Panel"]
+margin_left = 13.7958
+margin_top = 28.1913
+margin_right = 463.796
+margin_bottom = 108.191
+script = ExtResource( 1 )
+
+[node name="CharacterPortrait" type="TextureRect" parent="Panel"]
+margin_left = 500.0
+margin_right = 620.0
+margin_bottom = 115.0
+texture = ExtResource( 2 )
+expand = true
+
+[node name="CharacterName" type="Label" parent="Panel"]
+margin_left = 20.0
+margin_top = 10.0
+margin_right = 110.0
+margin_bottom = 32.0
+text = "Godot Bot"
+[connection signal="timeout" from="Panel/Timer" to="Panel/RichTextLabel" method="_on_Timer_timeout"]
