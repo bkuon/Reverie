@@ -9,7 +9,7 @@ const WORLD_PATH = "res://world.tscn"
 var popup = null
 var canvas_layer = null
 var dialogue = null
-var dialogueStart=true
+var dialogueStart=false
 
 var unlocked = false
 var coinCounter = 0
@@ -36,6 +36,7 @@ func _input(event):
 			popup=null
 			
 	if dialogueStart:
+		
 		if dialogue==null:
 			dialogue = DIALOGUE_SCENE.instance() 
 			canvas_layer.add_child(dialogue)
