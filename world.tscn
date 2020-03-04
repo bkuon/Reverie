@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=2]
+[gd_scene load_steps=34 format=2]
 
 [ext_resource path="res://KinematicBody2D.gd" type="Script" id=1]
 [ext_resource path="res://images/MC/MC-1.png" type="Texture" id=2]
@@ -22,6 +22,7 @@
 [ext_resource path="res://images/npcIdle.png" type="Texture" id=20]
 [ext_resource path="res://DialogueParser.gd" type="Script" id=21]
 [ext_resource path="res://Door.tscn" type="PackedScene" id=22]
+[ext_resource path="res://icon.png" type="Texture" id=23]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -64,6 +65,9 @@ extents = Vector2( 20.8072, 15.8378 )
 
 [sub_resource type="RectangleShape2D" id=9]
 extents = Vector2( 16, 29.6226 )
+
+[sub_resource type="RectangleShape2D" id=10]
+extents = Vector2( 31.7174, 32.2113 )
 
 [node name="World" type="Node"]
 
@@ -174,7 +178,6 @@ z_index = 2
 shape = SubResource( 8 )
 
 [node name="CoinObject" type="StaticBody2D" parent="."]
-editor/display_folded = true
 script = ExtResource( 17 )
 
 [node name="Coin" type="Area2D" parent="CoinObject"]
@@ -191,7 +194,6 @@ position = Vector2( 0.957748, 0.081665 )
 shape = SubResource( 5 )
 
 [node name="CoinObject2" type="StaticBody2D" parent="."]
-editor/display_folded = true
 script = ExtResource( 17 )
 
 [node name="Coin" type="Area2D" parent="CoinObject2"]
@@ -208,7 +210,6 @@ position = Vector2( 0.957748, 0.081665 )
 shape = SubResource( 5 )
 
 [node name="CoinObject3" type="StaticBody2D" parent="."]
-editor/display_folded = true
 script = ExtResource( 17 )
 
 [node name="Coin" type="Area2D" parent="CoinObject3"]
@@ -225,7 +226,6 @@ position = Vector2( 0.957748, 0.081665 )
 shape = SubResource( 5 )
 
 [node name="NPC" type="StaticBody2D" parent="."]
-editor/display_folded = true
 script = ExtResource( 19 )
 
 [node name="NPC" type="Area2D" parent="NPC"]
@@ -239,7 +239,6 @@ position = Vector2( 574, 404 )
 shape = SubResource( 9 )
 
 [node name="DialogueParser" type="Node2D" parent="."]
-editor/display_folded = true
 script = ExtResource( 21 )
 
 [node name="Panel" type="Panel" parent="DialogueParser"]
@@ -263,6 +262,19 @@ __meta__ = {
 [node name="Door" parent="." instance=ExtResource( 22 )]
 position = Vector2( 466.43, 398.821 )
 z_index = -1
+
+[node name="Boundary" type="StaticBody2D" parent="."]
+position = Vector2( -31.3277, 400.92 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Boundary"]
+modulate = Color( 0, 0, 0, 1 )
+texture = ExtResource( 23 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundary"]
+shape = SubResource( 10 )
 [connection signal="area_entered" from="MC_Sprite/Area2D" to="MC_Sprite" method="_on_Area2D_area_entered"]
 [connection signal="area_exited" from="MC_Sprite/Area2D" to="MC_Sprite" method="_on_Area2D_area_exited"]
 [connection signal="done_talking" from="DialogueParser" to="MC_Sprite" method="_on_DialogueParser_done_talking"]
