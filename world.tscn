@@ -74,7 +74,6 @@ extents = Vector2( 31.7174, 32.2113 )
 [node name="MC_Sprite" type="KinematicBody2D" parent="." groups=[
 "player",
 ]]
-editor/display_folded = true
 position = Vector2( 27.7349, 405.752 )
 script = ExtResource( 1 )
 __meta__ = {
@@ -178,6 +177,7 @@ z_index = 2
 shape = SubResource( 8 )
 
 [node name="CoinObject" type="StaticBody2D" parent="."]
+editor/display_folded = true
 script = ExtResource( 17 )
 
 [node name="Coin" type="Area2D" parent="CoinObject"]
@@ -194,6 +194,7 @@ position = Vector2( 0.957748, 0.081665 )
 shape = SubResource( 5 )
 
 [node name="CoinObject2" type="StaticBody2D" parent="."]
+editor/display_folded = true
 script = ExtResource( 17 )
 
 [node name="Coin" type="Area2D" parent="CoinObject2"]
