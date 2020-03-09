@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/button4.png-4d397db7ea62f4891a27b7b9693de2d7.stex"
+path="res://.import/player.png-86a7a771d6843b27020ce2728f3c3edf.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/Items/Button/button4.png"
-dest_files=[ "res://.import/button4.png-4d397db7ea62f4891a27b7b9693de2d7.stex" ]
+source_file="res://game/gameImages/player.png"
+dest_files=[ "res://.import/player.png-86a7a771d6843b27020ce2728f3c3edf.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=false
+flags/filter=true
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/button5.png-5d88657742ee9abb7e0f4895c0fc7a32.stex"
+path="res://.import/2.png-2d1b56e202a6874d46d80c5d9ce2d5ce.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/Items/Button/button5.png"
-dest_files=[ "res://.import/button5.png-5d88657742ee9abb7e0f4895c0fc7a32.stex" ]
+source_file="res://images/NPC/CatNPC/2.png"
+dest_files=[ "res://.import/2.png-2d1b56e202a6874d46d80c5d9ce2d5ce.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=false
+flags/filter=true
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

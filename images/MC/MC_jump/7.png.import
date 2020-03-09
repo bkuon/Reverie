@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/button3.png-5895a2e7f7eb4a73edbafcbb81f65099.stex"
+path="res://.import/7.png-a50b7a95ae286ee5c84e716f517cbdee.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/Items/Button/button3.png"
-dest_files=[ "res://.import/button3.png-5895a2e7f7eb4a73edbafcbb81f65099.stex" ]
+source_file="res://images/MC/MC_jump/7.png"
+dest_files=[ "res://.import/7.png-a50b7a95ae286ee5c84e716f517cbdee.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=false
+flags/filter=true
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

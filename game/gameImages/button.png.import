@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/obstacle.png-951b6122feb3554d5512f78462d82a0c.stex"
+path="res://.import/button.png-12c9c9a66cdc0161b3924611975e8b59.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://gameImages/obstacle.png"
-dest_files=[ "res://.import/obstacle.png-951b6122feb3554d5512f78462d82a0c.stex" ]
+source_file="res://game/gameImages/button.png"
+dest_files=[ "res://.import/button.png-12c9c9a66cdc0161b3924611975e8b59.stex" ]
 
 [params]
 

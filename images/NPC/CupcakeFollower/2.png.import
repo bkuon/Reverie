@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Picture1.png-b1b1d767d78f17bfdcfdaf1b65c91764.stex"
+path="res://.import/2.png-02afcd910d02145256f32787585743bb.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/Picture1.png"
-dest_files=[ "res://.import/Picture1.png-b1b1d767d78f17bfdcfdaf1b65c91764.stex" ]
+source_file="res://images/NPC/CupcakeFollower/2.png"
+dest_files=[ "res://.import/2.png-02afcd910d02145256f32787585743bb.stex" ]
 
 [params]
 
