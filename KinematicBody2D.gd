@@ -1,8 +1,17 @@
 extends KinematicBody2D
 
+#Added variables for Jump
+const UP = Vector2(0, -1)
+const JUMP_HEIGHT = -550
+
+#Added Variables for Run
+const ACCELERATION = 50
+const MAX_SPEED = 300
+
+export var speed = 10.0 
+
 const GRAVITY = 20
 const SPEED = 100
-const JUMP = 500
 const RESISTANCE = Vector2(0,-1)
 
 var motion = Vector2()
@@ -10,7 +19,8 @@ var obj_name: String
 var obj = null
 
 func _physics_process(delta):
-	#motion.y += GRAVITY
+	motion.y += GRAVITY
+	var friction = false
 	
 	if Input.is_action_pressed("ui_right"):
 		motion.x= SPEED
@@ -31,10 +41,35 @@ func _physics_process(delta):
 	else:
 		motion.x=0
 		$sprite.play("idle")
+	#Ability to run implemented here
+	if Input.is_action_pressed("ui_right") and Input.is_key_pressed(KEY_V):
+		motion.x = min(motion.x + ACCELERATION, MAX_SPEED)
+		$sprite.flip_h = false
+		$sprite.play("run")
+	if Input.is_action_pressed("ui_left") and Input.is_key_pressed(KEY_V):
+		motion.x = min(motion.x - ACCELERATION, MAX_SPEED)
+		$sprite.flip_h = true
+		$sprite.play("run")
+	
 	
 	if Input.is_action_pressed("ui_left") and Input.is_action_pressed("ui_right"):
 		motion.x=0
 		$sprite.play("idle")
+	
+	#Ability to jump implemented here
+	if is_on_floor():
+		if Input.is_action_just_pressed("ui_up"):
+			motion.y = JUMP_HEIGHT
+		if friction == true:
+			motion.x = lerp(motion.x, 0, 0.2)
+	else:
+		if motion.y < 0: 
+			$sprite.play("Jump")
+		else:
+			$sprite.play("Fall")
+		if friction == true:
+			motion.x = lerp(motion.x, 0, 0.05)
+	motion = move_and_slide(motion, UP)
 	
 	move_and_slide(motion,RESISTANCE)
 	
