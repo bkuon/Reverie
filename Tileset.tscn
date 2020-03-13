@@ -9,7 +9,7 @@ extents = Vector2( 8.26175, 8.07465 )
 [node name="Tileset" type="Node2D"]
 
 [node name="StaticBodyTile" type="StaticBody2D" parent="."]
-position = Vector2( 1.4573, -877.457 )
+position = Vector2( 0.387054, -877.549 )
 scale = Vector2( 2, 2 )
 __meta__ = {
 "_edit_group_": true
