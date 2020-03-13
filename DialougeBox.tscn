@@ -3,7 +3,6 @@
 [ext_resource path="res://Dialouge.gd" type="Script" id=1]
 [ext_resource path="res://icon.png" type="Texture" id=2]
 
-
 [node name="DialougeBox" type="Control"]
 pause_mode = 2
 visible = false

@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=2]
+[gd_scene load_steps=40 format=2]
 
 [ext_resource path="res://KinematicBody2D.gd" type="Script" id=1]
 [ext_resource path="res://images/MC/MC-1.png" type="Texture" id=2]
@@ -6,23 +6,30 @@
 [ext_resource path="res://images/MC/MC-3.png" type="Texture" id=4]
 [ext_resource path="res://bluekey.gd" type="Script" id=5]
 [ext_resource path="res://images/Items/bluekey.png" type="Texture" id=6]
-[ext_resource path="res://dooropenclose.gd" type="Script" id=7]
-[ext_resource path="res://images/Items/doorclosed.png" type="Texture" id=8]
-[ext_resource path="res://updatedTileSet.tres" type="TileSet" id=9]
-[ext_resource path="res://button.gd" type="Script" id=10]
-[ext_resource path="res://images/Items/table1.png" type="Texture" id=11]
-[ext_resource path="res://images/Items/Button/button1.png" type="Texture" id=12]
-[ext_resource path="res://images/Items/Button/button2.png" type="Texture" id=13]
-[ext_resource path="res://images/Items/Button/button3.png" type="Texture" id=14]
-[ext_resource path="res://images/Items/Button/button5.png" type="Texture" id=15]
-[ext_resource path="res://images/Items/Button/button4.png" type="Texture" id=16]
-[ext_resource path="res://Coin.gd" type="Script" id=17]
-[ext_resource path="res://images/Items/Coin.png" type="Texture" id=18]
-[ext_resource path="res://NPC.gd" type="Script" id=19]
-[ext_resource path="res://images/npcIdle.png" type="Texture" id=20]
-[ext_resource path="res://DialogueParser.gd" type="Script" id=21]
-[ext_resource path="res://Door.tscn" type="PackedScene" id=22]
-[ext_resource path="res://icon.png" type="Texture" id=23]
+[ext_resource path="res://images/Items/redkey.png" type="Texture" id=7]
+[ext_resource path="res://dooropenclose.gd" type="Script" id=8]
+[ext_resource path="res://images/Items/doorclosed.png" type="Texture" id=9]
+[ext_resource path="res://images/tilesets/basic.tres" type="TileSet" id=10]
+[ext_resource path="res://button.gd" type="Script" id=11]
+[ext_resource path="res://images/Items/table1.png" type="Texture" id=12]
+[ext_resource path="res://images/Items/Button/button1.png" type="Texture" id=13]
+[ext_resource path="res://images/Items/Button/button2.png" type="Texture" id=14]
+[ext_resource path="res://images/Items/Button/button3.png" type="Texture" id=15]
+[ext_resource path="res://images/Items/Button/button5.png" type="Texture" id=16]
+[ext_resource path="res://images/Items/Button/button4.png" type="Texture" id=17]
+[ext_resource path="res://Coin.gd" type="Script" id=18]
+[ext_resource path="res://images/Items/Coin.png" type="Texture" id=19]
+[ext_resource path="res://NPC.gd" type="Script" id=20]
+[ext_resource path="res://images/npcIdle.png" type="Texture" id=21]
+[ext_resource path="res://DialogueParser.gd" type="Script" id=22]
+[ext_resource path="res://Door.tscn" type="PackedScene" id=23]
+[ext_resource path="res://icon.png" type="Texture" id=24]
+[ext_resource path="res://inventory.gd" type="Script" id=25]
+[ext_resource path="res://images/backgrounds/minipaperbg.png" type="Texture" id=26]
+[ext_resource path="res://images/Items/bag.png" type="Texture" id=27]
+[ext_resource path="res://images/backgrounds/paperbackground.png" type="Texture" id=28]
+[ext_resource path="res://images/backgrounds/itembackground.png" type="Texture" id=29]
+
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -53,7 +60,7 @@ extents = Vector2( 16.2286, 25.9858 )
 
 [sub_resource type="SpriteFrames" id=7]
 animations = [ {
-"frames": [ ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 13 ), ExtResource( 12 ) ],
+"frames": [ ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 14 ), ExtResource( 13 ) ],
 "loop": false,
 "name": "pressIn",
 "speed": 40.0
@@ -73,6 +80,7 @@ extents = Vector2( 31.7174, 32.2113 )
 [node name="MC_Sprite" type="KinematicBody2D" parent="." groups=[
 "player",
 ]]
+editor/display_folded = true
 position = Vector2( 27.7349, 405.752 )
 script = ExtResource( 1 )
 __meta__ = {
@@ -92,15 +100,17 @@ shape = SubResource( 11 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MC_Sprite/Area2D"]
 shape = SubResource( 3 )
 
-[node name="keyObject" type="RigidBody2D" parent="." groups=[
-"inventoryItem",
-]]
+
+[node name="keyObject" type="RigidBody2D" parent="."]
 collision_layer = 2
 collision_mask = 2
 gravity_scale = 0.0
 script = ExtResource( 5 )
 
-[node name="bluekey" type="Area2D" parent="keyObject"]
+[node name="bluekey" type="Area2D" parent="keyObject" groups=[
+"inventoryItem",
+]]
+editor/display_folded = true
 position = Vector2( 296.181, 418.315 )
 gravity_point = true
 gravity_vec = Vector2( 0, 0 )
@@ -117,8 +127,29 @@ texture = ExtResource( 6 )
 position = Vector2( 1.55856, 2.81018 )
 shape = SubResource( 4 )
 
+[node name="redkey" type="Area2D" parent="keyObject" groups=[
+"inventoryItem",
+]]
+editor/display_folded = true
+position = Vector2( 361.161, 418.315 )
+gravity_point = true
+gravity_vec = Vector2( 0, 0 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="keyObject/redkey"]
+position = Vector2( 1.02673, 2.82336 )
+scale = Vector2( 0.775414, 0.695201 )
+texture = ExtResource( 7 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="keyObject/redkey"]
+position = Vector2( 1.55856, 2.81018 )
+shape = SubResource( 4 )
+
 [node name="doorObject" type="StaticBody2D" parent="."]
-script = ExtResource( 7 )
+editor/display_folded = true
+script = ExtResource( 8 )
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="doorObject"]
 position = Vector2( 196.944, 405.818 )
@@ -133,21 +164,22 @@ gravity_vec = Vector2( 0, 0 )
 position = Vector2( -164.894, 60.6919 )
 scale = Vector2( 1.82697, 1.66617 )
 z_index = -1
-texture = ExtResource( 8 )
+texture = ExtResource( 9 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="doorObject/doorObj"]
 position = Vector2( -158.994, 61.0124 )
 shape = SubResource( 6 )
 
 [node name="TileMap" type="TileMap" parent="."]
-tile_set = ExtResource( 9 )
+tile_set = ExtResource( 10 )
 cell_size = Vector2( 16, 16 )
 cell_quadrant_size = 25
 format = 1
 tile_data = PoolIntArray( 1835004, 0, 0, 1835005, 0, 0, 1835006, 0, 0, 1835007, 0, 0, 1769472, 0, 0, 1769473, 0, 0, 1769474, 0, 0, 1769475, 0, 0, 1769476, 0, 0, 1769477, 0, 0, 1769478, 0, 0, 1769479, 0, 0, 1769480, 0, 0, 1769481, 0, 0, 1769482, 0, 0, 1769483, 0, 0, 1769484, 0, 0, 1769485, 0, 0, 1769486, 0, 0, 1769487, 0, 0, 1769488, 0, 0, 1769489, 0, 0, 1769490, 0, 0, 1769491, 0, 0, 1769492, 0, 0, 1769493, 0, 0, 1769494, 0, 0, 1769495, 0, 0, 1769496, 0, 0, 1769497, 0, 0, 1769498, 0, 0, 1769499, 0, 0, 1769500, 0, 0, 1769501, 0, 0, 1769502, 0, 0, 1769503, 0, 0, 1769504, 0, 0, 1769505, 0, 0, 1769506, 0, 0, 1769507, 0, 0, 1769508, 0, 0, 1769509, 0, 0, 1769510, 0, 0, 1769511, 0, 0, 1769512, 0, 0 )
 
 [node name="button" type="StaticBody2D" parent="."]
-script = ExtResource( 10 )
+editor/display_folded = true
+script = ExtResource( 11 )
 
 [node name="table_button" type="Area2D" parent="button"]
 position = Vector2( -1.52588e-05, 0 )
@@ -159,7 +191,7 @@ __meta__ = {
 [node name="table1" type="Sprite" parent="button/table_button"]
 position = Vector2( 102.251, 416.157 )
 scale = Vector2( 2.14858, 2.01075 )
-texture = ExtResource( 11 )
+texture = ExtResource( 12 )
 
 [node name="button" type="AnimatedSprite" parent="button/table_button"]
 position = Vector2( 101.83, 398.051 )
@@ -173,7 +205,8 @@ z_index = 2
 shape = SubResource( 8 )
 
 [node name="CoinObject" type="StaticBody2D" parent="."]
-script = ExtResource( 17 )
+editor/display_folded = true
+script = ExtResource( 18 )
 
 [node name="Coin" type="Area2D" parent="CoinObject"]
 position = Vector2( 61.2353, 414.473 )
@@ -182,14 +215,15 @@ __meta__ = {
 }
 
 [node name="Sprite" type="Sprite" parent="CoinObject/Coin"]
-texture = ExtResource( 18 )
+texture = ExtResource( 19 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CoinObject/Coin"]
 position = Vector2( 0.957748, 0.081665 )
 shape = SubResource( 5 )
 
 [node name="CoinObject2" type="StaticBody2D" parent="."]
-script = ExtResource( 17 )
+editor/display_folded = true
+script = ExtResource( 18 )
 
 [node name="Coin" type="Area2D" parent="CoinObject2"]
 position = Vector2( 139.854, 414.149 )
@@ -198,14 +232,15 @@ __meta__ = {
 }
 
 [node name="Sprite" type="Sprite" parent="CoinObject2/Coin"]
-texture = ExtResource( 18 )
+texture = ExtResource( 19 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CoinObject2/Coin"]
 position = Vector2( 0.957748, 0.081665 )
 shape = SubResource( 5 )
 
 [node name="CoinObject3" type="StaticBody2D" parent="."]
-script = ExtResource( 17 )
+editor/display_folded = true
+script = ExtResource( 18 )
 
 [node name="Coin" type="Area2D" parent="CoinObject3"]
 position = Vector2( 167.354, 414.149 )
@@ -214,27 +249,29 @@ __meta__ = {
 }
 
 [node name="Sprite" type="Sprite" parent="CoinObject3/Coin"]
-texture = ExtResource( 18 )
+texture = ExtResource( 19 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CoinObject3/Coin"]
 position = Vector2( 0.957748, 0.081665 )
 shape = SubResource( 5 )
 
 [node name="NPC" type="StaticBody2D" parent="."]
-script = ExtResource( 19 )
+editor/display_folded = true
+script = ExtResource( 20 )
 
 [node name="NPC" type="Area2D" parent="NPC"]
 
 [node name="Sprite" type="Sprite" parent="NPC/NPC"]
 position = Vector2( 575, 399 )
-texture = ExtResource( 20 )
+texture = ExtResource( 21 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NPC/NPC"]
 position = Vector2( 574, 404 )
 shape = SubResource( 9 )
 
 [node name="DialogueParser" type="Node2D" parent="."]
-script = ExtResource( 21 )
+editor/display_folded = true
+script = ExtResource( 22 )
 
 [node name="Panel" type="Panel" parent="DialogueParser"]
 margin_left = 169.0
@@ -254,11 +291,12 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Door" parent="." instance=ExtResource( 22 )]
+[node name="Door" parent="." instance=ExtResource( 23 )]
 position = Vector2( 466.43, 398.821 )
 z_index = -1
 
 [node name="Boundary" type="StaticBody2D" parent="."]
+editor/display_folded = true
 position = Vector2( -31.3277, 400.92 )
 __meta__ = {
 "_edit_group_": true
@@ -266,10 +304,179 @@ __meta__ = {
 
 [node name="Sprite" type="Sprite" parent="Boundary"]
 modulate = Color( 0, 0, 0, 1 )
-texture = ExtResource( 23 )
+texture = ExtResource( 24 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Boundary"]
 shape = SubResource( 10 )
+
+[node name="inventory" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 25 )
+
+[node name="TextureRect2" type="TextureRect" parent="inventory"]
+margin_left = 1.07928
+margin_top = 69.0227
+margin_right = 51.0793
+margin_bottom = 105.023
+texture = ExtResource( 26 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="TextureRect" type="TextureRect" parent="inventory/TextureRect2"]
+margin_right = 40.0
+margin_bottom = 40.0
+texture = ExtResource( 27 )
+
+[node name="Label" type="Label" parent="inventory/TextureRect2"]
+margin_left = 34.9275
+margin_top = 10.415
+margin_right = 49.9275
+margin_bottom = 29.415
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "I "
+
+[node name="TextureRect" type="TextureRect" parent="inventory"]
+margin_left = 2.29254
+margin_top = 63.0975
+margin_right = 249.293
+margin_bottom = 237.098
+texture = ExtResource( 28 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Label" type="Label" parent="inventory/TextureRect"]
+margin_left = 64.2985
+margin_top = 20.1855
+margin_right = 182.298
+margin_bottom = 34.1855
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Inventory"
+
+[node name="Label3" type="Label" parent="inventory/TextureRect"]
+margin_left = 3.83137
+margin_top = 153.755
+margin_right = 121.831
+margin_bottom = 167.755
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Close: Esc"
+
+[node name="TextureRect" type="TextureRect" parent="inventory/TextureRect"]
+margin_left = 15.0
+margin_top = 10.0
+margin_right = 47.0
+margin_bottom = 42.0
+texture = ExtResource( 27 )
+
+[node name="InventorySlots" type="GridContainer" parent="inventory/TextureRect"]
+editor/display_folded = true
+margin_left = 17.0
+margin_top = 53.0
+margin_right = 227.0
+margin_bottom = 169.0
+custom_constants/vseparation = 7
+custom_constants/hseparation = 9
+columns = 4
+
+[node name="1" type="TextureRect" parent="inventory/TextureRect/InventorySlots"]
+margin_right = 44.0
+margin_bottom = 36.0
+texture = ExtResource( 29 )
+
+[node name="LootButton" type="TextureButton" parent="inventory/TextureRect/InventorySlots/1"]
+margin_left = 3.0
+margin_top = 3.0
+margin_right = 41.0
+margin_bottom = 33.0
+
+[node name="2" type="TextureRect" parent="inventory/TextureRect/InventorySlots"]
+margin_left = 53.0
+margin_right = 97.0
+margin_bottom = 36.0
+texture = ExtResource( 29 )
+
+[node name="LootButton" type="TextureButton" parent="inventory/TextureRect/InventorySlots/2"]
+margin_left = 3.0
+margin_top = 3.0
+margin_right = 41.0
+margin_bottom = 33.0
+
+[node name="3" type="TextureRect" parent="inventory/TextureRect/InventorySlots"]
+margin_left = 106.0
+margin_right = 150.0
+margin_bottom = 36.0
+texture = ExtResource( 29 )
+
+[node name="LootButton" type="TextureButton" parent="inventory/TextureRect/InventorySlots/3"]
+margin_left = 3.0
+margin_top = 3.0
+margin_right = 41.0
+margin_bottom = 33.0
+
+[node name="4" type="TextureRect" parent="inventory/TextureRect/InventorySlots"]
+margin_left = 159.0
+margin_right = 203.0
+margin_bottom = 36.0
+texture = ExtResource( 29 )
+
+[node name="LootButton" type="TextureButton" parent="inventory/TextureRect/InventorySlots/4"]
+margin_left = 2.0
+margin_top = 3.0
+margin_right = 41.0
+margin_bottom = 33.0
+
+[node name="5" type="TextureRect" parent="inventory/TextureRect/InventorySlots"]
+margin_top = 43.0
+margin_right = 44.0
+margin_bottom = 79.0
+texture = ExtResource( 29 )
+
+[node name="LootButton" type="TextureButton" parent="inventory/TextureRect/InventorySlots/5"]
+margin_left = 3.0
+margin_top = 2.0
+margin_right = 41.0
+margin_bottom = 33.0
+
+[node name="6" type="TextureRect" parent="inventory/TextureRect/InventorySlots"]
+margin_left = 53.0
+margin_top = 43.0
+margin_right = 97.0
+margin_bottom = 79.0
+texture = ExtResource( 29 )
+
+[node name="LootButton" type="TextureButton" parent="inventory/TextureRect/InventorySlots/6"]
+margin_left = 3.0
+margin_top = 2.0
+margin_right = 41.0
+margin_bottom = 33.0
+
+[node name="7" type="TextureRect" parent="inventory/TextureRect/InventorySlots"]
+margin_left = 106.0
+margin_top = 43.0
+margin_right = 150.0
+margin_bottom = 79.0
+texture = ExtResource( 29 )
+
+[node name="LootButton" type="TextureButton" parent="inventory/TextureRect/InventorySlots/7"]
+margin_left = 2.0
+margin_top = 3.0
+margin_right = 41.0
+margin_bottom = 33.0
+
+[node name="8" type="TextureRect" parent="inventory/TextureRect/InventorySlots"]
+margin_left = 159.0
+margin_top = 43.0
+margin_right = 203.0
+margin_bottom = 79.0
+texture = ExtResource( 29 )
+
+[node name="LootButton" type="TextureButton" parent="inventory/TextureRect/InventorySlots/8"]
+margin_left = 2.0
+margin_top = 3.0
+margin_right = 40.0
+margin_bottom = 32.0
 [connection signal="area_entered" from="MC_Sprite/Area2D" to="MC_Sprite" method="_on_Area2D_area_entered"]
 [connection signal="area_exited" from="MC_Sprite/Area2D" to="MC_Sprite" method="_on_Area2D_area_exited"]
 [connection signal="done_talking" from="DialogueParser" to="MC_Sprite" method="_on_DialogueParser_done_talking"]
