@@ -12,7 +12,7 @@ func _input(event):
 			var bodies = $bluekey.get_overlapping_bodies()
 			for b in bodies:
 				if b.name == "MC_Sprite":
-					globals.addToInventory("bluekey")
+					globals.addToInventory("bluekey") #Add item to inventory using image name
 					print("Blue Key added to Inventory.")
 					queue_free()
 			
