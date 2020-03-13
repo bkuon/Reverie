@@ -7,7 +7,6 @@ resource_name = "pauseMenu"
 
 [node name="pausePopup" type="WindowDialog"]
 pause_mode = 2
-visible = true
 margin_right = 188.0
 margin_bottom = 144.0
 focus_mode = 2

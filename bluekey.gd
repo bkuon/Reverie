@@ -4,7 +4,7 @@ var picked = false
 
 var can_speak = true
 var can_interact = false
-
+onready var globals = get_node("/root/Globals")
 
 func _input(event):
 	if event is InputEventKey:
@@ -12,7 +12,7 @@ func _input(event):
 			var bodies = $bluekey.get_overlapping_bodies()
 			for b in bodies:
 				if b.name == "MC_Sprite":
-					# add object to inventory here
+					globals.addToInventory("bluekey")
 					print("Blue Key added to Inventory.")
 					queue_free()
 			
