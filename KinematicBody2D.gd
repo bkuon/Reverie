@@ -27,13 +27,21 @@ var can_move = true
 
 func _physics_process(delta):
 		
+		
+	#dialogue interaction with key and NPC
+	if Input.is_action_just_pressed("interact"):
+		if obj and obj_name != "" and obj_name != "Door" and obj_name != "Elevator" and obj.can_speak:
+			can_move = false
+			print("go to dialogue parser")
+			get_node("../DialogueParser").init_dialogue(obj_name)	
+					
 	if MC_Globals.canJump:
 		$AbilityLayer/jumpIcon.visible=true
 	if MC_Globals.canRun:
 		$AbilityLayer/runIcon.visible=true
 	if MC_Globals.canCrawl:
 		$AbilityLayer/jumpCrawl.visible=true
-	
+#
 	motion.y += GRAVITY
 	#Add Variable Friction
 	var friction = false
@@ -79,7 +87,6 @@ func _physics_process(delta):
 		if friction == true:
 			motion.x = lerp(motion.x, 0, 0.05)
 			
-					
 	#Implement Duck Function
 	if Input.is_action_pressed("ui_down"):
 		#$sprite.play("duck")

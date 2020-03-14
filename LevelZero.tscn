@@ -72,7 +72,6 @@ tile_data = PoolIntArray( 0, 2, 0, 1, 2, 0, 2, 2, 0, 3, 2, 0, 4, 2, 0, 5, 2, 0, 
 position = Vector2( -10, 0 )
 
 [node name="BoundaryLeft" type="StaticBody2D" parent="."]
-editor/display_folded = true
 position = Vector2( -10, 470 )
 __meta__ = {
 "_edit_lock_": true
@@ -88,7 +87,6 @@ position = Vector2( 670, -200 )
 shape = SubResource( 3 )
 
 [node name="BoundaryRight" type="StaticBody2D" parent="."]
-editor/display_folded = true
 position = Vector2( -10, 470 )
 
 [node name="Sprite" type="Sprite" parent="BoundaryRight"]

@@ -18,6 +18,7 @@ func _ready():
 #checks if object has dialogue or choices. choices come after
 # "start" dialogue. "decided" tells us if a choice ended
 func init_dialogue(obj):
+	print("talking to : " + obj)
 	if !flags[obj]["start"]:
 		start_dialog(obj)
 	if flags[obj]["has_choice"] and flags[obj]["start"] and !flags[obj]["decided"]:
