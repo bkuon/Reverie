@@ -9,7 +9,7 @@ const WORLD_PATH = "res://world.tscn"
 var popup = null
 var canvas_layer = null
 var dialogue = null
-var dialogueStart=true
+var dialogueStart=false
 
 var unlocked = false
 var coinCounter = 0
