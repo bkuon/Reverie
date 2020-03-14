@@ -18,6 +18,7 @@ var pos
 
 func _ready():
 	action_time = OS.get_ticks_msec() #for entering scene
+	print(Player.position)
 	
 func _input(event):
 	if Input.is_action_just_pressed("ui_accept"):

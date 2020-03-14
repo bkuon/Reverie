@@ -111,7 +111,7 @@ func _on_Area2D_area_exited(area):
 # custom signal says that the item has been checked for/ or has finished dialogue
 func _on_DialogueParser_done_talking():
 	obj.can_interact = true
-	obj.can_speak = false
+	obj.can_speak = true
 	can_move = true
 
 func teleport_to(target_pos):
