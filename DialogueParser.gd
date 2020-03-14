@@ -23,6 +23,7 @@ func init_dialogue(obj):
 	if flags[obj]["has_choice"] and flags[obj]["start"] and !flags[obj]["decided"]:
 		make_decision(obj)
 	if flags[obj]["decided"]:
+		emit_signal("done_talking")
 		get_node("Panel").set_visible(false)
 
 #obj name refers to Area2D name. For key: bluekey. for door: doorObj, etc.
