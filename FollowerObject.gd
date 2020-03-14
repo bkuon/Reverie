@@ -12,6 +12,8 @@ var direction = 0
 var next_direction = 0
 var next_direction_time = 0
 var action_time = 0
+var next_jump_time = -1
+var velocity: Vector2
 var pos 
 
 func _ready():
@@ -37,8 +39,27 @@ func _physics_process(delta):
 	if OS.get_ticks_msec() > next_direction_time:
 		direction = next_direction
 		
-	if OS.get_ticks_msec() - action_time > 10000:
 		
+	##################################################################
+	# supposed to mimic jump. I had trouble trying to get the player to jump
+	# but it follows the player if he rises not when he falls, so maybe? 
+	# otherwise comment out/delete
+	if OS.get_ticks_msec() > next_jump_time and next_jump_time != -1:
+		if Player.position.y < position.y - 50:
+			velocity.y = -100
+		next_jump_time = -1
+	if Player.position.y < position.y - 50 and next_jump_time == -1:
+		next_jump_time = OS.get_ticks_msec() + react_time
+	
+	velocity.x = direction * 100
+	velocity.y != GRAVITY * delta
+	if velocity.y > 100:
+		velocity.y = 100
+	if velocity.y > 0:
+		velocity.y = 0
+	#####################################################################
+	
+	if OS.get_ticks_msec() - action_time > 10000:
 		#reset action time	
 		action_time = OS.get_ticks_msec()
 		
@@ -65,5 +86,5 @@ func _physics_process(delta):
 		yield(get_tree().create_timer(5.0), "timeout")
 		panel.set_visible(false)
 		
-	motion.x = 100 * direction
-	move_and_slide(motion, RESISTANCE)
+	#motion.x = 100 * direction
+	velocity = move_and_slide(velocity, Vector2(0, -1))
