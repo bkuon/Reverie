@@ -360,9 +360,8 @@ __meta__ = {
 }
 
 [node name="Door" parent="." instance=ExtResource( 24 )]
-position = Vector2( 430.43, 399.821 )
+position = Vector2( 438.391, 397.167 )
 z_index = -1
-world_scene = "res://LobbyRoom1.tscn"
 
 [node name="Boundary" type="StaticBody2D" parent="."]
 editor/display_folded = true

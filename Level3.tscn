@@ -8,10 +8,10 @@
 [node name="Level3" type="Node2D"]
 
 [node name="MC_Sprite" parent="." instance=ExtResource( 1 )]
-position = Vector2( 35.2216, 214.851 )
+position = Vector2( 103.496, 214.338 )
 
 [node name="Elevator" parent="." instance=ExtResource( 2 )]
-position = Vector2( 65.6304, 203.454 )
+position = Vector2( 56.3902, 203.967 )
 elevator_L = "res://world.tscn"
 elevator_1 = "res://Level1.tscn"
 elevator_2 = "res://Level2.tscn"
