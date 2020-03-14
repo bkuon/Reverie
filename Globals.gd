@@ -13,6 +13,7 @@ var dialogueStart=false
 
 var unlocked = false
 var coinCounter = 0
+var inventory = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -22,6 +23,7 @@ func _ready():
 # global functions are currently:
 # pause menu
 # dialogue interface
+# inventory storage
 
 func _input(event):
 	if Input.is_action_pressed("pause"):
@@ -36,10 +38,12 @@ func _input(event):
 			popup=null
 			
 	if dialogueStart:
-		
 		if dialogue==null:
 			dialogue = DIALOGUE_SCENE.instance() 
 			canvas_layer.add_child(dialogue)
 			dialogue.show()
 			
 
+func addToInventory(itemName):
+	var itemNum = inventory.size()
+	inventory.append(itemName)
