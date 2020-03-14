@@ -19,7 +19,7 @@ position = Vector2( 0.22163, -222.149 )
 
 [node name="Elevator" parent="." instance=ExtResource( 3 )]
 position = Vector2( 38.1684, 203.454 )
-elevator_L = "res://Lobby.tscn"
+elevator_L = "res://world.tscn"
 elevator_1 = "res://Level1.tscn"
 elevator_2 = "res://Level2.tscn"
 elevator_3 = "res://Level3.tscn"
