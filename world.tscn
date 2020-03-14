@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=2]
+[gd_scene load_steps=36 format=2]
 
 [ext_resource path="res://KinematicBody2D.gd" type="Script" id=1]
 [ext_resource path="res://images/MC/MC-1.png" type="Texture" id=2]
@@ -23,6 +23,8 @@
 [ext_resource path="res://DialogueParser.gd" type="Script" id=21]
 [ext_resource path="res://Door.tscn" type="PackedScene" id=22]
 [ext_resource path="res://icon.png" type="Texture" id=23]
+[ext_resource path="res://FollowerObject.gd" type="Script" id=24]
+[ext_resource path="res://images/Items/cupcake.png" type="Texture" id=25]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -96,7 +98,6 @@ shape = SubResource( 3 )
 [node name="keyObject" type="RigidBody2D" parent="." groups=[
 "inventoryItem",
 ]]
-editor/display_folded = true
 collision_layer = 2
 collision_mask = 2
 gravity_scale = 0.0
@@ -120,7 +121,6 @@ position = Vector2( 1.55856, 2.81018 )
 shape = SubResource( 4 )
 
 [node name="doorObject" type="StaticBody2D" parent="."]
-editor/display_folded = true
 script = ExtResource( 7 )
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="doorObject"]
@@ -150,11 +150,10 @@ format = 1
 tile_data = PoolIntArray( 1769472, 1, 0, 1769473, 1, 0, 1769474, 1, 0, 1769475, 1, 0, 1769476, 1, 0, 1769477, 1, 0, 1769478, 1, 0, 1769479, 1, 0, 1769480, 1, 0, 1769481, 1, 0, 1769482, 1, 0, 1769483, 1, 0, 1769484, 0, 0, 1769485, 0, 0, 1769486, 0, 0, 1769487, 0, 0, 1769488, 0, 0, 1769489, 0, 0, 1769490, 0, 0, 1769491, 0, 0, 1769492, 0, 0, 1769493, 0, 0, 1769494, 0, 0, 1769495, 0, 0, 1769496, 0, 0, 1769497, 0, 0, 1769498, 0, 0, 1769499, 0, 0, 1769500, 0, 0, 1769501, 0, 0, 1769502, 0, 0, 1769503, 0, 0, 1769504, 0, 0, 1769505, 0, 0, 1769506, 0, 0, 1769507, 0, 0, 1769508, 0, 0, 1769509, 0, 0, 1769510, 0, 0 )
 
 [node name="button" type="StaticBody2D" parent="."]
-editor/display_folded = true
 script = ExtResource( 10 )
 
 [node name="table_button" type="Area2D" parent="button"]
-position = Vector2( -1.52588e-005, 0 )
+position = Vector2( -1.52588e-05, 0 )
 collision_layer = 2
 __meta__ = {
 "_edit_group_": true
@@ -177,7 +176,6 @@ z_index = 2
 shape = SubResource( 8 )
 
 [node name="CoinObject" type="StaticBody2D" parent="."]
-editor/display_folded = true
 script = ExtResource( 17 )
 
 [node name="Coin" type="Area2D" parent="CoinObject"]
@@ -194,7 +192,6 @@ position = Vector2( 0.957748, 0.081665 )
 shape = SubResource( 5 )
 
 [node name="CoinObject2" type="StaticBody2D" parent="."]
-editor/display_folded = true
 script = ExtResource( 17 )
 
 [node name="Coin" type="Area2D" parent="CoinObject2"]
@@ -276,6 +273,34 @@ texture = ExtResource( 23 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Boundary"]
 shape = SubResource( 10 )
+
+[node name="FollowerObject" type="KinematicBody2D" parent="."]
+position = Vector2( 5.83138, 424.657 )
+script = ExtResource( 24 )
+
+[node name="Sprite" type="Sprite" parent="FollowerObject"]
+position = Vector2( 0.351761, -0.746918 )
+texture = ExtResource( 25 )
+
+[node name="Panel" type="Panel" parent="FollowerObject"]
+visible = false
+margin_left = 5.0
+margin_top = -53.0
+margin_right = 124.0
+margin_bottom = -13.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="FollowerObject/Panel"]
+margin_left = 1.0
+margin_top = 1.0
+margin_right = 117.0
+margin_bottom = 39.0
+align = 1
+valign = 1
+autowrap = true
+clip_text = true
 [connection signal="area_entered" from="MC_Sprite/Area2D" to="MC_Sprite" method="_on_Area2D_area_entered"]
 [connection signal="area_exited" from="MC_Sprite/Area2D" to="MC_Sprite" method="_on_Area2D_area_exited"]
 [connection signal="done_talking" from="DialogueParser" to="MC_Sprite" method="_on_DialogueParser_done_talking"]
