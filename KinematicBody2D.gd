@@ -21,7 +21,7 @@ func _physics_process(delta):
 		$sprite.flip_h = true
 		$sprite.play("walk")
 	elif Input.is_action_just_pressed("interact"):
-		if obj and obj_name != "" and obj_name != "Door" and obj.can_speak:
+		if obj and obj_name != "" and obj_name != "Door" and obj_name != "Elevator" and obj.can_speak:
 			get_node("../DialogueParser").init_dialogue(obj_name)
 	#elif is_on_floor():
 		#if Input.is_action_just_pressed("ui_up")
