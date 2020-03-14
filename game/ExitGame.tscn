@@ -1,0 +1,46 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://fonts/opensans_48.tres" type="DynamicFont" id=1]
+[ext_resource path="res://game/ButtonExit.gd" type="Script" id=2]
+[ext_resource path="res://game/return_to_title_2.gd" type="Script" id=3]
+
+[node name="ExitGame" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer"]
+margin_left = 158.0
+margin_top = 206.0
+margin_right = 482.0
+margin_bottom = 273.0
+
+[node name="Label2" type="Label" parent="CenterContainer/HBoxContainer"]
+margin_top = 26.0
+margin_bottom = 40.0
+
+[node name="Label" type="Label" parent="CenterContainer/HBoxContainer"]
+margin_left = 4.0
+margin_right = 252.0
+margin_bottom = 67.0
+custom_fonts/font = ExtResource( 1 )
+text = "Exit Game?"
+
+[node name="Button" type="Button" parent="CenterContainer/HBoxContainer"]
+margin_left = 256.0
+margin_right = 290.0
+margin_bottom = 67.0
+text = "Yes"
+script = ExtResource( 2 )
+
+[node name="Button2" type="Button" parent="CenterContainer/HBoxContainer"]
+margin_left = 294.0
+margin_right = 324.0
+margin_bottom = 67.0
+text = "No"
+script = ExtResource( 3 )
+[connection signal="pressed" from="CenterContainer/HBoxContainer/Button" to="CenterContainer/HBoxContainer/Button" method="_on_Button_pressed"]
+[connection signal="pressed" from="CenterContainer/HBoxContainer/Button2" to="CenterContainer/HBoxContainer/Button2" method="_on_Button2_pressed"]

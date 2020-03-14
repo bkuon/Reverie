@@ -14,8 +14,9 @@ format = 1
 tile_data = PoolIntArray( 983040, 1, 0, 983041, 1, 0, 983042, 1, 0, 983043, 1, 0, 983044, 1, 0, 983045, 1, 0, 983046, 1, 0, 983047, 1, 0, 983048, 1, 0, 983049, 1, 0, 983050, 1, 0, 983051, 0, 0, 983052, 0, 0, 983053, 0, 0, 983054, 0, 0, 983055, 0, 0, 983056, 0, 0, 983057, 0, 0, 983058, 0, 0, 983059, 0, 0, 983060, 0, 0, 983061, 536870912, 0 )
 
 [node name="MC_Sprite" parent="." instance=ExtResource( 2 )]
-position = Vector2( 0.22163, -222.149 )
+position = Vector2( 60.6777, 214.684 )
 
 [node name="Door" parent="." instance=ExtResource( 3 )]
 position = Vector2( 72.8024, 202.811 )
 world_scene = "res://Lobby.tscn"
+
