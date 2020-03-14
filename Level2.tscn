@@ -8,7 +8,7 @@
 [node name="Level2" type="Node2D"]
 
 [node name="MC_Sprite" parent="." instance=ExtResource( 1 )]
-position = Vector2( 103.928, 215.012 )
+position = Vector2( 9.928, -218.988 )
 
 [node name="Elevator" parent="." instance=ExtResource( 2 )]
 position = Vector2( 57.9329, 203.833 )
