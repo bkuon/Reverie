@@ -147,7 +147,7 @@ func _on_Area2D_area_exited(area):
 func _on_DialogueParser_done_talking():
 	obj.can_interact = true
 	obj.can_speak = false
-  can_move = true
+	can_move = true
 
 func teleport_to(target_pos):
 	position = target_pos
