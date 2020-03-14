@@ -15,13 +15,14 @@ _global_script_class_icons={
 
 [application]
 
-config/name="ReverieBackup"
+config/name="Reverie"
 run/main_scene="res://world.tscn"
 config/icon="res://icon.png"
 
 [autoload]
 
 Globals="*res://Globals.gd"
+MC_Globals="*res://MC_Globals.gd"
 
 [display]
 
