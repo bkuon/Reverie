@@ -575,8 +575,11 @@ margin_right = 40.0
 margin_bottom = 40.0
 
 [node name="CoinCountLabel" type="Label" parent="CoinCountDisplay"]
-margin_right = 40.0
-margin_bottom = 14.0
+margin_left = 2.0
+margin_top = 449.0
+margin_right = 69.0
+margin_bottom = 463.0
+text = "Hey there!"
 script = ExtResource( 34 )
 [connection signal="area_entered" from="MC_Sprite/Area2D" to="MC_Sprite" method="_on_Area2D_area_entered"]
 [connection signal="area_exited" from="MC_Sprite/Area2D" to="MC_Sprite" method="_on_Area2D_area_exited"]
