@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://images/tilesets/basic.tres" type="TileSet" id=1]
+[ext_resource path="res://MC_Sprite.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Elevator.tscn" type="PackedScene" id=3]
+[ext_resource path="res://images/Environment/Level2Text.bmp" type="Texture" id=4]
+
+[node name="Level2" type="Node2D"]
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 16, 16 )
+cell_quadrant_size = 25
+format = 1
+tile_data = PoolIntArray( 983040, 1, 0, 983041, 1, 0, 983042, 1, 0, 983043, 1, 0, 983044, 1, 0, 983045, 1, 0, 983046, 1, 0, 983047, 1, 0, 983048, 1, 0, 983049, 1, 0, 983050, 1, 0, 983051, 0, 0, 983052, 0, 0, 983053, 0, 0, 983054, 0, 0, 983055, 0, 0, 983056, 0, 0, 983057, 0, 0, 983058, 0, 0, 983059, 0, 0, 983060, 0, 0, 983061, 536870912, 0 )
+
+[node name="MC_Sprite" parent="." instance=ExtResource( 2 )]
+position = Vector2( 0.22163, -222.149 )
+
+[node name="Elevator" parent="." instance=ExtResource( 3 )]
+position = Vector2( 38.1684, 203.454 )
+elevator_L = "res://Lobby.tscn"
+elevator_1 = "res://Level1.tscn"
+elevator_2 = "res://Level2.tscn"
+elevator_3 = "res://Level3.tscn"
+
+[node name="Level2Text" type="Sprite" parent="."]
+position = Vector2( 102.5, 64.5 )
+scale = Vector2( 2.90625, 2.54167 )
+texture = ExtResource( 4 )

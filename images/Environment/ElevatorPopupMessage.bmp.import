@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Picture1.png-5cf4cc723ae208d71a4dfcdacb21ecb0.stex"
+path="res://.import/ElevatorPopupMessage.bmp-bce7fc2ff6bc9cde01fe6ceb8ce83aac.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Picture1.png"
-dest_files=[ "res://.import/Picture1.png-5cf4cc723ae208d71a4dfcdacb21ecb0.stex" ]
+source_file="res://images/Environment/ElevatorPopupMessage.bmp"
+dest_files=[ "res://.import/ElevatorPopupMessage.bmp-bce7fc2ff6bc9cde01fe6ceb8ce83aac.stex" ]
 
 [params]
 

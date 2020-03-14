@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Elevator.gd" type="Script" id=1]
+[ext_resource path="res://images/Environment/elevatorPNG2.png" type="Texture" id=2]
+[ext_resource path="res://images/Environment/ElevatorPopupMessage.bmp" type="Texture" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 32.0271, 29.3429 )
+
+[node name="Elevator" type="Area2D"]
+position = Vector2( 474.472, 410.858 )
+scale = Vector2( 0.975581, 0.973929 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -2.27155, 2.9254 )
+scale = Vector2( 1, 1.04107 )
+shape = SubResource( 1 )
+
+[node name="elevatorPNG2" type="Sprite" parent="."]
+position = Vector2( -1.28406, 2.4184 )
+scale = Vector2( 2.52161, 2.4893 )
+texture = ExtResource( 2 )
+
+[node name="Popup" type="Node2D" parent="."]
+
+[node name="ElevatorPopupMessage" type="Sprite" parent="Popup"]
+position = Vector2( 0.351074, -76.9667 )
+scale = Vector2( 2.48093, 2.29923 )
+texture = ExtResource( 3 )
+[connection signal="body_entered" from="." to="." method="_on_Elevator_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_Elevator_body_exited"]

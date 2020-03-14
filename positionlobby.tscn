@@ -1,0 +1,4 @@
+[gd_scene format=2]
+
+[node name="positionlobby" type="Position2D"]
+position = Vector2( 173.85, 53.2 )
