@@ -1,4 +1,3 @@
-
 extends KinematicBody2D
 
 #Jump Physics [Brandon Edit 3/13]
@@ -27,21 +26,13 @@ var can_move = true
 
 func _physics_process(delta):
 		
-		
-	#dialogue interaction with key and NPC
-	if Input.is_action_just_pressed("interact"):
-		if obj and obj_name != "" and obj_name != "Door" and obj_name != "Elevator" and obj.can_speak:
-			can_move = false
-			print("go to dialogue parser")
-			get_node("../DialogueParser").init_dialogue(obj_name)	
-					
 	if MC_Globals.canJump:
 		$AbilityLayer/jumpIcon.visible=true
 	if MC_Globals.canRun:
 		$AbilityLayer/runIcon.visible=true
 	if MC_Globals.canCrawl:
-		$AbilityLayer/jumpCrawl.visible=true
-#
+		$AbilityLayer/crawlIcon.visible=true
+	
 	motion.y += GRAVITY
 	#Add Variable Friction
 	var friction = false
@@ -65,10 +56,12 @@ func _physics_process(delta):
 			motion.x=0
 			$Sprite.play("idle")
 	#Run Ability alongside jump utilities implemented here.
-	if Input.is_action_pressed("ui_right") and Input.is_key_pressed(KEY_V):
+	if Input.is_action_pressed("ui_right") and Input.is_key_pressed(KEY_V) and MC_Globals.canRun:
 		motion.x = min(motion.x + ACCELERATION, MAX_SPEED)
 		$Sprite.flip_h = false
 		$Sprite.play("walk")
+		MC_Globals.isRunning=true
+		$AbilityLayer/runIcon.play("active")
 		
 	if is_on_floor():
 		if Input.is_action_just_pressed("ui_up") && MC_Globals.canJump:
@@ -87,22 +80,31 @@ func _physics_process(delta):
 		if friction == true:
 			motion.x = lerp(motion.x, 0, 0.05)
 			
+					
 	#Implement Duck Function
-	if Input.is_action_pressed("ui_down"):
-		#$sprite.play("duck")
+	if Input.is_action_pressed("ui_down") and MC_Globals.canCrawl:
+		MC_Globals.isCrawling=true
+		$Sprite.play("duck")
+		$AbilityLayer/crawlIcon.play("active")
 		motion.x = 0
-	if Input.is_action_pressed("ui_down") and Input.is_action_pressed("ui_right"):
-		#$sprite.play("duck")
+	if Input.is_action_pressed("ui_down") and Input.is_action_pressed("ui_right") and MC_Globals.canCrawl:
 		motion.x = DUCK_SPEED
-	if Input.is_action_pressed("ui_down") and Input.is_action_pressed("ui_left"):
-		#$sprite.flip_h = true
-		#$sprite.play("duck")
+		MC_Globals.isCrawling=true
+		$Sprite.play("crawl")
+		$AbilityLayer/crawlIcon.play("active")
+	if Input.is_action_pressed("ui_down") and Input.is_action_pressed("ui_left") and MC_Globals.canCrawl:
+		$Sprite.flip_h = true
+		$Sprite.play("crawl")
+		MC_Globals.isCrawling=true
+		$AbilityLayer/crawlIcon.play("active")
 		motion.x = -DUCK_SPEED
 	#End Duck Function
 
 	motion = move_and_slide(motion, UP)
 	
 	pass
+	
+# =======
 	
 #signals when player is touching object. 
 #gets object name for DialogueParser
@@ -118,7 +120,7 @@ func _on_Area2D_area_exited(area):
 # custom signal says that the item has been checked for/ or has finished dialogue
 func _on_DialogueParser_done_talking():
 	obj.can_interact = true
-	obj.can_speak = true
+	obj.can_speak = false
 	can_move = true
 
 func teleport_to(target_pos):
