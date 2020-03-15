@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/basic.png-954263b525373339415e7a1849b4263c.stex"
+path="res://.import/tumblr_ncb9qjM7lC1r3wldqo1_640.jpg-2beae5ef46d4b43c79aa3d19c95136ec.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://game/gameImages/basic.png"
-dest_files=[ "res://.import/basic.png-954263b525373339415e7a1849b4263c.stex" ]
+source_file="res://tumblr_ncb9qjM7lC1r3wldqo1_640.jpg"
+dest_files=[ "res://.import/tumblr_ncb9qjM7lC1r3wldqo1_640.jpg-2beae5ef46d4b43c79aa3d19c95136ec.stex" ]
 
 [params]
 
