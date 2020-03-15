@@ -65,7 +65,7 @@ extents = Vector2( 31.7174, 32.2113 )
 [node name="world" type="Node"]
 
 [node name="MC_Sprite" parent="." instance=ExtResource( 1 )]
-position = Vector2( -11.3137, -28.2843 )
+position = Vector2( -16.7287, 21.3533 )
 
 [node name="runItemArea" parent="." instance=ExtResource( 2 )]
 position = Vector2( 399.329, 422.762 )
@@ -77,6 +77,7 @@ position = Vector2( 476.811, 421.291 )
 position = Vector2( 570.521, 424.911 )
 
 [node name="keyObject" type="RigidBody2D" parent="."]
+editor/display_folded = true
 collision_layer = 2
 collision_mask = 2
 gravity_scale = 0.0
@@ -121,6 +122,7 @@ position = Vector2( 1.55856, 2.81018 )
 shape = SubResource( 1 )
 
 [node name="doorObject" type="StaticBody2D" parent="."]
+editor/display_folded = true
 position = Vector2( -5.54016, 1.10803 )
 script = ExtResource( 8 )
 __meta__ = {
@@ -157,6 +159,7 @@ format = 1
 tile_data = PoolIntArray( 1900544, 1, 0, 1900545, 1, 0, 1900546, 1, 0, 1900547, 1, 0, 1900548, 1, 0, 1900549, 1, 0, 1900550, 1, 0, 1900551, 1, 0, 1900552, 1, 0, 1900553, 1, 0, 1900554, 1, 0 )
 
 [node name="button" type="StaticBody2D" parent="."]
+editor/display_folded = true
 script = ExtResource( 11 )
 
 [node name="table_button" type="Area2D" parent="button"]
@@ -180,6 +183,7 @@ z_index = 2
 shape = SubResource( 5 )
 
 [node name="CoinObject" type="StaticBody2D" parent="."]
+editor/display_folded = true
 script = ExtResource( 17 )
 
 [node name="Coin" type="Area2D" parent="CoinObject"]
@@ -199,6 +203,7 @@ shape = SubResource( 2 )
 stream = ExtResource( 19 )
 
 [node name="CoinObject2" type="StaticBody2D" parent="."]
+editor/display_folded = true
 script = ExtResource( 17 )
 
 [node name="Coin" type="Area2D" parent="CoinObject2"]
@@ -218,6 +223,7 @@ shape = SubResource( 2 )
 stream = ExtResource( 19 )
 
 [node name="CoinObject3" type="StaticBody2D" parent="."]
+editor/display_folded = true
 script = ExtResource( 17 )
 
 [node name="Coin" type="Area2D" parent="CoinObject3"]
@@ -237,6 +243,7 @@ shape = SubResource( 2 )
 stream = ExtResource( 19 )
 
 [node name="CoinObject4" type="StaticBody2D" parent="."]
+editor/display_folded = true
 script = ExtResource( 17 )
 
 [node name="Coin" type="Area2D" parent="CoinObject4"]
@@ -256,6 +263,7 @@ shape = SubResource( 2 )
 stream = ExtResource( 19 )
 
 [node name="CoinObject5" type="StaticBody2D" parent="."]
+editor/display_folded = true
 script = ExtResource( 17 )
 
 [node name="Coin" type="Area2D" parent="CoinObject5"]
@@ -275,6 +283,7 @@ shape = SubResource( 2 )
 stream = ExtResource( 19 )
 
 [node name="NPC" type="StaticBody2D" parent="."]
+editor/display_folded = true
 script = ExtResource( 20 )
 
 [node name="NPC" type="Area2D" parent="NPC"]
@@ -292,6 +301,7 @@ position = Vector2( 602.319, 401.151 )
 shape = SubResource( 6 )
 
 [node name="DialogueParser" type="Node2D" parent="."]
+editor/display_folded = true
 script = ExtResource( 22 )
 
 [node name="Panel" type="Panel" parent="DialogueParser"]
@@ -317,6 +327,7 @@ position = Vector2( 438.391, 398.069 )
 z_index = -1
 
 [node name="Boundary" type="StaticBody2D" parent="."]
+editor/display_folded = true
 position = Vector2( -31.3277, 400.92 )
 __meta__ = {
 "_edit_group_": true
@@ -344,6 +355,7 @@ scale = Vector2( 3.44418, 2.19299 )
 texture = ExtResource( 26 )
 
 [node name="FollowerObject" type="KinematicBody2D" parent="."]
+editor/display_folded = true
 position = Vector2( 5.83138, 424.657 )
 script = ExtResource( 27 )
 
@@ -372,6 +384,7 @@ autowrap = true
 clip_text = true
 
 [node name="inventory" type="Control" parent="."]
+editor/display_folded = true
 margin_right = 40.0
 margin_bottom = 40.0
 script = ExtResource( 29 )
@@ -380,6 +393,7 @@ __meta__ = {
 }
 
 [node name="TextureRect2" type="TextureRect" parent="inventory"]
+editor/display_folded = true
 margin_left = 1.07928
 margin_top = 69.0227
 margin_right = 51.0793
@@ -403,6 +417,7 @@ custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "I "
 
 [node name="TextureRect" type="TextureRect" parent="inventory"]
+editor/display_folded = true
 margin_left = 2.29254
 margin_top = 74.0975
 margin_right = 249.293
@@ -548,6 +563,7 @@ margin_bottom = 32.0
 [node name="BrandonEditTileMap" parent="." instance=ExtResource( 34 )]
 
 [node name="CoinCountDisplay" type="Control" parent="."]
+editor/display_folded = true
 margin_right = 40.0
 margin_bottom = 40.0
 __meta__ = {
@@ -566,3 +582,4 @@ script = ExtResource( 35 )
 [connection signal="coinCollected" from="CoinObject3" to="CoinCountDisplay/CoinCountLabel" method="_on_CoinObject_coinCollected"]
 [connection signal="coinCollected" from="CoinObject4" to="CoinCountDisplay/CoinCountLabel" method="_on_CoinObject_coinCollected"]
 [connection signal="coinCollected" from="CoinObject5" to="CoinCountDisplay/CoinCountLabel" method="_on_CoinObject_coinCollected"]
+[connection signal="done_talking" from="DialogueParser" to="MC_Sprite" method="_on_DialogueParser_done_talking"]

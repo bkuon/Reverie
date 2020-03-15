@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://KinematicBody2D.gd" type="Script" id=1]
 [ext_resource path="res://images/MC/MC-1.png" type="Texture" id=2]
@@ -21,6 +21,9 @@
 [ext_resource path="res://images/crawlCoinActive.png" type="Texture" id=19]
 [ext_resource path="res://images/runCoin.png" type="Texture" id=20]
 [ext_resource path="res://images/runCoinActive.png" type="Texture" id=21]
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 11.8104, 24.6538 )
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -105,13 +108,20 @@ animations = [ {
 [node name="MC_Sprite" type="KinematicBody2D" groups=[
 "player",
 ]]
-position = Vector2( 2.3213, 0 )
+editor/display_folded = true
+position = Vector2( 2.3213, -0.773773 )
 z_index = 1
 z_as_relative = false
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_group_": true
 }
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( 50, 385 )
+shape = SubResource( 6 )
 
 [node name="Sprite" type="AnimatedSprite" parent="."]
 position = Vector2( 47.1426, 382.657 )
@@ -146,6 +156,6 @@ frames = SubResource( 4 )
 visible = false
 position = Vector2( 590, 20 )
 frames = SubResource( 5 )
-
-[node name="Area2D" type="Area2D" parent="."]
+[connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_Area2D_area_exited"]
 [connection signal="animation_finished" from="Sprite" to="." method="_on_Sprite_animation_finished"]
