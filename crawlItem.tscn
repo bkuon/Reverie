@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://crawlItemArea.gd" type="Script" id=1]
+[ext_resource path="res://images/Image30000.png" type="Texture" id=2]
+[ext_resource path="res://images/Image30001.png" type="Texture" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 3 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[node name="crawlItemArea" type="StaticBody2D"]
+script = ExtResource( 1 )
+
+[node name="Label" type="Label" parent="."]
+visible = false
+margin_left = -127.681
+margin_top = -38.7365
+margin_right = 134.319
+margin_bottom = -18.7365
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Hold the down key while moving to crawl"
+
+[node name="crawlItem" type="Area2D" parent="."]
+
+[node name="crawlItemBox" type="CollisionShape2D" parent="crawlItem"]
+shape = SubResource( 1 )
+
+[node name="crawlItemSprite" type="AnimatedSprite" parent="crawlItem"]
+frames = SubResource( 2 )

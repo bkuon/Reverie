@@ -1,23 +1,26 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://KinematicBody2D.gd" type="Script" id=1]
 [ext_resource path="res://images/MC/MC-1.png" type="Texture" id=2]
 [ext_resource path="res://images/MC/MC_victory/MC_Victory0001.png" type="Texture" id=3]
 [ext_resource path="res://images/MC/MC_victory/MC_Victory0002.png" type="Texture" id=4]
 [ext_resource path="res://images/MC/MC_victory/MC_Victory0000.png" type="Texture" id=5]
-[ext_resource path="res://images/MC/MC-2.png" type="Texture" id=6]
-[ext_resource path="res://images/MC/MC-3.png" type="Texture" id=7]
-[ext_resource path="res://images/MC/MC_jump/6.png" type="Texture" id=8]
-[ext_resource path="res://images/MC/MC_jump/7.png" type="Texture" id=9]
-[ext_resource path="res://images/MC/MC_jump/4.png" type="Texture" id=10]
-[ext_resource path="res://images/MC/MC_jump/5.png" type="Texture" id=11]
-[ext_resource path="res://images/jumpCoin.png" type="Texture" id=12]
-[ext_resource path="res://images/jumpCoinActive.png" type="Texture" id=13]
-[ext_resource path="res://images/crawlCoin0000.png" type="Texture" id=14]
-[ext_resource path="res://images/crawlCoinActive.png" type="Texture" id=15]
-[ext_resource path="res://images/runCoin.png" type="Texture" id=16]
-[ext_resource path="res://images/runCoinActive.png" type="Texture" id=17]
-
+[ext_resource path="res://images/MC/MC_crawl/MC_Crawl0000.png" type="Texture" id=6]
+[ext_resource path="res://images/MC/MC_crawl/MC_Crawl0001.png" type="Texture" id=7]
+[ext_resource path="res://images/MC/MC_crawl/MC_Crawl0002.png" type="Texture" id=8]
+[ext_resource path="res://images/MC/MC_crawl/MC_Crawl0003.png" type="Texture" id=9]
+[ext_resource path="res://images/MC/MC-2.png" type="Texture" id=10]
+[ext_resource path="res://images/MC/MC-3.png" type="Texture" id=11]
+[ext_resource path="res://images/MC/MC_jump/4.png" type="Texture" id=12]
+[ext_resource path="res://images/MC/MC_jump/5.png" type="Texture" id=13]
+[ext_resource path="res://images/MC/MC_jump/6.png" type="Texture" id=14]
+[ext_resource path="res://images/MC/MC_jump/7.png" type="Texture" id=15]
+[ext_resource path="res://images/jumpCoin.png" type="Texture" id=16]
+[ext_resource path="res://images/jumpCoinActive.png" type="Texture" id=17]
+[ext_resource path="res://images/crawlCoin0000.png" type="Texture" id=18]
+[ext_resource path="res://images/crawlCoinActive.png" type="Texture" id=19]
+[ext_resource path="res://images/runCoin.png" type="Texture" id=20]
+[ext_resource path="res://images/runCoinActive.png" type="Texture" id=21]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -31,19 +34,29 @@ animations = [ {
 "name": "victory",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 2 ), ExtResource( 6 ), ExtResource( 2 ), ExtResource( 7 ) ],
+"frames": [ ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ) ],
+"loop": true,
+"name": "crawl",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 2 ), ExtResource( 10 ), ExtResource( 2 ), ExtResource( 11 ) ],
 "loop": true,
 "name": "walk",
 "speed": 10.0
 }, {
-"frames": [ ExtResource( 8 ), ExtResource( 9 ), ExtResource( 2 ) ],
+"frames": [ ExtResource( 12 ), ExtResource( 13 ) ],
+"loop": false,
+"name": "Jump",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 14 ), ExtResource( 15 ), ExtResource( 2 ) ],
 "loop": true,
 "name": "Fall",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 10 ), ExtResource( 11 ) ],
-"loop": false,
-"name": "Jump",
+"frames": [ ExtResource( 6 ) ],
+"loop": true,
+"name": "duck",
 "speed": 5.0
 } ]
 
@@ -52,12 +65,12 @@ extents = Vector2( 13, 24 )
 
 [sub_resource type="SpriteFrames" id=3]
 animations = [ {
-"frames": [ ExtResource( 12 ) ],
+"frames": [ ExtResource( 16 ) ],
 "loop": true,
 "name": "default",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 13 ) ],
+"frames": [ ExtResource( 17 ) ],
 "loop": true,
 "name": "active",
 "speed": 5.0
@@ -65,12 +78,12 @@ animations = [ {
 
 [sub_resource type="SpriteFrames" id=4]
 animations = [ {
-"frames": [ ExtResource( 14 ) ],
+"frames": [ ExtResource( 18 ) ],
 "loop": true,
 "name": "default",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 15 ) ],
+"frames": [ ExtResource( 19 ) ],
 "loop": true,
 "name": "active",
 "speed": 5.0
@@ -78,12 +91,12 @@ animations = [ {
 
 [sub_resource type="SpriteFrames" id=5]
 animations = [ {
-"frames": [ ExtResource( 16 ) ],
+"frames": [ ExtResource( 20 ) ],
 "loop": true,
 "name": "default",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 17 ) ],
+"frames": [ ExtResource( 21 ) ],
 "loop": true,
 "name": "active",
 "speed": 5.0
@@ -100,7 +113,6 @@ script = ExtResource( 1 )
 position = Vector2( 42.5, 434.5 )
 frames = SubResource( 1 )
 animation = "idle"
-playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 42.5, 435.5 )
@@ -121,12 +133,12 @@ visible = false
 position = Vector2( 550, 20 )
 frames = SubResource( 3 )
 
-[node name="runIcon" type="AnimatedSprite" parent="AbilityLayer"]
+[node name="crawlIcon" type="AnimatedSprite" parent="AbilityLayer"]
 visible = false
 position = Vector2( 570, 20 )
 frames = SubResource( 4 )
 
-[node name="crawlIcon" type="AnimatedSprite" parent="AbilityLayer"]
+[node name="runIcon" type="AnimatedSprite" parent="AbilityLayer"]
 visible = false
 position = Vector2( 590, 20 )
 frames = SubResource( 5 )
