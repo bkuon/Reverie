@@ -38,7 +38,6 @@ func _input(event):
 			popup=null
 			
 	if dialogueStart:
-		
 		if dialogue==null:
 			dialogue = DIALOGUE_SCENE.instance() 
 			canvas_layer.add_child(dialogue)

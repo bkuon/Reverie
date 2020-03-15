@@ -29,6 +29,12 @@
       "A key!",
       "Press z to pick it up." 
     ]
+  },
+  "redKey" : {
+    "start" : [
+      "A key!",
+      "Press z to pick it up." 
+    ]
   }
   
 }

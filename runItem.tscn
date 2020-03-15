@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://runItemArea.gd" type="Script" id=1]
+[ext_resource path="res://images/runAbility0000.png" type="Texture" id=2]
+[ext_resource path="res://images/runAbility0001.png" type="Texture" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 3 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[node name="runItemArea" type="StaticBody2D"]
+script = ExtResource( 1 )
+
+[node name="Label" type="Label" parent="."]
+visible = false
+margin_left = -70.3652
+margin_top = -68.0806
+margin_right = 102.635
+margin_bottom = -54.0806
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Hold V while moving to run"
+
+[node name="runItem" type="Area2D" parent="."]
+
+[node name="runItemBox" type="CollisionShape2D" parent="runItem"]
+shape = SubResource( 1 )
+
+[node name="runItemSprite" type="AnimatedSprite" parent="runItem"]
+frames = SubResource( 2 )

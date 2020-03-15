@@ -3,7 +3,7 @@ extends RigidBody2D
 var picked = false
 
 var can_speak = true
-var can_interact = false
+var can_interact = true
 onready var globals = get_node("/root/Globals")
 
 
