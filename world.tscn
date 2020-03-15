@@ -74,7 +74,7 @@ position = Vector2( 399.329, 422.762 )
 position = Vector2( 476.811, 421.291 )
 
 [node name="crawlItemArea" parent="." instance=ExtResource( 4 )]
-position = Vector2( 570.521, 424.911 )
+position = Vector2( 473.953, 365.346 )
 
 [node name="keyObject" type="RigidBody2D" parent="."]
 editor/display_folded = true
