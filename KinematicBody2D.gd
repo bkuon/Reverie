@@ -138,6 +138,6 @@ func teleport_to(target_pos):
 func _on_Sprite_animation_finished():
 	 MC_Globals.victory=false
 
-
+#end dialogue encounter but allows player to approach them again
 func _on_DialogueParser_end_encounter():
 	can_move = true

@@ -93,7 +93,6 @@ func clear_buttons():
 			button.set_visible(false)
 			get_node("Panel").remove_child(button)
 		picked = true
-	#flags[dialog_obj]["decided"] = true
 
 #loads JSON files as Dictionary
 func load_dialog(file_path):
