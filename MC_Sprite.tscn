@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://KinematicBody2D.gd" type="Script" id=1]
 [ext_resource path="res://images/MC/MC-1.png" type="Texture" id=2]
@@ -9,10 +9,10 @@
 [ext_resource path="res://images/MC/MC_crawl/MC_Crawl0001.png" type="Texture" id=7]
 [ext_resource path="res://images/MC/MC_crawl/MC_Crawl0002.png" type="Texture" id=8]
 [ext_resource path="res://images/MC/MC_crawl/MC_Crawl0003.png" type="Texture" id=9]
-[ext_resource path="res://images/MC/MC-2.png" type="Texture" id=10]
-[ext_resource path="res://images/MC/MC-3.png" type="Texture" id=11]
-[ext_resource path="res://images/MC/MC_jump/4.png" type="Texture" id=12]
-[ext_resource path="res://images/MC/MC_jump/5.png" type="Texture" id=13]
+[ext_resource path="res://images/MC/MC_jump/4.png" type="Texture" id=10]
+[ext_resource path="res://images/MC/MC_jump/5.png" type="Texture" id=11]
+[ext_resource path="res://images/MC/MC-2.png" type="Texture" id=12]
+[ext_resource path="res://images/MC/MC-3.png" type="Texture" id=13]
 [ext_resource path="res://images/MC/MC_jump/6.png" type="Texture" id=14]
 [ext_resource path="res://images/MC/MC_jump/7.png" type="Texture" id=15]
 [ext_resource path="res://images/jumpCoin.png" type="Texture" id=16]
@@ -21,6 +21,9 @@
 [ext_resource path="res://images/crawlCoinActive.png" type="Texture" id=19]
 [ext_resource path="res://images/runCoin.png" type="Texture" id=20]
 [ext_resource path="res://images/runCoinActive.png" type="Texture" id=21]
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 11.8104, 24.6538 )
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -39,24 +42,24 @@ animations = [ {
 "name": "crawl",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 2 ), ExtResource( 10 ), ExtResource( 2 ), ExtResource( 11 ) ],
+"frames": [ ExtResource( 10 ), ExtResource( 11 ) ],
+"loop": false,
+"name": "Jump",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 2 ), ExtResource( 12 ), ExtResource( 2 ), ExtResource( 13 ) ],
 "loop": true,
 "name": "walk",
 "speed": 10.0
 }, {
-"frames": [ ExtResource( 12 ), ExtResource( 13 ) ],
-"loop": false,
-"name": "Jump",
+"frames": [ ExtResource( 6 ) ],
+"loop": true,
+"name": "duck",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 14 ), ExtResource( 15 ), ExtResource( 2 ) ],
 "loop": true,
 "name": "Fall",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 6 ) ],
-"loop": true,
-"name": "duck",
 "speed": 5.0
 } ]
 
@@ -105,17 +108,28 @@ animations = [ {
 [node name="MC_Sprite" type="KinematicBody2D" groups=[
 "player",
 ]]
+editor/display_folded = true
+position = Vector2( 2.3213, -0.773773 )
 z_index = 1
 z_as_relative = false
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( 50, 385 )
+shape = SubResource( 6 )
 
 [node name="Sprite" type="AnimatedSprite" parent="."]
-position = Vector2( 42.5, 434.5 )
+position = Vector2( 47.1426, 382.657 )
 frames = SubResource( 1 )
 animation = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 42.5, 435.5 )
+position = Vector2( 48.6902, 382.884 )
 shape = SubResource( 2 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -142,4 +156,6 @@ frames = SubResource( 4 )
 visible = false
 position = Vector2( 590, 20 )
 frames = SubResource( 5 )
+[connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_Area2D_area_exited"]
 [connection signal="animation_finished" from="Sprite" to="." method="_on_Sprite_animation_finished"]

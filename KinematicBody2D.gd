@@ -63,6 +63,12 @@ func _physics_process(delta):
 		MC_Globals.isRunning=true
 		$AbilityLayer/runIcon.play("active")
 		
+	if Input.is_action_just_pressed("interact"):
+		if obj and obj_name == "NPC" and obj.can_speak:
+			can_move = false
+			#$sprite.play("idle")
+			get_node("../DialogueParser").init_dialogue(obj_name)
+		
 	if is_on_floor():
 		if Input.is_action_just_pressed("ui_up") && MC_Globals.canJump:
 			motion.y = JUMP_HEIGHT
