@@ -22,6 +22,13 @@ var obj_name: String
 var obj = null
 
 var can_move = true
+var walk1CanPlay = true
+var walk2CanPlay = true
+var crawl1CanPlay = true
+var crawl2CanPlay = true
+var landCanPlay = false
+var rightWasPressed = false
+var leftWasPressed = false
 
 
 func _physics_process(delta):
@@ -46,14 +53,41 @@ func _physics_process(delta):
 			motion.x= SPEED
 			$Sprite.flip_h = false
 			$Sprite.play("walk")
+			if $Sprite.frame == 1:
+				$"Walk 2".playing = false
+				if walk1CanPlay:
+					$"Walk 1".play()
+				walk1CanPlay = false
+				walk2CanPlay = true
+			elif $Sprite.frame == 3:
+				$"Walk 1".playing = false
+				if walk2CanPlay:
+					$"Walk 2".play()
+				walk2CanPlay = false
+				walk1CanPlay = true
+			rightWasPressed = true
 			
 		elif Input.is_action_pressed("ui_left"):
 			motion.x = -SPEED
 			$Sprite.flip_h = true
 			$Sprite.play("walk")
+			if $Sprite.frame == 1:
+				$"Walk 2".playing = false
+				if walk1CanPlay:
+					$"Walk 1".play()
+				walk1CanPlay = false
+				walk2CanPlay = true
+			elif $Sprite.frame == 3:
+				$"Walk 1".playing = false
+				if walk2CanPlay:
+					$"Walk 2".play()
+				walk2CanPlay = false
+				walk1CanPlay = true
 			
 		else:
 			motion.x=0
+			walk1CanPlay = true
+			walk2CanPlay = true
 			$Sprite.play("idle")
 	#Run Ability alongside jump utilities implemented here.
 	if Input.is_action_pressed("ui_right") and Input.is_key_pressed(KEY_V) and MC_Globals.canRun:
@@ -70,9 +104,16 @@ func _physics_process(delta):
 			get_node("../DialogueParser").init_dialogue(obj_name)
 		
 	if is_on_floor():
+		if(landCanPlay):
+			$Land.play()
+		
+		landCanPlay = false
+		
 		if Input.is_action_just_pressed("ui_up") && MC_Globals.canJump:
 			motion.y = JUMP_HEIGHT
 			MC_Globals.isJumping=true
+			$Jump.play()
+			landCanPlay = true
 				
 		if friction == true:
 			motion.x = lerp(motion.x, 0, 0.2)
@@ -92,18 +133,45 @@ func _physics_process(delta):
 		MC_Globals.isCrawling=true
 		$Sprite.play("duck")
 		$AbilityLayer/crawlIcon.play("active")
-		motion.x = 0
+		
 	if Input.is_action_pressed("ui_down") and Input.is_action_pressed("ui_right") and MC_Globals.canCrawl:
 		motion.x = DUCK_SPEED
 		MC_Globals.isCrawling=true
 		$Sprite.play("crawl")
 		$AbilityLayer/crawlIcon.play("active")
+		print($Sprite.frame)
+		if $Sprite.frame == 1:
+			$"Crawl 2".playing = false
+			if crawl1CanPlay:
+				$"Crawl 1".play()
+			crawl1CanPlay = false
+			crawl2CanPlay = true
+		elif $Sprite.frame == 3:
+			$"Crawl 1".playing = false
+			if crawl2CanPlay:
+				$"Crawl 2".play()
+			crawl2CanPlay = false
+			crawl1CanPlay = true
+		
 	if Input.is_action_pressed("ui_down") and Input.is_action_pressed("ui_left") and MC_Globals.canCrawl:
 		$Sprite.flip_h = true
 		$Sprite.play("crawl")
 		MC_Globals.isCrawling=true
 		$AbilityLayer/crawlIcon.play("active")
+		print($Sprite.frame)
 		motion.x = -DUCK_SPEED
+		if $Sprite.frame == 1:
+			$"Crawl 2".playing = false
+			if crawl1CanPlay:
+				$"Crawl 1".play()
+			crawl1CanPlay = false
+			crawl2CanPlay = true
+		elif $Sprite.frame == 3:
+			$"Crawl 1".playing = false
+			if crawl2CanPlay:
+				$"Crawl 2".play()
+			crawl2CanPlay = false
+			crawl1CanPlay = true
 	#End Duck Function
 
 	motion = move_and_slide(motion, UP)
