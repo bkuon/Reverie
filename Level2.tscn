@@ -1,14 +1,18 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://MC_Sprite.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Elevator.tscn" type="PackedScene" id=2]
 [ext_resource path="res://images/Environment/Level2Text.bmp" type="Texture" id=3]
 [ext_resource path="res://updatedTileSet.tres" type="TileSet" id=4]
+[ext_resource path="res://Follower.tscn" type="PackedScene" id=5]
 
 [node name="Level2" type="Node2D"]
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="MC_Sprite" parent="." instance=ExtResource( 1 )]
-position = Vector2( 9.928, -218.988 )
+position = Vector2( 42.928, 214.012 )
 
 [node name="Elevator" parent="." instance=ExtResource( 2 )]
 position = Vector2( 57.9329, 203.833 )
@@ -27,3 +31,6 @@ tile_set = ExtResource( 4 )
 cell_size = Vector2( 16, 16 )
 format = 1
 tile_data = PoolIntArray( 655386, 0, 0, 655387, 0, 0, 655388, 0, 0, 655389, 0, 0, 655390, 0, 0, 655391, 0, 0, 655392, 0, 0, 655393, 0, 0, 655394, 0, 0, 655395, 0, 0, 655396, 0, 0, 720921, 0, 0, 786456, 0, 0, 851991, 0, 0, 917526, 0, 0, 983040, 0, 0, 983041, 0, 0, 983042, 0, 0, 983043, 0, 0, 983044, 0, 0, 983045, 0, 0, 983046, 0, 0, 983047, 0, 0, 983048, 0, 0, 983049, 0, 0, 983050, 0, 0, 983051, 0, 0, 983052, 0, 0, 983053, 0, 0, 983054, 0, 0, 983055, 0, 0, 983056, 0, 0, 983057, 0, 0, 983058, 0, 0, 983059, 0, 0, 983060, 0, 0, 983061, 0, 0, 983062, 0, 0, 1835004, 0, 0, 1835005, 0, 0, 1835006, 0, 0, 1835007, 0, 0, 1769472, 0, 0, 1769473, 0, 0, 1769474, 0, 0, 1769475, 0, 0, 1769476, 0, 0, 1769477, 0, 0, 1769478, 0, 0, 1769479, 0, 0, 1769480, 0, 0, 1769481, 0, 0, 1769482, 0, 0, 1769483, 0, 0, 1769484, 0, 0, 1769485, 0, 0, 1769486, 0, 0, 1769487, 0, 0, 1769488, 0, 0, 1769489, 0, 0, 1769490, 0, 0, 1769491, 0, 0, 1769492, 0, 0, 1769493, 0, 0, 1769494, 0, 0, 1769495, 0, 0, 1769496, 0, 0, 1769497, 0, 0, 1769498, 0, 0, 1769499, 0, 0, 1769500, 0, 0, 1769501, 0, 0, 1769502, 0, 0, 1769503, 0, 0, 1769504, 0, 0, 1769505, 0, 0, 1769506, 0, 0, 1769507, 0, 0, 1769508, 0, 0, 1769509, 0, 0, 1769510, 0, 0, 1769511, 0, 0, 1769512, 0, 0, 1769513, 0, 0 )
+
+[node name="Follower" parent="." instance=ExtResource( 5 )]
+position = Vector2( 9, 228.398 )

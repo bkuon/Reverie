@@ -64,7 +64,7 @@ func _physics_process(delta):
 		$AbilityLayer/runIcon.play("active")
 		
 	if Input.is_action_just_pressed("interact"):
-		if obj and obj_name == "NPC" and obj.can_speak:
+		if obj and (obj_name == "NPC" or obj_name == 'Enemy Puzzle1') and obj.can_speak:
 			can_move = false
 			#$sprite.play("idle")
 			get_node("../DialogueParser").init_dialogue(obj_name)
@@ -117,6 +117,8 @@ func _physics_process(delta):
 func _on_Area2D_area_entered(area):
 	obj_name = area.name
 	obj = area.get_parent()
+	if area.name == "Enemy Puzzle1":
+		obj = area
 	
 	
 	
@@ -135,3 +137,7 @@ func teleport_to(target_pos):
 
 func _on_Sprite_animation_finished():
 	 MC_Globals.victory=false
+
+
+func _on_DialogueParser_end_encounter():
+	can_move = true
