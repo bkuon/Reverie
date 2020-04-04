@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Running2.Wav-a220374de1b465524e31ca812b082254.sample"
+
+[deps]
+
+source_file="res://Running2.Wav"
+dest_files=[ "res://.import/Running2.Wav-a220374de1b465524e31ca812b082254.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

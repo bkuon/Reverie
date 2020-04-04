@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=2]
+[gd_scene load_steps=44 format=2]
 
 [ext_resource path="res://Minipuzzle_object.gd" type="Script" id=1]
 [ext_resource path="res://minipuzzle_sprite.png" type="Texture" id=2]
@@ -18,25 +18,23 @@
 [ext_resource path="res://images/Button/button2.png" type="Texture" id=16]
 [ext_resource path="res://images/Button/button3.png" type="Texture" id=17]
 [ext_resource path="res://images/Button/button5.png" type="Texture" id=18]
-[ext_resource path="res://Coin.gd" type="Script" id=19]
-[ext_resource path="res://images/Items/Coin.png" type="Texture" id=20]
-[ext_resource path="res://coin_sound.wav" type="AudioStream" id=21]
-[ext_resource path="res://NPC.gd" type="Script" id=22]
-[ext_resource path="res://images/NPC/DolphinNPC/DolphinNPC2.png" type="Texture" id=23]
-[ext_resource path="res://DialogueParser.gd" type="Script" id=24]
-[ext_resource path="res://Door.tscn" type="PackedScene" id=25]
-[ext_resource path="res://icon.png" type="Texture" id=26]
-[ext_resource path="res://Elevator.tscn" type="PackedScene" id=27]
-[ext_resource path="res://images/Environment/LobbyText.bmp" type="Texture" id=28]
-[ext_resource path="res://FollowerObject.gd" type="Script" id=29]
-[ext_resource path="res://images/Items/cupcake.png" type="Texture" id=30]
-[ext_resource path="res://inventory.gd" type="Script" id=31]
-[ext_resource path="res://images/backgrounds/minipaperbg.png" type="Texture" id=32]
-[ext_resource path="res://images/Items/bag.png" type="Texture" id=33]
-[ext_resource path="res://images/backgrounds/paperbackground.png" type="Texture" id=34]
-[ext_resource path="res://images/backgrounds/itembackground.png" type="Texture" id=35]
-[ext_resource path="res://BrandonEditTileMap.tscn" type="PackedScene" id=36]
-[ext_resource path="res://CoinCountLabel.gd" type="Script" id=37]
+[ext_resource path="res://CoinObject.tscn" type="PackedScene" id=19]
+[ext_resource path="res://NPC.gd" type="Script" id=20]
+[ext_resource path="res://images/NPC/DolphinNPC/DolphinNPC2.png" type="Texture" id=21]
+[ext_resource path="res://DialogueParser.gd" type="Script" id=22]
+[ext_resource path="res://Door.tscn" type="PackedScene" id=23]
+[ext_resource path="res://icon.png" type="Texture" id=24]
+[ext_resource path="res://Elevator.tscn" type="PackedScene" id=25]
+[ext_resource path="res://images/Environment/LobbyText.bmp" type="Texture" id=26]
+[ext_resource path="res://FollowerObject.gd" type="Script" id=27]
+[ext_resource path="res://images/Items/cupcake.png" type="Texture" id=28]
+[ext_resource path="res://inventory.gd" type="Script" id=29]
+[ext_resource path="res://images/backgrounds/minipaperbg.png" type="Texture" id=30]
+[ext_resource path="res://images/Items/bag.png" type="Texture" id=31]
+[ext_resource path="res://images/backgrounds/paperbackground.png" type="Texture" id=32]
+[ext_resource path="res://images/backgrounds/itembackground.png" type="Texture" id=33]
+[ext_resource path="res://BrandonEditTileMap.tscn" type="PackedScene" id=34]
+[ext_resource path="res://CoinCountLabel.gd" type="Script" id=35]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -204,108 +202,19 @@ position = Vector2( 101.55, 415.087 )
 z_index = 2
 shape = SubResource( 6 )
 
-[node name="CoinObject" type="StaticBody2D" parent="."]
-script = ExtResource( 19 )
+[node name="CoinObject" parent="." instance=ExtResource( 19 )]
 
-[node name="Coin" type="Area2D" parent="CoinObject"]
-position = Vector2( 63.2353, 417.473 )
-__meta__ = {
-"_edit_group_": true
-}
+[node name="CoinObject2" parent="." instance=ExtResource( 19 )]
+position = Vector2( 84, 0 )
 
-[node name="Sprite" type="Sprite" parent="CoinObject/Coin"]
-texture = ExtResource( 20 )
+[node name="CoinObject3" parent="." instance=ExtResource( 19 )]
+position = Vector2( 108, 0 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CoinObject/Coin"]
-position = Vector2( 0.957748, 0.081665 )
-shape = SubResource( 3 )
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="CoinObject/Coin"]
-stream = ExtResource( 21 )
-
-[node name="CoinObject2" type="StaticBody2D" parent="."]
-editor/display_folded = true
-script = ExtResource( 19 )
-
-[node name="Coin" type="Area2D" parent="CoinObject2"]
-position = Vector2( 197.235, 414.473 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="Sprite" type="Sprite" parent="CoinObject2/Coin"]
-texture = ExtResource( 20 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CoinObject2/Coin"]
-position = Vector2( 0.957748, 0.081665 )
-shape = SubResource( 3 )
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="CoinObject2/Coin"]
-stream = ExtResource( 21 )
-
-[node name="CoinObject3" type="StaticBody2D" parent="."]
-editor/display_folded = true
-script = ExtResource( 19 )
-
-[node name="Coin" type="Area2D" parent="CoinObject3"]
-position = Vector2( 171.235, 414.473 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="Sprite" type="Sprite" parent="CoinObject3/Coin"]
-texture = ExtResource( 20 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CoinObject3/Coin"]
-position = Vector2( 0.957748, 0.081665 )
-shape = SubResource( 3 )
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="CoinObject3/Coin"]
-stream = ExtResource( 21 )
-
-[node name="CoinObject4" type="StaticBody2D" parent="."]
-editor/display_folded = true
-script = ExtResource( 19 )
-
-[node name="Coin" type="Area2D" parent="CoinObject4"]
-position = Vector2( 255.235, 415.473 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="Sprite" type="Sprite" parent="CoinObject4/Coin"]
-texture = ExtResource( 20 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CoinObject4/Coin"]
-position = Vector2( 0.957748, 0.081665 )
-shape = SubResource( 3 )
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="CoinObject4/Coin"]
-stream = ExtResource( 21 )
-
-[node name="CoinObject5" type="StaticBody2D" parent="."]
-editor/display_folded = true
-script = ExtResource( 19 )
-
-[node name="Coin" type="Area2D" parent="CoinObject5"]
-position = Vector2( 145.235, 415.473 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="Sprite" type="Sprite" parent="CoinObject5/Coin"]
-texture = ExtResource( 20 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CoinObject5/Coin"]
-position = Vector2( 0.957748, 0.081665 )
-shape = SubResource( 3 )
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="CoinObject5/Coin"]
-stream = ExtResource( 21 )
+[node name="CoinObject4" parent="." instance=ExtResource( 19 )]
+position = Vector2( 132.235, -0.411037 )
 
 [node name="NPC" type="StaticBody2D" parent="."]
-editor/display_folded = true
-script = ExtResource( 22 )
+script = ExtResource( 20 )
 
 [node name="NPC" type="Area2D" parent="NPC"]
 position = Vector2( 10.1949, 0.804993 )
@@ -315,15 +224,14 @@ __meta__ = {
 
 [node name="Sprite" type="Sprite" parent="NPC/NPC"]
 position = Vector2( 602, 399 )
-texture = ExtResource( 23 )
+texture = ExtResource( 21 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NPC/NPC"]
 position = Vector2( 602.319, 401.151 )
 shape = SubResource( 7 )
 
 [node name="DialogueParser" type="Node2D" parent="."]
-editor/display_folded = true
-script = ExtResource( 24 )
+script = ExtResource( 22 )
 
 [node name="Panel" type="Panel" parent="DialogueParser"]
 margin_left = 198.917
@@ -343,12 +251,11 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Door" parent="." instance=ExtResource( 25 )]
+[node name="Door" parent="." instance=ExtResource( 23 )]
 position = Vector2( 438.391, 398.069 )
 z_index = -1
 
 [node name="Boundary" type="StaticBody2D" parent="."]
-editor/display_folded = true
 position = Vector2( -31.3277, 400.92 )
 __meta__ = {
 "_edit_group_": true
@@ -356,12 +263,12 @@ __meta__ = {
 
 [node name="Sprite" type="Sprite" parent="Boundary"]
 modulate = Color( 0, 0, 0, 1 )
-texture = ExtResource( 26 )
+texture = ExtResource( 24 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Boundary"]
 shape = SubResource( 8 )
 
-[node name="Elevator" parent="." instance=ExtResource( 27 )]
+[node name="Elevator" parent="." instance=ExtResource( 25 )]
 position = Vector2( 521.139, 394.879 )
 scale = Vector2( 1, 1 )
 z_index = -1
@@ -373,16 +280,16 @@ elevator_3 = "res://Level3.tscn"
 [node name="LobbyText" type="Sprite" parent="."]
 position = Vector2( 366.857, 118.72 )
 scale = Vector2( 3.44418, 2.19299 )
-texture = ExtResource( 28 )
+texture = ExtResource( 26 )
 
 [node name="FollowerObject" type="KinematicBody2D" parent="."]
 editor/display_folded = true
 position = Vector2( 5.83138, 424.657 )
-script = ExtResource( 29 )
+script = ExtResource( 27 )
 
 [node name="Sprite" type="Sprite" parent="FollowerObject"]
 position = Vector2( 0.351761, -0.746918 )
-texture = ExtResource( 30 )
+texture = ExtResource( 28 )
 
 [node name="Panel" type="Panel" parent="FollowerObject"]
 visible = false
@@ -408,7 +315,7 @@ clip_text = true
 editor/display_folded = true
 margin_right = 40.0
 margin_bottom = 40.0
-script = ExtResource( 31 )
+script = ExtResource( 29 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -419,7 +326,7 @@ margin_left = 1.07928
 margin_top = 69.0227
 margin_right = 51.0793
 margin_bottom = 105.023
-texture = ExtResource( 32 )
+texture = ExtResource( 30 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -427,7 +334,7 @@ __meta__ = {
 [node name="TextureRect" type="TextureRect" parent="inventory/TextureRect2"]
 margin_right = 40.0
 margin_bottom = 40.0
-texture = ExtResource( 33 )
+texture = ExtResource( 31 )
 
 [node name="Label" type="Label" parent="inventory/TextureRect2"]
 margin_left = 34.9275
@@ -443,7 +350,7 @@ margin_left = 2.29254
 margin_top = 74.0975
 margin_right = 249.293
 margin_bottom = 248.098
-texture = ExtResource( 34 )
+texture = ExtResource( 32 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -469,7 +376,7 @@ margin_left = 15.0
 margin_top = 10.0
 margin_right = 47.0
 margin_bottom = 42.0
-texture = ExtResource( 33 )
+texture = ExtResource( 31 )
 
 [node name="InventorySlots" type="GridContainer" parent="inventory/TextureRect"]
 margin_left = 17.0
@@ -483,7 +390,7 @@ columns = 4
 [node name="1" type="TextureRect" parent="inventory/TextureRect/InventorySlots"]
 margin_right = 44.0
 margin_bottom = 36.0
-texture = ExtResource( 35 )
+texture = ExtResource( 33 )
 
 [node name="LootButton" type="TextureButton" parent="inventory/TextureRect/InventorySlots/1"]
 margin_left = 3.0
@@ -495,7 +402,7 @@ margin_bottom = 33.0
 margin_left = 53.0
 margin_right = 97.0
 margin_bottom = 36.0
-texture = ExtResource( 35 )
+texture = ExtResource( 33 )
 
 [node name="LootButton" type="TextureButton" parent="inventory/TextureRect/InventorySlots/2"]
 margin_left = 3.0
@@ -507,7 +414,7 @@ margin_bottom = 33.0
 margin_left = 106.0
 margin_right = 150.0
 margin_bottom = 36.0
-texture = ExtResource( 35 )
+texture = ExtResource( 33 )
 
 [node name="LootButton" type="TextureButton" parent="inventory/TextureRect/InventorySlots/3"]
 margin_left = 3.0
@@ -519,7 +426,7 @@ margin_bottom = 33.0
 margin_left = 159.0
 margin_right = 203.0
 margin_bottom = 36.0
-texture = ExtResource( 35 )
+texture = ExtResource( 33 )
 
 [node name="LootButton" type="TextureButton" parent="inventory/TextureRect/InventorySlots/4"]
 margin_left = 2.0
@@ -531,7 +438,7 @@ margin_bottom = 33.0
 margin_top = 43.0
 margin_right = 44.0
 margin_bottom = 79.0
-texture = ExtResource( 35 )
+texture = ExtResource( 33 )
 
 [node name="LootButton" type="TextureButton" parent="inventory/TextureRect/InventorySlots/5"]
 margin_left = 3.0
@@ -544,7 +451,7 @@ margin_left = 53.0
 margin_top = 43.0
 margin_right = 97.0
 margin_bottom = 79.0
-texture = ExtResource( 35 )
+texture = ExtResource( 33 )
 
 [node name="LootButton" type="TextureButton" parent="inventory/TextureRect/InventorySlots/6"]
 margin_left = 3.0
@@ -557,7 +464,7 @@ margin_left = 106.0
 margin_top = 43.0
 margin_right = 150.0
 margin_bottom = 79.0
-texture = ExtResource( 35 )
+texture = ExtResource( 33 )
 
 [node name="LootButton" type="TextureButton" parent="inventory/TextureRect/InventorySlots/7"]
 margin_left = 2.0
@@ -573,7 +480,7 @@ margin_left = 159.0
 margin_top = 43.0
 margin_right = 203.0
 margin_bottom = 79.0
-texture = ExtResource( 35 )
+texture = ExtResource( 33 )
 
 [node name="LootButton" type="TextureButton" parent="inventory/TextureRect/InventorySlots/8"]
 margin_left = 2.0
@@ -581,10 +488,9 @@ margin_top = 3.0
 margin_right = 40.0
 margin_bottom = 32.0
 
-[node name="BrandonEditTileMap" parent="." instance=ExtResource( 36 )]
+[node name="BrandonEditTileMap" parent="." instance=ExtResource( 34 )]
 
 [node name="CoinCountDisplay" type="Control" parent="."]
-editor/display_folded = true
 margin_right = 40.0
 margin_bottom = 40.0
 __meta__ = {
@@ -597,10 +503,9 @@ margin_top = 449.0
 margin_right = 69.0
 margin_bottom = 463.0
 text = "Hey there!"
-script = ExtResource( 37 )
+script = ExtResource( 35 )
 [connection signal="coinCollected" from="CoinObject" to="CoinCountDisplay/CoinCountLabel" method="_on_CoinObject_coinCollected"]
 [connection signal="coinCollected" from="CoinObject2" to="CoinCountDisplay/CoinCountLabel" method="_on_CoinObject_coinCollected"]
 [connection signal="coinCollected" from="CoinObject3" to="CoinCountDisplay/CoinCountLabel" method="_on_CoinObject_coinCollected"]
 [connection signal="coinCollected" from="CoinObject4" to="CoinCountDisplay/CoinCountLabel" method="_on_CoinObject_coinCollected"]
-[connection signal="coinCollected" from="CoinObject5" to="CoinCountDisplay/CoinCountLabel" method="_on_CoinObject_coinCollected"]
 [connection signal="done_talking" from="DialogueParser" to="MC_Sprite" method="_on_DialogueParser_done_talking"]
