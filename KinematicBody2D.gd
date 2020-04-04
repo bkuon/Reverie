@@ -62,6 +62,12 @@ func _physics_process(delta):
 		$Sprite.play("walk")
 		MC_Globals.isRunning=true
 		$AbilityLayer/runIcon.play("active")
+	if Input.is_action_pressed("ui_left") and Input.is_key_pressed(KEY_V) and MC_Globals.canRun:
+		motion.x = min(motion.x - ACCELERATION, -MAX_SPEED)
+		$Sprite.flip_h = true
+		$Sprite.play("walk")
+		MC_Globals.isRunning=true
+		$AbilityLayer/runIcon.play("active")
 		
 	if Input.is_action_just_pressed("interact"):
 		if obj and obj_name == "NPC" and obj.can_speak:
@@ -90,6 +96,7 @@ func _physics_process(delta):
 	#Implement Duck Function
 	if Input.is_action_pressed("ui_down") and MC_Globals.canCrawl:
 		MC_Globals.isCrawling=true
+		#$CollisionShape2D.get_shape().set_extents(Vector2(30, 382))
 		$Sprite.play("duck")
 		$AbilityLayer/crawlIcon.play("active")
 		motion.x = 0

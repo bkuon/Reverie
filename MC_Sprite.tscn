@@ -22,10 +22,10 @@
 [ext_resource path="res://images/runCoin.png" type="Texture" id=20]
 [ext_resource path="res://images/runCoinActive.png" type="Texture" id=21]
 
-[sub_resource type="RectangleShape2D" id=6]
+[sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 11.8104, 24.6538 )
 
-[sub_resource type="SpriteFrames" id=1]
+[sub_resource type="SpriteFrames" id=2]
 animations = [ {
 "frames": [ ExtResource( 2 ) ],
 "loop": true,
@@ -63,52 +63,51 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 13, 24 )
 
-[sub_resource type="SpriteFrames" id=3]
+[sub_resource type="SpriteFrames" id=4]
 animations = [ {
-"frames": [ ExtResource( 16 ) ],
-"loop": true,
-"name": "default",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 17 ) ],
 "loop": true,
 "name": "active",
 "speed": 5.0
-} ]
-
-[sub_resource type="SpriteFrames" id=4]
-animations = [ {
-"frames": [ ExtResource( 18 ) ],
+}, {
+"frames": [ ExtResource( 16 ) ],
 "loop": true,
 "name": "default",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 19 ) ],
-"loop": true,
-"name": "active",
 "speed": 5.0
 } ]
 
 [sub_resource type="SpriteFrames" id=5]
 animations = [ {
-"frames": [ ExtResource( 20 ) ],
+"frames": [ ExtResource( 19 ) ],
+"loop": true,
+"name": "active",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 18 ) ],
 "loop": true,
 "name": "default",
 "speed": 5.0
-}, {
+} ]
+
+[sub_resource type="SpriteFrames" id=6]
+animations = [ {
 "frames": [ ExtResource( 21 ) ],
 "loop": true,
 "name": "active",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 20 ) ],
+"loop": true,
+"name": "default",
 "speed": 5.0
 } ]
 
 [node name="MC_Sprite" type="KinematicBody2D" groups=[
 "player",
 ]]
-editor/display_folded = true
 position = Vector2( 2.3213, -0.773773 )
 z_index = 1
 z_as_relative = false
@@ -121,16 +120,17 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2( 50, 385 )
-shape = SubResource( 6 )
+shape = SubResource( 1 )
 
 [node name="Sprite" type="AnimatedSprite" parent="."]
-position = Vector2( 47.1426, 382.657 )
-frames = SubResource( 1 )
+position = Vector2( 47.1426, 382.85 )
+scale = Vector2( 1, 0.99211 )
+frames = SubResource( 2 )
 animation = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 48.6902, 382.884 )
-shape = SubResource( 2 )
+shape = SubResource( 3 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( 320, 240 )
@@ -145,17 +145,17 @@ offset_h = 0.87
 [node name="jumpIcon" type="AnimatedSprite" parent="AbilityLayer"]
 visible = false
 position = Vector2( 550, 20 )
-frames = SubResource( 3 )
+frames = SubResource( 4 )
 
 [node name="crawlIcon" type="AnimatedSprite" parent="AbilityLayer"]
 visible = false
 position = Vector2( 570, 20 )
-frames = SubResource( 4 )
+frames = SubResource( 5 )
 
 [node name="runIcon" type="AnimatedSprite" parent="AbilityLayer"]
 visible = false
 position = Vector2( 590, 20 )
-frames = SubResource( 5 )
+frames = SubResource( 6 )
 [connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]
 [connection signal="area_exited" from="Area2D" to="." method="_on_Area2D_area_exited"]
 [connection signal="animation_finished" from="Sprite" to="." method="_on_Sprite_animation_finished"]
