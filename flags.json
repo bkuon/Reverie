@@ -23,5 +23,10 @@
     "start": false,
     "has_choice": false,
     "decided": false
+  },
+  "Enemy Puzzle1": {
+    "start": false,
+    "has_choice": true,
+    "decided": false
   }
 }

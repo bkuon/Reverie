@@ -5,11 +5,13 @@
 [ext_resource path="res://images/Environment/Level3Text.bmp" type="Texture" id=3]
 [ext_resource path="res://updatedTileSet.tres" type="TileSet" id=4]
 [ext_resource path="res://CoinObject.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Follower.tscn" type="PackedScene" id=6]
+
 
 [node name="Level3" type="Node2D"]
 
 [node name="MC_Sprite" parent="." instance=ExtResource( 1 )]
-position = Vector2( 11.496, -222.662 )
+position = Vector2( 50.496, 215.338 )
 
 [node name="Elevator" parent="." instance=ExtResource( 2 )]
 position = Vector2( 56.3902, 203.967 )
@@ -61,3 +63,6 @@ position = Vector2( 460, -40 )
 
 [node name="CoinObject5" parent="." instance=ExtResource( 5 )]
 position = Vector2( 490, -40 )
+
+[node name="Follower" parent="." instance=ExtResource( 6 )]
+position = Vector2( 11, 230.398 )
