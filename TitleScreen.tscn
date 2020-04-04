@@ -100,7 +100,7 @@ margin_top = 284.0
 margin_right = 1040.0
 margin_bottom = 560.0
 size_flags_vertical = 7
-text = "Version 1.0"
+text = "Version 3.0"
 
 [node name="icon" type="Sprite" parent="."]
 position = Vector2( 152.188, 426.593 )
