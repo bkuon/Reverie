@@ -38,18 +38,18 @@
 [ext_resource path="res://BrandonEditTileMap.tscn" type="PackedScene" id=36]
 [ext_resource path="res://CoinCountLabel.gd" type="Script" id=37]
 
-[sub_resource type="RectangleShape2D" id=8]
-
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 16.5859, 10.0336 )
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 11.0656, 15.163 )
+extents = Vector2( 16.5859, 10.0336 )
 
 [sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 11.0656, 15.163 )
+
+[sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 16.2286, 25.9858 )
 
-[sub_resource type="SpriteFrames" id=4]
+[sub_resource type="SpriteFrames" id=5]
 animations = [ {
 "frames": [ ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 17 ), ExtResource( 16 ), ExtResource( 15 ) ],
 "loop": false,
@@ -57,13 +57,13 @@ animations = [ {
 "speed": 40.0
 } ]
 
-[sub_resource type="RectangleShape2D" id=5]
+[sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 20.8072, 15.8378 )
 
-[sub_resource type="RectangleShape2D" id=6]
+[sub_resource type="RectangleShape2D" id=7]
 extents = Vector2( 26.0112, 29.6226 )
 
-[sub_resource type="RectangleShape2D" id=7]
+[sub_resource type="RectangleShape2D" id=8]
 extents = Vector2( 31.7174, 32.2113 )
 
 [node name="world" type="Node"]
@@ -84,7 +84,7 @@ texture = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Minipuzzle Pad"]
 position = Vector2( 389.881, 386.271 )
-shape = SubResource( 8 )
+shape = SubResource( 1 )
 
 [node name="MC_Sprite" parent="." instance=ExtResource( 3 )]
 position = Vector2( -16.7287, 21.3533 )
@@ -122,7 +122,7 @@ texture = ExtResource( 8 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="keyObject/bluekey"]
 position = Vector2( 1.55856, 2.81018 )
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
 [node name="redkey" type="Area2D" parent="keyObject" groups=[
 "inventoryItem",
@@ -141,7 +141,7 @@ texture = ExtResource( 9 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="keyObject/redkey"]
 position = Vector2( 1.55856, 2.81018 )
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
 [node name="doorObject" type="StaticBody2D" parent="."]
 editor/display_folded = true
@@ -153,7 +153,7 @@ __meta__ = {
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="doorObject"]
 position = Vector2( 237.941, 405.818 )
-shape = SubResource( 2 )
+shape = SubResource( 3 )
 
 [node name="doorObj" type="Area2D" parent="doorObject"]
 position = Vector2( 242.03, 400.208 )
@@ -171,7 +171,7 @@ texture = ExtResource( 11 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="doorObject/doorObj"]
 position = Vector2( -3.86932, 3.39467 )
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource( 12 )
@@ -196,13 +196,13 @@ texture = ExtResource( 14 )
 [node name="button" type="AnimatedSprite" parent="button/table_button"]
 position = Vector2( 101.83, 397.148 )
 scale = Vector2( 1.74634, 1.99512 )
-frames = SubResource( 4 )
+frames = SubResource( 5 )
 animation = "pressIn"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="button/table_button"]
 position = Vector2( 101.55, 415.087 )
 z_index = 2
-shape = SubResource( 5 )
+shape = SubResource( 6 )
 
 [node name="CoinObject" type="StaticBody2D" parent="."]
 editor/display_folded = true
@@ -219,7 +219,7 @@ texture = ExtResource( 20 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CoinObject/Coin"]
 position = Vector2( 0.957748, 0.081665 )
-shape = SubResource( 2 )
+shape = SubResource( 3 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="CoinObject/Coin"]
 stream = ExtResource( 21 )
@@ -239,7 +239,7 @@ texture = ExtResource( 20 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CoinObject2/Coin"]
 position = Vector2( 0.957748, 0.081665 )
-shape = SubResource( 2 )
+shape = SubResource( 3 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="CoinObject2/Coin"]
 stream = ExtResource( 21 )
@@ -259,7 +259,7 @@ texture = ExtResource( 20 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CoinObject3/Coin"]
 position = Vector2( 0.957748, 0.081665 )
-shape = SubResource( 2 )
+shape = SubResource( 3 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="CoinObject3/Coin"]
 stream = ExtResource( 21 )
@@ -279,7 +279,7 @@ texture = ExtResource( 20 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CoinObject4/Coin"]
 position = Vector2( 0.957748, 0.081665 )
-shape = SubResource( 2 )
+shape = SubResource( 3 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="CoinObject4/Coin"]
 stream = ExtResource( 21 )
@@ -299,7 +299,7 @@ texture = ExtResource( 20 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CoinObject5/Coin"]
 position = Vector2( 0.957748, 0.081665 )
-shape = SubResource( 2 )
+shape = SubResource( 3 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="CoinObject5/Coin"]
 stream = ExtResource( 21 )
@@ -320,7 +320,7 @@ texture = ExtResource( 23 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NPC/NPC"]
 position = Vector2( 602.319, 401.151 )
-shape = SubResource( 6 )
+shape = SubResource( 7 )
 
 [node name="DialogueParser" type="Node2D" parent="."]
 editor/display_folded = true
@@ -360,7 +360,7 @@ modulate = Color( 0, 0, 0, 1 )
 texture = ExtResource( 26 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Boundary"]
-shape = SubResource( 7 )
+shape = SubResource( 8 )
 
 [node name="Elevator" parent="." instance=ExtResource( 27 )]
 position = Vector2( 521.139, 394.879 )
