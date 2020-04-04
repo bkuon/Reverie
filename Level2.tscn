@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://MC_Sprite.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Elevator.tscn" type="PackedScene" id=2]
@@ -17,6 +17,7 @@
 [ext_resource path="res://images/jumpAbility0001.png" type="Texture" id=15]
 [ext_resource path="res://Follower.gd" type="Script" id=16]
 [ext_resource path="res://images/Items/cupcake.png" type="Texture" id=17]
+[ext_resource path="res://CoinObject.tscn" type="PackedScene" id=18]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 16.5859, 10.0336 )
@@ -60,6 +61,54 @@ tile_set = ExtResource( 4 )
 cell_size = Vector2( 16, 16 )
 format = 1
 tile_data = PoolIntArray( 655386, 0, 0, 655387, 0, 0, 655388, 0, 0, 655389, 0, 0, 655390, 0, 0, 655391, 0, 0, 655392, 0, 0, 655393, 0, 0, 655394, 0, 0, 655395, 0, 0, 655396, 0, 0, 720921, 0, 0, 786456, 0, 0, 851991, 0, 0, 917526, 0, 0, 983040, 0, 0, 983041, 0, 0, 983042, 0, 0, 983043, 0, 0, 983044, 0, 0, 983045, 0, 0, 983046, 0, 0, 983047, 0, 0, 983048, 0, 0, 983049, 0, 0, 983050, 0, 0, 983051, 0, 0, 983052, 0, 0, 983053, 0, 0, 983054, 0, 0, 983055, 0, 0, 983056, 0, 0, 983057, 0, 0, 983058, 0, 0, 983059, 0, 0, 983060, 0, 0, 983061, 0, 0, 983062, 0, 0, 1835004, 0, 0, 1835005, 0, 0, 1835006, 0, 0, 1835007, 0, 0, 1769472, 0, 0, 1769473, 0, 0, 1769474, 0, 0, 1769475, 0, 0, 1769476, 0, 0, 1769477, 0, 0, 1769478, 0, 0, 1769479, 0, 0, 1769480, 0, 0, 1769481, 0, 0, 1769482, 0, 0, 1769483, 0, 0, 1769484, 0, 0, 1769485, 0, 0, 1769486, 0, 0, 1769487, 0, 0, 1769488, 0, 0, 1769489, 0, 0, 1769490, 0, 0, 1769491, 0, 0, 1769492, 0, 0, 1769493, 0, 0, 1769494, 0, 0, 1769495, 0, 0, 1769496, 0, 0, 1769497, 0, 0, 1769498, 0, 0, 1769499, 0, 0, 1769500, 0, 0, 1769501, 0, 0, 1769502, 0, 0, 1769503, 0, 0, 1769504, 0, 0, 1769505, 0, 0, 1769506, 0, 0, 1769507, 0, 0, 1769508, 0, 0, 1769509, 0, 0, 1769510, 0, 0, 1769511, 0, 0, 1769512, 0, 0, 1769513, 0, 0 )
+
+[node name="CoinObject" parent="." instance=ExtResource( 18 )]
+position = Vector2( 120, -40 )
+
+[node name="CoinObject16" parent="." instance=ExtResource( 18 )]
+position = Vector2( 270, -40 )
+
+[node name="CoinObject2" parent="." instance=ExtResource( 18 )]
+position = Vector2( 220, -40 )
+
+[node name="CoinObject9" parent="." instance=ExtResource( 18 )]
+position = Vector2( 370, -40 )
+
+[node name="CoinObject3" parent="." instance=ExtResource( 18 )]
+position = Vector2( 198.235, -10 )
+
+[node name="CoinObject15" parent="." instance=ExtResource( 18 )]
+position = Vector2( 348.235, -10 )
+
+[node name="CoinObject4" parent="." instance=ExtResource( 18 )]
+position = Vector2( 198.235, -70 )
+
+[node name="CoinObject13" parent="." instance=ExtResource( 18 )]
+position = Vector2( 348.235, -70 )
+
+[node name="CoinObject5" parent="." instance=ExtResource( 18 )]
+position = Vector2( 170, -10 )
+
+[node name="CoinObject10" parent="." instance=ExtResource( 18 )]
+position = Vector2( 320, -10 )
+
+[node name="CoinObject6" parent="." instance=ExtResource( 18 )]
+position = Vector2( 170, -70 )
+
+[node name="CoinObject12" parent="." instance=ExtResource( 18 )]
+position = Vector2( 320, -70 )
+
+[node name="CoinObject7" parent="." instance=ExtResource( 18 )]
+position = Vector2( 140, -10 )
+
+[node name="CoinObject11" parent="." instance=ExtResource( 18 )]
+position = Vector2( 290, -10 )
+
+[node name="CoinObject8" parent="." instance=ExtResource( 18 )]
+position = Vector2( 140, -70 )
+
+[node name="CoinObject14" parent="." instance=ExtResource( 18 )]
+position = Vector2( 290, -70 )
 
 [node name="keyObject" type="RigidBody2D" parent="."]
 editor/display_folded = true
