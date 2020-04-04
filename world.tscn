@@ -35,9 +35,9 @@
 [ext_resource path="res://images/backgrounds/itembackground.png" type="Texture" id=33]
 [ext_resource path="res://BrandonEditTileMap.tscn" type="PackedScene" id=34]
 [ext_resource path="res://CoinCountLabel.gd" type="Script" id=35]
-[ext_resource path="res://Follower.tscn" type="PackedScene" id=36]
-[ext_resource path="res://fonts/opensans_48.tres" type="DynamicFont" id=39]
-[ext_resource path="res://fonts/opensans_30.tres" type="DynamicFont" id=40]
+[ext_resource path="res://fonts/opensans_48.tres" type="DynamicFont" id=36]
+[ext_resource path="res://fonts/opensans_30.tres" type="DynamicFont" id=37]
+[ext_resource path="res://Follower.tscn" type="PackedScene" id=38]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -562,20 +562,20 @@ size_flags_vertical = 3
 [node name="SettingsMenu" type="Label" parent="Settings/CenterContainer/VBoxContainer"]
 margin_right = 317.0
 margin_bottom = 67.0
-custom_fonts/font = ExtResource( 39 )
+custom_fonts/font = ExtResource( 36 )
 text = "Main Menu"
 
 [node name="<<Space>>" type="Label" parent="Settings/CenterContainer/VBoxContainer"]
 margin_top = 71.0
 margin_right = 317.0
 margin_bottom = 113.0
-custom_fonts/font = ExtResource( 40 )
+custom_fonts/font = ExtResource( 37 )
 
 [node name="Label" type="Label" parent="Settings/CenterContainer/VBoxContainer"]
 margin_top = 117.0
 margin_right = 317.0
 margin_bottom = 159.0
-custom_fonts/font = ExtResource( 40 )
+custom_fonts/font = ExtResource( 37 )
 text = "Mute Sound"
 
 [node name="CheckBox" type="CheckBox" parent="Settings/CenterContainer/VBoxContainer"]
@@ -587,7 +587,7 @@ margin_bottom = 187.0
 margin_top = 191.0
 margin_right = 317.0
 margin_bottom = 233.0
-custom_fonts/font = ExtResource( 40 )
+custom_fonts/font = ExtResource( 37 )
 text = "Sound Volume"
 
 [node name="HSlider" type="HSlider" parent="Settings/CenterContainer/VBoxContainer"]
@@ -603,12 +603,11 @@ margin_top = 257.0
 margin_right = 202.0
 margin_bottom = 305.0
 size_flags_horizontal = 6
-custom_fonts/font = ExtResource( 40 )
+custom_fonts/font = ExtResource( 37 )
 text = "Close"
 
-[node name="Follower" parent="." instance=ExtResource( 36 )]
+[node name="Follower" parent="." instance=ExtResource( 38 )]
 position = Vector2( 8, 420 )
-
 [connection signal="coinCollected" from="CoinObject" to="CoinCountDisplay/CoinCountLabel" method="_on_CoinObject_coinCollected"]
 [connection signal="coinCollected" from="CoinObject2" to="CoinCountDisplay/CoinCountLabel" method="_on_CoinObject_coinCollected"]
 [connection signal="coinCollected" from="CoinObject3" to="CoinCountDisplay/CoinCountLabel" method="_on_CoinObject_coinCollected"]
