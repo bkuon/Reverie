@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=2]
+gd_scene load_steps=48 format=2]
 
 [ext_resource path="res://world.gd" type="Script" id=1]
 [ext_resource path="res://Minipuzzle_object.gd" type="Script" id=2]
@@ -282,7 +282,11 @@ stream = ExtResource( 22 )
 [node name="CoinObject5" type="StaticBody2D" parent="."]
 script = ExtResource( 20 )
 
-[node name="CoinObject" parent="." instance=ExtResource( 19 )]
+[node name="Coin" type="Area2D" parent="CoinObject5"]
+position = Vector2( 145.235, 415.473 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="Sprite" type="Sprite" parent="CoinObject5/Coin"]
 texture = ExtResource( 21 )
@@ -610,6 +614,7 @@ position = Vector2( 8, 420 )
 [connection signal="coinCollected" from="CoinObject2" to="CoinCountDisplay/CoinCountLabel" method="_on_CoinObject_coinCollected"]
 [connection signal="coinCollected" from="CoinObject3" to="CoinCountDisplay/CoinCountLabel" method="_on_CoinObject_coinCollected"]
 [connection signal="coinCollected" from="CoinObject4" to="CoinCountDisplay/CoinCountLabel" method="_on_CoinObject_coinCollected"]
+[connection signal="coinCollected" from="CoinObject5" to="CoinCountDisplay/CoinCountLabel" method="_on_CoinObject_coinCollected"]
 [connection signal="done_talking" from="DialogueParser" to="MC_Sprite" method="_on_DialogueParser_done_talking"]
 [connection signal="end_encounter" from="DialogueParser" to="MC_Sprite" method="_on_DialogueParser_end_encounter"]
 [connection signal="toggled" from="Settings/CenterContainer/VBoxContainer/CheckBox" to="." method="_on_CheckBox_toggled"]
