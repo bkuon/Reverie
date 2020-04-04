@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=2]
+[gd_scene load_steps=46 format=2]
 
 [ext_resource path="res://Minipuzzle_object.gd" type="Script" id=1]
 [ext_resource path="res://minipuzzle_sprite.png" type="Texture" id=2]
@@ -35,6 +35,8 @@
 [ext_resource path="res://images/backgrounds/itembackground.png" type="Texture" id=33]
 [ext_resource path="res://BrandonEditTileMap.tscn" type="PackedScene" id=34]
 [ext_resource path="res://CoinCountLabel.gd" type="Script" id=35]
+[ext_resource path="res://fonts/opensans_48.tres" type="DynamicFont" id=36]
+[ext_resource path="res://fonts/opensans_30.tres" type="DynamicFont" id=37]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -214,6 +216,7 @@ position = Vector2( 108, 0 )
 position = Vector2( 132.235, -0.411037 )
 
 [node name="NPC" type="StaticBody2D" parent="."]
+editor/display_folded = true
 script = ExtResource( 20 )
 
 [node name="NPC" type="Area2D" parent="NPC"]
@@ -231,6 +234,7 @@ position = Vector2( 602.319, 401.151 )
 shape = SubResource( 7 )
 
 [node name="DialogueParser" type="Node2D" parent="."]
+editor/display_folded = true
 script = ExtResource( 22 )
 
 [node name="Panel" type="Panel" parent="DialogueParser"]
@@ -256,6 +260,7 @@ position = Vector2( 438.391, 398.069 )
 z_index = -1
 
 [node name="Boundary" type="StaticBody2D" parent="."]
+editor/display_folded = true
 position = Vector2( -31.3277, 400.92 )
 __meta__ = {
 "_edit_group_": true
@@ -283,6 +288,7 @@ scale = Vector2( 3.44418, 2.19299 )
 texture = ExtResource( 26 )
 
 [node name="FollowerObject" type="KinematicBody2D" parent="."]
+editor/display_folded = true
 position = Vector2( 5.83138, 424.657 )
 script = ExtResource( 27 )
 
@@ -490,6 +496,7 @@ margin_bottom = 32.0
 [node name="BrandonEditTileMap" parent="." instance=ExtResource( 34 )]
 
 [node name="CoinCountDisplay" type="Control" parent="."]
+editor/display_folded = true
 margin_right = 40.0
 margin_bottom = 40.0
 __meta__ = {
@@ -503,8 +510,78 @@ margin_right = 69.0
 margin_bottom = 463.0
 text = "Hey there!"
 script = ExtResource( 35 )
+
+[node name="Settings" type="PopupMenu" parent="."]
+editor/display_folded = true
+margin_right = 550.0
+margin_bottom = 380.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="CenterContainer" type="CenterContainer" parent="Settings"]
+margin_right = 600.0
+margin_bottom = 450.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Settings/CenterContainer"]
+margin_left = 174.0
+margin_top = 72.0
+margin_right = 425.0
+margin_bottom = 377.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="SettingsMenu" type="Label" parent="Settings/CenterContainer/VBoxContainer"]
+margin_right = 317.0
+margin_bottom = 67.0
+custom_fonts/font = ExtResource( 36 )
+text = "Main Menu"
+
+[node name="<<Space>>" type="Label" parent="Settings/CenterContainer/VBoxContainer"]
+margin_top = 71.0
+margin_right = 317.0
+margin_bottom = 113.0
+custom_fonts/font = ExtResource( 37 )
+
+[node name="Label" type="Label" parent="Settings/CenterContainer/VBoxContainer"]
+margin_top = 117.0
+margin_right = 317.0
+margin_bottom = 159.0
+custom_fonts/font = ExtResource( 37 )
+text = "Mute Sound"
+
+[node name="CheckBox" type="CheckBox" parent="Settings/CenterContainer/VBoxContainer"]
+margin_top = 163.0
+margin_right = 317.0
+margin_bottom = 187.0
+
+[node name="Sound" type="Label" parent="Settings/CenterContainer/VBoxContainer"]
+margin_top = 191.0
+margin_right = 317.0
+margin_bottom = 233.0
+custom_fonts/font = ExtResource( 37 )
+text = "Sound Volume"
+
+[node name="HSlider" type="HSlider" parent="Settings/CenterContainer/VBoxContainer"]
+margin_top = 237.0
+margin_right = 317.0
+margin_bottom = 253.0
+min_value = -80.0
+max_value = 0.0
+
+[node name="Button" type="Button" parent="Settings/CenterContainer/VBoxContainer"]
+margin_left = 114.0
+margin_top = 257.0
+margin_right = 202.0
+margin_bottom = 305.0
+size_flags_horizontal = 6
+custom_fonts/font = ExtResource( 37 )
+text = "Close"
 [connection signal="coinCollected" from="CoinObject" to="CoinCountDisplay/CoinCountLabel" method="_on_CoinObject_coinCollected"]
 [connection signal="coinCollected" from="CoinObject2" to="CoinCountDisplay/CoinCountLabel" method="_on_CoinObject_coinCollected"]
 [connection signal="coinCollected" from="CoinObject3" to="CoinCountDisplay/CoinCountLabel" method="_on_CoinObject_coinCollected"]
 [connection signal="coinCollected" from="CoinObject4" to="CoinCountDisplay/CoinCountLabel" method="_on_CoinObject_coinCollected"]
 [connection signal="done_talking" from="DialogueParser" to="MC_Sprite" method="_on_DialogueParser_done_talking"]
+[connection signal="end_encounter" from="DialogueParser" to="MC_Sprite" method="_on_DialogueParser_end_encounter"]
+[connection signal="toggled" from="Settings/CenterContainer/VBoxContainer/CheckBox" to="." method="_on_CheckBox_toggled"]
+[connection signal="value_changed" from="Settings/CenterContainer/VBoxContainer/HSlider" to="." method="_on_HSlider_value_changed"]
+[connection signal="pressed" from="Settings/CenterContainer/VBoxContainer/Button" to="." method="_on_Button_pressed"]
