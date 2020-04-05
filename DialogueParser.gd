@@ -8,7 +8,9 @@ var flag_path = "res://flags.json"
 var dictionary : Dictionary
 var flags : Dictionary
 signal done_talking
+signal end_encounter
 var dialog_obj : String
+var picked = false
 
 func _ready():
 	dictionary = load_dialog(file_path)
@@ -18,14 +20,19 @@ func _ready():
 #checks if object has dialogue or choices. choices come after
 # "start" dialogue. "decided" tells us if a choice ended
 func init_dialogue(obj):
-	print("talking to : " + obj)
 	if !flags[obj]["start"]:
 		start_dialog(obj)
-	if flags[obj]["has_choice"] and flags[obj]["start"] and !flags[obj]["decided"]:
-		make_decision(obj)
-	if flags[obj]["decided"]:
-		emit_signal("done_talking")
-		get_node("Panel").set_visible(false)
+	else:
+		if flags[obj]["decided"]:
+			emit_signal("done_talking")
+			get_node("Panel").set_visible(false)
+		else:
+			if picked:
+				get_node("Panel").set_visible(false)
+				picked = false
+				emit_signal("end_encounter")
+			else:
+				make_decision(obj)
 
 #obj name refers to Area2D name. For key: bluekey. for door: doorObj, etc.
 #goes through "start" dialogue. 
@@ -42,8 +49,8 @@ func start_dialog(obj):
 		get_node("Panel").set_visible(false)
 		dialog_count = -1
 		flags[obj]["start"] = true
-		if !flags[obj]["has_choice"]:
-			emit_signal("done_talking")
+		if flags[obj]["has_choice"] and !flags[obj]["decided"]: 
+			make_decision(obj)
 		
 	if dialog_count > -1:
 		get_node("Panel/Label").set_bbcode(convo[dialog_count])
@@ -70,7 +77,12 @@ func _on_button_pressed(choiceButton):
 	clear_buttons()
 	get_node("Panel/Label").set_visible(true)
 	get_node("Panel/Label").set_bbcode(dictionary[dialog_obj]["choices"][choiceButton.text])
-	
+	if dialog_obj == "Enemy Puzzle1" and choiceButton.text != "I'm ready":
+		flags[dialog_obj]["decided"] = false	
+	else: 
+		flags[dialog_obj]["decided"] = true
+		picked = true
+		
 #hides the buttons because we don't need them anymore. 
 func clear_buttons():
 	var panel = get_node("Panel")
@@ -79,7 +91,8 @@ func clear_buttons():
 		var button = panel.get_node("ChoiceButton" + str(i))
 		if button != null:
 			button.set_visible(false)
-	flags[dialog_obj]["decided"] = true
+			get_node("Panel").remove_child(button)
+		picked = true
 
 #loads JSON files as Dictionary
 func load_dialog(file_path):

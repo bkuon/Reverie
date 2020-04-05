@@ -4,8 +4,10 @@
 [ext_resource path="res://Elevator.tscn" type="PackedScene" id=2]
 [ext_resource path="res://images/Environment/Level3Text.bmp" type="Texture" id=3]
 [ext_resource path="res://updatedTileSet.tres" type="TileSet" id=4]
-[ext_resource path="res://NewNPCKinematicBody2D.gd" type="Script" id=5]
-[ext_resource path="res://images/NPC/DolphinNPC/DolphinNPC2.png" type="Texture" id=6]
+[ext_resource path="res://CoinObject.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Follower.tscn" type="PackedScene" id=6]
+[ext_resource path="res://NewNPCKinematicBody2D.gd" type="Script" id=7]
+[ext_resource path="res://images/NPC/DolphinNPC/DolphinNPC2.png" type="Texture" id=8]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -22,7 +24,7 @@ height = 12.6627
 [node name="Level3" type="Node2D"]
 
 [node name="MC_Sprite" parent="." instance=ExtResource( 1 )]
-position = Vector2( 11.496, -222.662 )
+position = Vector2( 50.496, 215.338 )
 
 [node name="Elevator" parent="." instance=ExtResource( 2 )]
 position = Vector2( 56.3902, 203.967 )
@@ -40,12 +42,13 @@ texture = ExtResource( 3 )
 tile_set = ExtResource( 4 )
 cell_size = Vector2( 16, 16 )
 format = 1
+
 tile_data = PoolIntArray( 851996, 0, 0, 917504, 0, 0, 917531, 0, 0, 917532, 0, 0, 983040, 0, 0, 983041, 0, 0, 983042, 0, 0, 983043, 0, 0, 983044, 0, 0, 983045, 0, 0, 983046, 0, 0, 983047, 0, 0, 983048, 0, 0, 983049, 0, 0, 983050, 0, 0, 983051, 0, 0, 983052, 0, 0, 983053, 0, 0, 983054, 0, 0, 983055, 0, 0, 983056, 0, 0, 983057, 0, 0, 983058, 0, 0, 983059, 0, 0, 983060, 0, 0, 983061, 0, 0, 983062, 0, 0, 983063, 0, 0, 983064, 0, 0, 983065, 0, 0, 983066, 0, 0, 983067, 0, 0, 983068, 0, 0, 1835004, 0, 0, 1835005, 0, 0, 1835006, 0, 0, 1835007, 0, 0, 1769472, 0, 0, 1769473, 0, 0, 1769474, 0, 0, 1769475, 0, 0, 1769476, 0, 0, 1769477, 0, 0, 1769478, 0, 0, 1769479, 0, 0, 1769480, 0, 0, 1769481, 0, 0, 1769482, 0, 0, 1769483, 0, 0, 1769484, 0, 0, 1769485, 0, 0, 1769486, 0, 0, 1769487, 0, 0, 1769488, 0, 0, 1769489, 0, 0, 1769490, 0, 0, 1769491, 0, 0, 1769492, 0, 0, 1769493, 0, 0, 1769494, 0, 0, 1769495, 0, 0, 1769496, 0, 0, 1769497, 0, 0, 1769498, 0, 0, 1769499, 0, 0, 1769500, 0, 0, 1769501, 0, 0, 1769502, 0, 0, 1769503, 0, 0, 1769504, 0, 0, 1769505, 0, 0, 1769506, 0, 0, 1769507, 0, 0, 1769508, 0, 0, 1769509, 0, 0, 1769510, 0, 0, 1769511, 0, 0, 1769512, 0, 0, 1769513, 0, 0 )
 
 [node name="NPC Movement" type="KinematicBody2D" parent="."]
 editor/display_folded = true
 position = Vector2( 361, 211 )
-script = ExtResource( 5 )
+script = ExtResource( 7 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -57,3 +60,41 @@ animation = "idle"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NPC Movement"]
 position = Vector2( -1.93294, -0.52071 )
 shape = SubResource( 2 )
+
+tile_data = PoolIntArray( 983040, 0, 0, 983041, 0, 0, 983042, 0, 0, 983043, 0, 0, 983044, 0, 0, 983045, 0, 0, 983046, 0, 0, 983047, 0, 0, 983048, 0, 0, 983049, 0, 0, 983050, 0, 0, 983051, 0, 0, 983052, 0, 0, 983053, 0, 0, 983054, 0, 0, 983055, 0, 0, 983056, 0, 0, 983057, 0, 0, 983058, 0, 0, 983059, 0, 0, 983060, 0, 0, 983061, 0, 0, 983062, 0, 0, 983063, 0, 0, 983064, 0, 0, 983065, 0, 0, 983066, 0, 0, 983067, 0, 0, 1835004, 0, 0, 1835005, 0, 0, 1835006, 0, 0, 1835007, 0, 0, 1769472, 0, 0, 1769473, 0, 0, 1769474, 0, 0, 1769475, 0, 0, 1769476, 0, 0, 1769477, 0, 0, 1769478, 0, 0, 1769479, 0, 0, 1769480, 0, 0, 1769481, 0, 0, 1769482, 0, 0, 1769483, 0, 0, 1769484, 0, 0, 1769485, 0, 0, 1769486, 0, 0, 1769487, 0, 0, 1769488, 0, 0, 1769489, 0, 0, 1769490, 0, 0, 1769491, 0, 0, 1769492, 0, 0, 1769493, 0, 0, 1769494, 0, 0, 1769495, 0, 0, 1769496, 0, 0, 1769497, 0, 0, 1769498, 0, 0, 1769499, 0, 0, 1769500, 0, 0, 1769501, 0, 0, 1769502, 0, 0, 1769503, 0, 0, 1769504, 0, 0, 1769505, 0, 0, 1769506, 0, 0, 1769507, 0, 0, 1769508, 0, 0, 1769509, 0, 0, 1769510, 0, 0, 1769511, 0, 0, 1769512, 0, 0, 1769513, 0, 0 )
+
+[node name="CoinObject" parent="." instance=ExtResource( 5 )]
+position = Vector2( 440, -120 )
+
+[node name="CoinObject11" parent="." instance=ExtResource( 5 )]
+position = Vector2( 440, -150 )
+
+[node name="CoinObject9" parent="." instance=ExtResource( 5 )]
+position = Vector2( 380, -80 )
+
+[node name="CoinObject6" parent="." instance=ExtResource( 5 )]
+position = Vector2( 400, -50 )
+
+[node name="CoinObject7" parent="." instance=ExtResource( 5 )]
+position = Vector2( 520, -50 )
+
+[node name="CoinObject2" parent="." instance=ExtResource( 5 )]
+position = Vector2( 478.235, -120 )
+
+[node name="CoinObject10" parent="." instance=ExtResource( 5 )]
+position = Vector2( 478.235, -150 )
+
+[node name="CoinObject8" parent="." instance=ExtResource( 5 )]
+position = Vector2( 542.428, -80 )
+
+[node name="CoinObject3" parent="." instance=ExtResource( 5 )]
+position = Vector2( 430, -40 )
+
+[node name="CoinObject4" parent="." instance=ExtResource( 5 )]
+position = Vector2( 460, -40 )
+
+[node name="CoinObject5" parent="." instance=ExtResource( 5 )]
+position = Vector2( 490, -40 )
+
+[node name="Follower" parent="." instance=ExtResource( 6 )]
+position = Vector2( 11, 230.398 )

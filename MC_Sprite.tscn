@@ -1,26 +1,34 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=36 format=2]
 
 [ext_resource path="res://KinematicBody2D.gd" type="Script" id=1]
 [ext_resource path="res://images/MC/MC-1.png" type="Texture" id=2]
 [ext_resource path="res://images/MC/MC_victory/MC_Victory0001.png" type="Texture" id=3]
 [ext_resource path="res://images/MC/MC_victory/MC_Victory0002.png" type="Texture" id=4]
 [ext_resource path="res://images/MC/MC_victory/MC_Victory0000.png" type="Texture" id=5]
-[ext_resource path="res://images/MC/MC_crawl/MC_Crawl0000.png" type="Texture" id=6]
-[ext_resource path="res://images/MC/MC_crawl/MC_Crawl0001.png" type="Texture" id=7]
-[ext_resource path="res://images/MC/MC_crawl/MC_Crawl0002.png" type="Texture" id=8]
-[ext_resource path="res://images/MC/MC_crawl/MC_Crawl0003.png" type="Texture" id=9]
-[ext_resource path="res://images/MC/MC_jump/4.png" type="Texture" id=10]
-[ext_resource path="res://images/MC/MC_jump/5.png" type="Texture" id=11]
-[ext_resource path="res://images/MC/MC-2.png" type="Texture" id=12]
-[ext_resource path="res://images/MC/MC-3.png" type="Texture" id=13]
-[ext_resource path="res://images/MC/MC_jump/6.png" type="Texture" id=14]
-[ext_resource path="res://images/MC/MC_jump/7.png" type="Texture" id=15]
+[ext_resource path="res://images/MC/MC_jump/4.png" type="Texture" id=6]
+[ext_resource path="res://images/MC/MC_jump/5.png" type="Texture" id=7]
+[ext_resource path="res://images/MC/MC_crawl/MC_Crawl0000.png" type="Texture" id=8]
+[ext_resource path="res://images/MC/MC_crawl/MC_Crawl0001.png" type="Texture" id=9]
+[ext_resource path="res://images/MC/MC_crawl/MC_Crawl0002.png" type="Texture" id=10]
+[ext_resource path="res://images/MC/MC_crawl/MC_Crawl0003.png" type="Texture" id=11]
+[ext_resource path="res://images/MC/MC_jump/6.png" type="Texture" id=12]
+[ext_resource path="res://images/MC/MC_jump/7.png" type="Texture" id=13]
+[ext_resource path="res://images/MC/MC-2.png" type="Texture" id=14]
+[ext_resource path="res://images/MC/MC-3.png" type="Texture" id=15]
 [ext_resource path="res://images/jumpCoin.png" type="Texture" id=16]
 [ext_resource path="res://images/jumpCoinActive.png" type="Texture" id=17]
 [ext_resource path="res://images/crawlCoin0000.png" type="Texture" id=18]
 [ext_resource path="res://images/crawlCoinActive.png" type="Texture" id=19]
 [ext_resource path="res://images/runCoin.png" type="Texture" id=20]
 [ext_resource path="res://images/runCoinActive.png" type="Texture" id=21]
+[ext_resource path="res://Jumping.Wav" type="AudioStream" id=22]
+[ext_resource path="res://Landing.Wav" type="AudioStream" id=23]
+[ext_resource path="res://Walking1.Wav" type="AudioStream" id=24]
+[ext_resource path="res://Walking2.Wav" type="AudioStream" id=25]
+[ext_resource path="res://Running1.Wav" type="AudioStream" id=26]
+[ext_resource path="res://Running2.Wav" type="AudioStream" id=27]
+[ext_resource path="res://Crawling1.Wav" type="AudioStream" id=28]
+[ext_resource path="res://Crawling2.Wav" type="AudioStream" id=29]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 11.8104, 24.6538 )
@@ -37,29 +45,31 @@ animations = [ {
 "name": "victory",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ) ],
-"loop": true,
-"name": "crawl",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 10 ), ExtResource( 11 ) ],
+
+"frames": [ ExtResource( 6 ), ExtResource( 7 ) ],
 "loop": false,
 "name": "Jump",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 2 ), ExtResource( 12 ), ExtResource( 2 ), ExtResource( 13 ) ],
+"frames": [ ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ) ],
 "loop": true,
-"name": "walk",
-"speed": 10.0
-}, {
-"frames": [ ExtResource( 6 ) ],
-"loop": true,
-"name": "duck",
+"name": "crawl",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 14 ), ExtResource( 15 ), ExtResource( 2 ) ],
+
+"frames": [ ExtResource( 12 ), ExtResource( 13 ), ExtResource( 2 ) ],
 "loop": true,
 "name": "Fall",
+"speed": 6.0
+}, {
+"frames": [ ExtResource( 2 ), ExtResource( 14 ), ExtResource( 2 ), ExtResource( 15 ) ],
+"loop": true,
+"name": "walk",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 8 ) ],
+"loop": true,
+"name": "duck",
 "speed": 5.0
 } ]
 
@@ -111,24 +121,19 @@ animations = [ {
 [node name="MC_Sprite" type="KinematicBody2D" groups=[
 "player",
 ]]
-position = Vector2( 14.2858, -19.6096 )
+position = Vector2( 42.3213, 438.226 )
 z_index = 1
 z_as_relative = false
 script = ExtResource( 1 )
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="Area2D" type="Area2D" parent="."]
-visible = false
+position = Vector2( 0, 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2( 50, 385 )
 shape = SubResource( 1 )
 
 [node name="Sprite" type="AnimatedSprite" parent="."]
-position = Vector2( 47.1426, 382.85 )
-scale = Vector2( 1, 0.99211 )
+position = Vector2( -0.857391, -0.342987 )
 frames = SubResource( 2 )
 animation = "idle"
 
@@ -167,6 +172,38 @@ frames = SubResource( 5 )
 visible = false
 position = Vector2( 590, 20 )
 frames = SubResource( 6 )
+
+[node name="Jump" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 22 )
+volume_db = -20.0
+
+[node name="Land" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 23 )
+
+[node name="Walk 1" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 24 )
+volume_db = -11.107
+
+[node name="Walk 2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 25 )
+volume_db = -10.097
+
+[node name="Run 1" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 26 )
+volume_db = -10.0
+
+[node name="Run 2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 27 )
+volume_db = -10.0
+
+[node name="Crawl 1" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 28 )
+volume_db = -22.0
+
+[node name="Crawl 2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 29 )
+volume_db = -22.0
+
 [connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]
 [connection signal="area_exited" from="Area2D" to="." method="_on_Area2D_area_exited"]
 [connection signal="animation_finished" from="Sprite" to="." method="_on_Sprite_animation_finished"]

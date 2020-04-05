@@ -16,3 +16,7 @@ func _ready():
 func _on_CoinObject_coinCollected():
 	coins = globals.coinCounter
 	text = "Coins: " + String(coins)
+
+
+func _on_CoinObject2_coinCollected():
+	pass # Replace with function body.
