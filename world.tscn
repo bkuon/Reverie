@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=2]
+[gd_scene load_steps=46 format=2]
 
 [ext_resource path="res://Minipuzzle_object.gd" type="Script" id=1]
 [ext_resource path="res://minipuzzle_sprite.png" type="Texture" id=2]
@@ -50,7 +50,6 @@ extents = Vector2( 11.0656, 15.163 )
 extents = Vector2( 16.2286, 25.9858 )
 
 [sub_resource type="SpriteFrames" id=5]
-
 animations = [ {
 "frames": [ ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 17 ), ExtResource( 16 ), ExtResource( 15 ) ],
 "loop": false,
@@ -67,21 +66,10 @@ extents = Vector2( 26.0112, 29.6226 )
 [sub_resource type="RectangleShape2D" id=8]
 extents = Vector2( 31.7174, 32.2113 )
 
-[sub_resource type="SpriteFrames" id=12]
-animations = [ {
-"frames": [ ExtResource( 23 ) ],
-"loop": true,
-"name": "idle",
-"speed": 5.0
-} ]
-
-[sub_resource type="CapsuleShape2D" id=13]
-radius = 11.7647
-height = 43.2331
-
 [node name="world" type="Node"]
 
 [node name="Minipuzzle Pad" type="Area2D" parent="."]
+editor/display_folded = true
 position = Vector2( 2.70752, 9.92749 )
 script = ExtResource( 1 )
 __meta__ = {
@@ -157,7 +145,7 @@ shape = SubResource( 2 )
 
 [node name="doorObject" type="StaticBody2D" parent="."]
 editor/display_folded = true
-position = Vector2( -5.58454, 1.06365 )
+position = Vector2( -5.54016, 1.10803 )
 script = ExtResource( 10 )
 __meta__ = {
 "_edit_group_": true
@@ -232,7 +220,7 @@ editor/display_folded = true
 script = ExtResource( 20 )
 
 [node name="NPC" type="Area2D" parent="NPC"]
-position = Vector2( 9.67964, -2.7879 )
+position = Vector2( 10.1949, 0.804993 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -240,13 +228,6 @@ __meta__ = {
 [node name="Sprite" type="Sprite" parent="NPC/NPC"]
 position = Vector2( 602, 399 )
 texture = ExtResource( 21 )
-
-[node name="KinematicBody2D" type="KinematicBody2D" parent="NPC/NPC/Sprite"]
-position = Vector2( -602, -399 )
-script = ExtResource( 24 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="NPC/NPC/Sprite"]
-shape = SubResource( 9 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NPC/NPC"]
 position = Vector2( 602.319, 401.151 )
@@ -336,6 +317,7 @@ autowrap = true
 clip_text = true
 
 [node name="inventory" type="Control" parent="."]
+editor/display_folded = true
 margin_right = 40.0
 margin_bottom = 40.0
 script = ExtResource( 29 )
@@ -344,6 +326,7 @@ __meta__ = {
 }
 
 [node name="TextureRect2" type="TextureRect" parent="inventory"]
+editor/display_folded = true
 margin_left = 1.07928
 margin_top = 69.0227
 margin_right = 51.0793
@@ -367,6 +350,7 @@ custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "I "
 
 [node name="TextureRect" type="TextureRect" parent="inventory"]
+editor/display_folded = true
 margin_left = 2.29254
 margin_top = 74.0975
 margin_right = 249.293
@@ -400,7 +384,6 @@ margin_bottom = 42.0
 texture = ExtResource( 31 )
 
 [node name="InventorySlots" type="GridContainer" parent="inventory/TextureRect"]
-editor/display_folded = true
 margin_left = 17.0
 margin_top = 53.0
 margin_right = 227.0
@@ -513,10 +496,9 @@ margin_bottom = 32.0
 [node name="BrandonEditTileMap" parent="." instance=ExtResource( 34 )]
 
 [node name="CoinCountDisplay" type="Control" parent="."]
-margin_left = -0.484924
-margin_top = -0.0592732
-margin_right = 39.5151
-margin_bottom = 39.9407
+editor/display_folded = true
+margin_right = 40.0
+margin_bottom = 40.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -594,7 +576,6 @@ margin_bottom = 305.0
 size_flags_horizontal = 6
 custom_fonts/font = ExtResource( 37 )
 text = "Close"
-
 [connection signal="coinCollected" from="CoinObject" to="CoinCountDisplay/CoinCountLabel" method="_on_CoinObject_coinCollected"]
 [connection signal="coinCollected" from="CoinObject2" to="CoinCountDisplay/CoinCountLabel" method="_on_CoinObject_coinCollected"]
 [connection signal="coinCollected" from="CoinObject3" to="CoinCountDisplay/CoinCountLabel" method="_on_CoinObject_coinCollected"]

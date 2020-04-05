@@ -12,11 +12,10 @@ animations = [ {
 } ]
 
 [sub_resource type="CapsuleShape2D" id=2]
-radius = 11.7647
-height = 43.2331
+radius = 19.933
+height = 14.6627
 
 [node name="NPC Movement" type="KinematicBody2D"]
-editor/display_folded = true
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_group_": true

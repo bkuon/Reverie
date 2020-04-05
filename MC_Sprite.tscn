@@ -74,47 +74,44 @@ animations = [ {
 } ]
 
 [sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 13.1832, 24 )
-
-[sub_resource type="CapsuleShape2D" id=7]
-height = 5.96954
+extents = Vector2( 11.9885, 24 )
 
 [sub_resource type="SpriteFrames" id=4]
 animations = [ {
-"frames": [ ExtResource( 17 ) ],
-"loop": true,
-"name": "active",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 16 ) ],
 "loop": true,
 "name": "default",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 17 ) ],
+"loop": true,
+"name": "active",
 "speed": 5.0
 } ]
 
 [sub_resource type="SpriteFrames" id=5]
 animations = [ {
-"frames": [ ExtResource( 19 ) ],
-"loop": true,
-"name": "active",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 18 ) ],
 "loop": true,
 "name": "default",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 19 ) ],
+"loop": true,
+"name": "active",
 "speed": 5.0
 } ]
 
 [sub_resource type="SpriteFrames" id=6]
 animations = [ {
-"frames": [ ExtResource( 21 ) ],
-"loop": true,
-"name": "active",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 20 ) ],
 "loop": true,
 "name": "default",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 21 ) ],
+"loop": true,
+"name": "active",
 "speed": 5.0
 } ]
 
@@ -138,18 +135,11 @@ frames = SubResource( 2 )
 animation = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
-position = Vector2( 48.6902, 382.884 )
+position = Vector2( 1.69019, -1.116 )
 shape = SubResource( 3 )
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
-position = Vector2( 47.143, 395.85 )
-scale = Vector2( 1, 0.99211 )
-shape = SubResource( 7 )
-
 [node name="Camera2D" type="Camera2D" parent="."]
-visible = false
-position = Vector2( 320, 240 )
+position = Vector2( 245, -216 )
 current = true
 limit_left = 0
 limit_top = 0
