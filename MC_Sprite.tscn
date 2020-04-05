@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://KinematicBody2D.gd" type="Script" id=1]
 [ext_resource path="res://images/MC/MC-1.png" type="Texture" id=2]
@@ -64,7 +64,10 @@ animations = [ {
 } ]
 
 [sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 13, 24 )
+extents = Vector2( 13.1832, 24 )
+
+[sub_resource type="CapsuleShape2D" id=7]
+height = 5.96954
 
 [sub_resource type="SpriteFrames" id=4]
 animations = [ {
@@ -108,7 +111,7 @@ animations = [ {
 [node name="MC_Sprite" type="KinematicBody2D" groups=[
 "player",
 ]]
-position = Vector2( 2.3213, -0.773773 )
+position = Vector2( 14.2858, -19.6096 )
 z_index = 1
 z_as_relative = false
 script = ExtResource( 1 )
@@ -117,6 +120,7 @@ __meta__ = {
 }
 
 [node name="Area2D" type="Area2D" parent="."]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2( 50, 385 )
@@ -129,10 +133,17 @@ frames = SubResource( 2 )
 animation = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2( 48.6902, 382.884 )
 shape = SubResource( 3 )
 
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2( 47.143, 395.85 )
+scale = Vector2( 1, 0.99211 )
+shape = SubResource( 7 )
+
 [node name="Camera2D" type="Camera2D" parent="."]
+visible = false
 position = Vector2( 320, 240 )
 current = true
 limit_left = 0

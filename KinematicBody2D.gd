@@ -22,10 +22,18 @@ var obj_name: String
 var obj = null
 
 var can_move = true
-
+var duck = 0
 
 func _physics_process(delta):
 		
+		
+	if duck == 0:
+		$CollisionShape2D2.disabled = true
+		$CollisionShape2D.disabled = false
+	else: 
+		$CollisionShape2D2.disabled = false
+		$CollisionShape2D.disabled = true
+	
 	if MC_Globals.canJump:
 		$AbilityLayer/jumpIcon.visible=true
 	if MC_Globals.canRun:
@@ -95,8 +103,8 @@ func _physics_process(delta):
 					
 	#Implement Duck Function
 	if Input.is_action_pressed("ui_down") and MC_Globals.canCrawl:
+		duck = 1
 		MC_Globals.isCrawling=true
-		#$CollisionShape2D.get_shape().set_extents(Vector2(30, 382))
 		$Sprite.play("duck")
 		$AbilityLayer/crawlIcon.play("active")
 		motion.x = 0
@@ -111,6 +119,8 @@ func _physics_process(delta):
 		MC_Globals.isCrawling=true
 		$AbilityLayer/crawlIcon.play("active")
 		motion.x = -DUCK_SPEED
+	else:
+		duck = 0
 	#End Duck Function
 
 	motion = move_and_slide(motion, UP)
