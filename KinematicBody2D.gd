@@ -142,7 +142,7 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("interact"):
 		if obj and (obj_name == "NPC" or obj_name == 'Enemy Puzzle1') and obj.can_speak:
 			can_move = false
-			$sprite.play("idle")
+			$Sprite.play("idle")
 			get_node("../DialogueParser").init_dialogue(obj_name)
 		
 	if is_on_floor():
