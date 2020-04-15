@@ -9,7 +9,7 @@ func _ready():
 func _input(ev):
 	if ev is InputEventKey and ev.scancode == KEY_ENTER and not ev.echo:
 		Settings.show()
- 	pass
+	pass
 
 func _on_Button_pressed():
 	Settings.hide()
@@ -21,7 +21,7 @@ func _on_HSlider_value_changed(value):
 
 
 func _on_CheckBox_toggled(button_pressed):
-    if button_pressed == true:
-        AudioServer.set_bus_mute(0,true)
-    elif button_pressed == false:
-        AudioServer.set_bus_mute(0,false)
+	if button_pressed == true:
+		AudioServer.set_bus_mute(0,true)
+	elif button_pressed == false:
+		AudioServer.set_bus_mute(0,false)

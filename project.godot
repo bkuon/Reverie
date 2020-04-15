@@ -28,7 +28,6 @@ MC_Globals="*res://MC_Globals.gd"
 
 window/size/width=640
 window/size/height=480
-window/size/resizable=false
 window/per_pixel_transparency/allowed=true
 
 [input]
@@ -101,4 +100,6 @@ merge={
 
 [rendering]
 
+quality/driver/driver_name="GLES2"
+environment/default_clear_color=Color( 0.941176, 0.890196, 0.788235, 1 )
 environment/default_environment="res://default_env.tres"
