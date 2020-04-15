@@ -1,0 +1,238 @@
+[gd_scene load_steps=33 format=2]
+
+[ext_resource path="res://Minipuzzle.tscn" type="PackedScene" id=1]
+[ext_resource path="res://KinematicBody2D.gd" type="Script" id=2]
+[ext_resource path="res://images/MC/MC-1.png" type="Texture" id=3]
+[ext_resource path="res://images/MC/MC-2.png" type="Texture" id=4]
+[ext_resource path="res://images/MC/MC-3.png" type="Texture" id=5]
+[ext_resource path="res://bluekey.gd" type="Script" id=6]
+[ext_resource path="res://images/Items/bluekey.png" type="Texture" id=7]
+[ext_resource path="res://dooropenclose.gd" type="Script" id=8]
+[ext_resource path="res://images/Items/doorclosed.png" type="Texture" id=9]
+[ext_resource path="res://images/tilesets/basic.tres" type="TileSet" id=10]
+[ext_resource path="res://button.gd" type="Script" id=11]
+[ext_resource path="res://images/Items/table1.png" type="Texture" id=12]
+[ext_resource path="res://images/Items/Button/button1.png" type="Texture" id=13]
+[ext_resource path="res://images/Items/Button/button2.png" type="Texture" id=14]
+[ext_resource path="res://images/Items/Button/button3.png" type="Texture" id=15]
+[ext_resource path="res://images/Items/Button/button5.png" type="Texture" id=16]
+[ext_resource path="res://images/Items/Button/button4.png" type="Texture" id=17]
+[ext_resource path="res://NPC.gd" type="Script" id=18]
+[ext_resource path="res://images/npcIdle.png" type="Texture" id=19]
+[ext_resource path="res://DialogueParser.gd" type="Script" id=20]
+[ext_resource path="res://Door.tscn" type="PackedScene" id=21]
+[ext_resource path="res://icon.png" type="Texture" id=22]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 3 ), ExtResource( 5 ) ],
+"loop": true,
+"name": "walk",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 13, 24 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 12.0269, 22.7418 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 16.5859, 10.0336 )
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 11.0656, 15.163 )
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 16.2286, 25.9858 )
+
+[sub_resource type="SpriteFrames" id=7]
+animations = [ {
+"frames": [ ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 14 ), ExtResource( 13 ) ],
+"loop": false,
+"name": "pressIn",
+"speed": 40.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=8]
+extents = Vector2( 20.8072, 15.8378 )
+
+[sub_resource type="RectangleShape2D" id=9]
+extents = Vector2( 16, 29.2846 )
+
+[sub_resource type="RectangleShape2D" id=10]
+extents = Vector2( 31.7174, 32.2113 )
+
+[node name="World" type="Node"]
+
+[node name="Minipuzzle Pad" parent="." instance=ExtResource( 1 )]
+position = Vector2( 415.394, 398.303 )
+scale = Vector2( 0.1, 0.1 )
+world_scene = "res://Game.tscn"
+
+[node name="MC_Sprite" type="KinematicBody2D" parent="." groups=[
+"player",
+]]
+editor/display_folded = true
+position = Vector2( 390.19, 405.752 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="sprite" type="AnimatedSprite" parent="MC_Sprite"]
+frames = SubResource( 1 )
+animation = "idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MC_Sprite"]
+position = Vector2( 0, 1 )
+shape = SubResource( 2 )
+
+[node name="Area2D" type="Area2D" parent="MC_Sprite"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MC_Sprite/Area2D"]
+shape = SubResource( 3 )
+
+[node name="keyObject" type="RigidBody2D" parent="." groups=[
+"inventoryItem",
+]]
+editor/display_folded = true
+collision_layer = 2
+collision_mask = 2
+gravity_scale = 0.0
+script = ExtResource( 6 )
+
+[node name="bluekey" type="Area2D" parent="keyObject"]
+position = Vector2( 296.936, 417.938 )
+gravity_point = true
+gravity_vec = Vector2( 0, 0 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="keyObject/bluekey"]
+position = Vector2( 1.02673, 2.82336 )
+scale = Vector2( 0.775414, 0.695201 )
+texture = ExtResource( 7 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="keyObject/bluekey"]
+position = Vector2( 1.55856, 2.81018 )
+shape = SubResource( 4 )
+
+[node name="doorObject" type="StaticBody2D" parent="."]
+editor/display_folded = true
+script = ExtResource( 8 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="doorObject"]
+position = Vector2( 196.944, 405.818 )
+shape = SubResource( 5 )
+
+[node name="doorObj" type="Area2D" parent="doorObject"]
+position = Vector2( 357.265, 344.806 )
+gravity_point = true
+gravity_vec = Vector2( 0, 0 )
+
+[node name="doorSprite" type="Sprite" parent="doorObject/doorObj"]
+position = Vector2( -164.894, 60.6919 )
+scale = Vector2( 1.82697, 1.66617 )
+z_index = -1
+texture = ExtResource( 9 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="doorObject/doorObj"]
+position = Vector2( -158.994, 61.0124 )
+shape = SubResource( 6 )
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource( 10 )
+cell_size = Vector2( 16, 16 )
+cell_quadrant_size = 25
+format = 1
+tile_data = PoolIntArray( 1769472, 1, 0, 1769473, 1, 0, 1769474, 1, 0, 1769475, 1, 0, 1769476, 1, 0, 1769477, 1, 0, 1769478, 1, 0, 1769479, 1, 0, 1769480, 1, 0, 1769481, 1, 0, 1769482, 1, 0, 1769483, 1, 0, 1769484, 0, 0, 1769485, 0, 0, 1769486, 0, 0, 1769487, 0, 0, 1769488, 0, 0, 1769489, 0, 0, 1769490, 0, 0, 1769491, 0, 0, 1769492, 0, 0, 1769493, 0, 0, 1769494, 0, 0, 1769495, 0, 0, 1769496, 0, 0, 1769497, 0, 0, 1769498, 0, 0, 1769499, 0, 0, 1769500, 0, 0, 1769501, 0, 0, 1769502, 0, 0, 1769503, 0, 0, 1769504, 0, 0, 1769505, 0, 0, 1769506, 0, 0, 1769507, 0, 0, 1769508, 0, 0, 1769509, 0, 0, 1769510, 0, 0 )
+
+[node name="button" type="StaticBody2D" parent="."]
+editor/display_folded = true
+script = ExtResource( 11 )
+
+[node name="table_button" type="Area2D" parent="button"]
+position = Vector2( -1.52588e-005, 0 )
+collision_layer = 2
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="table1" type="Sprite" parent="button/table_button"]
+position = Vector2( 102.251, 416.157 )
+scale = Vector2( 2.14858, 2.01075 )
+texture = ExtResource( 12 )
+
+[node name="button" type="AnimatedSprite" parent="button/table_button"]
+position = Vector2( 101.83, 398.051 )
+scale = Vector2( 1.74634, 1.99512 )
+frames = SubResource( 7 )
+animation = "pressIn"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="button/table_button"]
+position = Vector2( 104.258, 415.99 )
+z_index = 2
+shape = SubResource( 8 )
+
+[node name="NPC" type="StaticBody2D" parent="."]
+editor/display_folded = true
+script = ExtResource( 18 )
+
+[node name="NPC" type="Area2D" parent="NPC"]
+
+[node name="Sprite" type="Sprite" parent="NPC/NPC"]
+position = Vector2( 575, 399 )
+texture = ExtResource( 19 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NPC/NPC"]
+position = Vector2( 574, 404 )
+shape = SubResource( 9 )
+
+[node name="DialogueParser" type="Node2D" parent="."]
+editor/display_folded = true
+script = ExtResource( 20 )
+
+[node name="Panel" type="Panel" parent="DialogueParser"]
+margin_left = 169.0
+margin_top = 274.0
+margin_right = 541.0
+margin_bottom = 334.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="RichTextLabel" parent="DialogueParser/Panel"]
+margin_left = 39.0
+margin_top = 7.0
+margin_right = 410.0
+margin_bottom = 46.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Door" parent="." instance=ExtResource( 21 )]
+position = Vector2( 467.511, 395.579 )
+z_index = -1
+
+[node name="Boundary" type="StaticBody2D" parent="."]
+position = Vector2( -31.3277, 400.92 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Boundary"]
+modulate = Color( 0, 0, 0, 1 )
+texture = ExtResource( 22 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundary"]
+shape = SubResource( 10 )
+[connection signal="area_entered" from="MC_Sprite/Area2D" to="MC_Sprite" method="_on_Area2D_area_entered"]
+[connection signal="area_exited" from="MC_Sprite/Area2D" to="MC_Sprite" method="_on_Area2D_area_exited"]
+[connection signal="done_talking" from="DialogueParser" to="MC_Sprite" method="_on_DialogueParser_done_talking"]
