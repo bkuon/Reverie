@@ -1,0 +1,55 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://bluekey.gd" type="Script" id=1]
+[ext_resource path="res://images/Items/greenupper.png" type="Texture" id=2]
+[ext_resource path="res://images/Items/greenlower.png" type="Texture" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 16.5859, 10.0336 )
+
+[node name="keyObject" type="RigidBody2D"]
+editor/display_folded = true
+collision_layer = 2
+collision_mask = 2
+gravity_scale = 0.0
+script = ExtResource( 1 )
+
+[node name="greenupper" type="Area2D" parent="." groups=[
+"inventoryItem",
+]]
+editor/display_folded = true
+position = Vector2( 260.181, 230.315 )
+gravity_point = true
+gravity_vec = Vector2( 0, 0 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="greenupper"]
+position = Vector2( 1.02673, 2.82336 )
+scale = Vector2( 0.775414, 0.695201 )
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="greenupper"]
+position = Vector2( 1.55856, 2.81018 )
+shape = SubResource( 1 )
+
+[node name="greenlower" type="Area2D" parent="." groups=[
+"inventoryItem",
+]]
+editor/display_folded = true
+position = Vector2( 636.616, 226.018 )
+gravity_point = true
+gravity_vec = Vector2( 0, 0 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="greenlower"]
+position = Vector2( 1.02673, 2.82336 )
+scale = Vector2( 0.775414, 0.695201 )
+texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="greenlower"]
+position = Vector2( 1.55856, 2.81018 )
+shape = SubResource( 1 )
