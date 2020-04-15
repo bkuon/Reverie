@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Crawling1.Wav-1d7ac7e11bc2f27660cece27e5440207.sample"
+
+[deps]
+
+source_file="res://Crawling1.Wav"
+dest_files=[ "res://.import/Crawling1.Wav-1d7ac7e11bc2f27660cece27e5440207.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0
