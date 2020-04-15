@@ -14,6 +14,15 @@
       "I don't wanna say.": "ok?"
     },
   },
+  "Enemy Puzzle1": {
+    "start": [
+      "Do you dare accept my challenge?"
+    ],
+    "choices": {
+      "I'm ready": "Excellent",
+      "Uh, maybe later": "Very well."
+    },
+  },
   "doorObj" : {
     "start" : [
       
