@@ -7,7 +7,6 @@
 [ext_resource path="res://images/backgrounds/itembackground.png" type="Texture" id=5]
 
 [node name="inventory" type="Control"]
-editor/display_folded = true
 margin_right = 40.0
 margin_bottom = 40.0
 script = ExtResource( 1 )
@@ -40,7 +39,6 @@ custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "I "
 
 [node name="TextureRect" type="TextureRect" parent="."]
-editor/display_folded = true
 margin_left = 2.29254
 margin_top = 74.0975
 margin_right = 249.293
@@ -94,6 +92,7 @@ margin_right = 41.0
 margin_bottom = 33.0
 
 [node name="2" type="TextureRect" parent="TextureRect/InventorySlots"]
+editor/display_folded = true
 margin_left = 53.0
 margin_right = 97.0
 margin_bottom = 36.0
@@ -106,6 +105,7 @@ margin_right = 41.0
 margin_bottom = 33.0
 
 [node name="3" type="TextureRect" parent="TextureRect/InventorySlots"]
+editor/display_folded = true
 margin_left = 106.0
 margin_right = 150.0
 margin_bottom = 36.0

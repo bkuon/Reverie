@@ -283,7 +283,6 @@ scale = Vector2( 3.44418, 2.19299 )
 texture = ExtResource( 28 )
 
 [node name="FollowerObject" type="KinematicBody2D" parent="."]
-editor/display_folded = true
 position = Vector2( 12.6332, 587.902 )
 script = ExtResource( 29 )
 
@@ -312,6 +311,7 @@ autowrap = true
 clip_text = true
 
 [node name="inventory" type="Control" parent="."]
+editor/display_folded = true
 margin_right = 40.0
 margin_bottom = 40.0
 script = ExtResource( 31 )

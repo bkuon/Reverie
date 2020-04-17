@@ -27,7 +27,6 @@ position = Vector2( 1.93613, -168.733 )
 texture = ExtResource( 3 )
 
 [node name="Menu" type="VBoxContainer" parent="."]
-editor/display_folded = true
 light_mask = 0
 margin_left = 120.0
 margin_top = 126.56

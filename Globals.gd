@@ -48,3 +48,6 @@ func _input(event):
 func addToInventory(itemName):
 	var itemNum = inventory.size()
 	inventory.append(itemName)
+	
+func setCompanion(link):
+	print(link)
