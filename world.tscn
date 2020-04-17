@@ -589,7 +589,7 @@ scroll_base_scale = Vector2( 0.5, 0.5 )
 motion_mirroring = Vector2( 750, 0 )
 
 [node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
-position = Vector2( 577.189, 331.914 )
+position = Vector2( 574.189, 331.914 )
 scale = Vector2( 0.4, 0.4 )
 texture = ExtResource( 40 )
 [connection signal="coinCollected" from="CoinObject" to="CoinCountDisplay/CoinCountLabel" method="_on_CoinObject_coinCollected"]
