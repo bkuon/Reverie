@@ -1,23 +1,25 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://MC_Sprite.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Elevator.tscn" type="PackedScene" id=2]
 [ext_resource path="res://images/Environment/Level1Text.bmp" type="Texture" id=3]
 [ext_resource path="res://updatedTileSet.tres" type="TileSet" id=4]
-[ext_resource path="res://CoinObject.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Follower.tscn" type="PackedScene" id=6]
-[ext_resource path="res://images/backgrounds/parallax-background-level-1.jpg" type="Texture" id=7]
-[ext_resource path="res://bluekey.gd" type="Script" id=8]
-[ext_resource path="res://images/Items/greenupper.png" type="Texture" id=9]
-[ext_resource path="res://images/Items/greenlower.png" type="Texture" id=10]
-[ext_resource path="res://jumpItem.gd" type="Script" id=11]
-[ext_resource path="res://images/jumpAbility0000.png" type="Texture" id=12]
-[ext_resource path="res://images/jumpAbility0001.png" type="Texture" id=13]
-[ext_resource path="res://inventory.gd" type="Script" id=14]
-[ext_resource path="res://images/backgrounds/minipaperbg.png" type="Texture" id=15]
-[ext_resource path="res://images/Items/bag.png" type="Texture" id=16]
-[ext_resource path="res://images/backgrounds/paperbackground.png" type="Texture" id=17]
-[ext_resource path="res://images/backgrounds/itembackground.png" type="Texture" id=18]
+[ext_resource path="res://CoinCountDisplay.tscn" type="PackedScene" id=5]
+[ext_resource path="res://CoinObject.tscn" type="PackedScene" id=6]
+[ext_resource path="res://StoreObject.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Follower.tscn" type="PackedScene" id=8]
+[ext_resource path="res://images/backgrounds/parallax-background-level-1.jpg" type="Texture" id=9]
+[ext_resource path="res://bluekey.gd" type="Script" id=10]
+[ext_resource path="res://images/Items/greenupper.png" type="Texture" id=11]
+[ext_resource path="res://images/Items/greenlower.png" type="Texture" id=12]
+[ext_resource path="res://jumpItem.gd" type="Script" id=13]
+[ext_resource path="res://images/jumpAbility0000.png" type="Texture" id=14]
+[ext_resource path="res://images/jumpAbility0001.png" type="Texture" id=15]
+[ext_resource path="res://inventory.gd" type="Script" id=16]
+[ext_resource path="res://images/backgrounds/minipaperbg.png" type="Texture" id=17]
+[ext_resource path="res://images/Items/bag.png" type="Texture" id=18]
+[ext_resource path="res://images/backgrounds/paperbackground.png" type="Texture" id=19]
+[ext_resource path="res://images/backgrounds/itembackground.png" type="Texture" id=20]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 16.5859, 10.0336 )
@@ -26,7 +28,7 @@ extents = Vector2( 16.5859, 10.0336 )
 
 [sub_resource type="SpriteFrames" id=3]
 animations = [ {
-"frames": [ ExtResource( 12 ), ExtResource( 13 ) ],
+"frames": [ ExtResource( 14 ), ExtResource( 15 ) ],
 "loop": true,
 "name": "default",
 "speed": 2.0
@@ -58,26 +60,34 @@ cell_size = Vector2( 16, 16 )
 format = 1
 tile_data = PoolIntArray( 262207, 0, 0, 262208, 0, 0, 262209, 0, 0, 262210, 0, 0, 262211, 0, 0, 262212, 0, 0, 262213, 0, 0, 262214, 0, 0, 262215, 0, 0, 262216, 0, 0, 262217, 0, 0, 262218, 0, 0, 262219, 0, 0, 262220, 0, 0, 262221, 0, 0, 262222, 0, 0, 262223, 0, 0, 262224, 0, 0, 262225, 0, 0, 262226, 0, 0, 262227, 0, 0, 262228, 0, 0, 262229, 0, 0, 262230, 0, 0, 262231, 0, 0, 262232, 0, 0, 262233, 0, 0, 262234, 0, 0, 262235, 0, 0, 262236, 0, 0, 262237, 0, 0, 262238, 0, 0, 262239, 0, 0, 327742, 0, 0, 393277, 0, 0, 458812, 0, 0, 524347, 0, 0, 589882, 0, 0, 655417, 0, 0, 720951, 0, 0, 720952, 0, 0, 786487, 0, 0, 852021, 0, 0, 852022, 0, 0, 917556, 0, 0, 983040, 0, 0, 983041, 0, 0, 983042, 0, 0, 983043, 0, 0, 983044, 0, 0, 983045, 0, 0, 983046, 0, 0, 983047, 0, 0, 983048, 0, 0, 983049, 0, 0, 983050, 0, 0, 983051, 0, 0, 983052, 0, 0, 983053, 0, 0, 983054, 0, 0, 983055, 0, 0, 983056, 0, 0, 983057, 0, 0, 983058, 0, 0, 983059, 0, 0, 983060, 0, 0, 983061, 0, 0, 983091, 0, 0, 1048576, 0, 0, 1048577, 0, 0, 1048578, 0, 0, 1048579, 0, 0, 1048580, 0, 0, 1048581, 0, 0, 1048582, 0, 0, 1048583, 0, 0, 1048584, 0, 0, 1048585, 0, 0, 1048586, 0, 0, 1048598, 0, 0, 1048626, 0, 0, 1114135, 0, 0, 1114160, 0, 0, 1114161, 0, 0, 1179672, 0, 0, 1179673, 0, 0, 1179674, 0, 0, 1179675, 0, 0, 1179676, 0, 0, 1179677, 0, 0, 1179678, 0, 0, 1179679, 0, 0, 1179680, 0, 0, 1179681, 0, 0, 1179682, 0, 0, 1179683, 0, 0, 1179684, 0, 0, 1179685, 0, 0, 1179686, 0, 0, 1179687, 0, 0, 1179688, 0, 0, 1179689, 0, 0, 1179690, 0, 0, 1179691, 0, 0, 1179692, 0, 0, 1179693, 0, 0, 1179694, 0, 0, 1179695, 0, 0 )
 
-[node name="CoinObject" parent="." instance=ExtResource( 5 )]
-position = Vector2( 432, -151.272 )
+[node name="CoinCountDisplay" parent="." instance=ExtResource( 5 )]
+margin_left = 389.001
+margin_top = 306.001
+margin_right = 599.001
+margin_bottom = 409.001
 
-[node name="CoinObject4" parent="." instance=ExtResource( 5 )]
-position = Vector2( 546, -208 )
+[node name="CoinObject" parent="." instance=ExtResource( 6 )]
+position = Vector2( 188.907, -196.698 )
 
-[node name="CoinObject2" parent="." instance=ExtResource( 5 )]
-position = Vector2( 479, -208 )
+[node name="CoinObject4" parent="." instance=ExtResource( 6 )]
+position = Vector2( 302.907, -253.426 )
 
-[node name="CoinObject5" parent="." instance=ExtResource( 5 )]
-position = Vector2( 579, -148 )
+[node name="CoinObject2" parent="." instance=ExtResource( 6 )]
+position = Vector2( 235.907, -253.426 )
 
-[node name="CoinObject3" parent="." instance=ExtResource( 5 )]
-position = Vector2( 500, -149.272 )
+[node name="CoinObject5" parent="." instance=ExtResource( 6 )]
+position = Vector2( 335.907, -193.426 )
 
-[node name="Follower" parent="." instance=ExtResource( 6 )]
+[node name="CoinObject3" parent="." instance=ExtResource( 6 )]
+position = Vector2( 256.907, -194.698 )
+
+[node name="StoreObject" parent="." instance=ExtResource( 7 )]
+position = Vector2( 578.096, 228.705 )
+
+[node name="Follower" parent="." instance=ExtResource( 8 )]
 position = Vector2( 13, 227.398 )
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
-editor/display_folded = true
 scroll_base_scale = Vector2( 0.5, 0.5 )
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
@@ -86,19 +96,17 @@ motion_mirroring = Vector2( 900, 600 )
 [node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
 position = Vector2( 449.268, 301.303 )
 scale = Vector2( 0.75, 0.75 )
-texture = ExtResource( 7 )
+texture = ExtResource( 9 )
 
 [node name="keyObject" type="RigidBody2D" parent="."]
-editor/display_folded = true
 collision_layer = 2
 collision_mask = 2
 gravity_scale = 0.0
-script = ExtResource( 8 )
+script = ExtResource( 10 )
 
 [node name="greenupper" type="Area2D" parent="keyObject" groups=[
 "inventoryItem",
 ]]
-editor/display_folded = true
 position = Vector2( 193.181, 232.315 )
 gravity_point = true
 gravity_vec = Vector2( 0, 0 )
@@ -109,7 +117,7 @@ __meta__ = {
 [node name="Sprite" type="Sprite" parent="keyObject/greenupper"]
 position = Vector2( 1.02673, 2.82336 )
 scale = Vector2( 0.775414, 0.695201 )
-texture = ExtResource( 9 )
+texture = ExtResource( 11 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="keyObject/greenupper"]
 position = Vector2( 1.55856, 2.81018 )
@@ -118,7 +126,6 @@ shape = SubResource( 1 )
 [node name="greenlower" type="Area2D" parent="keyObject" groups=[
 "inventoryItem",
 ]]
-editor/display_folded = true
 position = Vector2( 284.616, 228.018 )
 gravity_point = true
 gravity_vec = Vector2( 0, 0 )
@@ -129,7 +136,7 @@ __meta__ = {
 [node name="Sprite" type="Sprite" parent="keyObject/greenlower"]
 position = Vector2( 1.02673, 2.82336 )
 scale = Vector2( 0.775414, 0.695201 )
-texture = ExtResource( 10 )
+texture = ExtResource( 12 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="keyObject/greenlower"]
 position = Vector2( 1.55856, 2.81018 )
@@ -137,7 +144,7 @@ shape = SubResource( 1 )
 
 [node name="jumpItemArea" type="StaticBody2D" parent="."]
 editor/display_folded = true
-script = ExtResource( 11 )
+script = ExtResource( 13 )
 
 [node name="Label" type="Label" parent="jumpItemArea"]
 visible = false
@@ -158,6 +165,7 @@ __meta__ = {
 
 [node name="jumpItemSprite" type="AnimatedSprite" parent="jumpItemArea/jumpItem"]
 frames = SubResource( 3 )
+frame = 1
 playing = true
 
 [node name="jumpItemBox" type="CollisionShape2D" parent="jumpItemArea/jumpItem"]
@@ -166,7 +174,7 @@ shape = SubResource( 4 )
 [node name="inventory" type="Control" parent="."]
 margin_right = 40.0
 margin_bottom = 40.0
-script = ExtResource( 14 )
+script = ExtResource( 16 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -177,7 +185,7 @@ margin_left = 1.07928
 margin_top = 4.02267
 margin_right = 51.0793
 margin_bottom = 40.023
-texture = ExtResource( 15 )
+texture = ExtResource( 17 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -185,7 +193,7 @@ __meta__ = {
 [node name="TextureRect" type="TextureRect" parent="inventory/TextureRect2"]
 margin_right = 40.0
 margin_bottom = 40.0
-texture = ExtResource( 16 )
+texture = ExtResource( 18 )
 
 [node name="Label" type="Label" parent="inventory/TextureRect2"]
 margin_left = 34.9275
@@ -201,7 +209,7 @@ margin_left = 1.29254
 margin_top = 1.09747
 margin_right = 248.293
 margin_bottom = 175.098
-texture = ExtResource( 17 )
+texture = ExtResource( 19 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -227,7 +235,7 @@ margin_left = 15.0
 margin_top = 10.0
 margin_right = 47.0
 margin_bottom = 42.0
-texture = ExtResource( 16 )
+texture = ExtResource( 18 )
 
 [node name="InventorySlots" type="GridContainer" parent="inventory/TextureRect"]
 margin_left = 17.0
@@ -241,7 +249,7 @@ columns = 4
 [node name="1" type="TextureRect" parent="inventory/TextureRect/InventorySlots"]
 margin_right = 44.0
 margin_bottom = 36.0
-texture = ExtResource( 18 )
+texture = ExtResource( 20 )
 
 [node name="LootButton" type="TextureButton" parent="inventory/TextureRect/InventorySlots/1"]
 margin_left = 3.0
@@ -253,7 +261,7 @@ margin_bottom = 33.0
 margin_left = 53.0
 margin_right = 97.0
 margin_bottom = 36.0
-texture = ExtResource( 18 )
+texture = ExtResource( 20 )
 
 [node name="LootButton" type="TextureButton" parent="inventory/TextureRect/InventorySlots/2"]
 margin_left = 3.0
@@ -265,7 +273,7 @@ margin_bottom = 33.0
 margin_left = 106.0
 margin_right = 150.0
 margin_bottom = 36.0
-texture = ExtResource( 18 )
+texture = ExtResource( 20 )
 
 [node name="LootButton" type="TextureButton" parent="inventory/TextureRect/InventorySlots/3"]
 margin_left = 3.0
@@ -277,7 +285,7 @@ margin_bottom = 33.0
 margin_left = 159.0
 margin_right = 203.0
 margin_bottom = 36.0
-texture = ExtResource( 18 )
+texture = ExtResource( 20 )
 
 [node name="LootButton" type="TextureButton" parent="inventory/TextureRect/InventorySlots/4"]
 margin_left = 2.0
@@ -289,7 +297,7 @@ margin_bottom = 33.0
 margin_top = 43.0
 margin_right = 44.0
 margin_bottom = 79.0
-texture = ExtResource( 18 )
+texture = ExtResource( 20 )
 
 [node name="LootButton" type="TextureButton" parent="inventory/TextureRect/InventorySlots/5"]
 margin_left = 3.0
@@ -302,7 +310,7 @@ margin_left = 53.0
 margin_top = 43.0
 margin_right = 97.0
 margin_bottom = 79.0
-texture = ExtResource( 18 )
+texture = ExtResource( 20 )
 
 [node name="LootButton" type="TextureButton" parent="inventory/TextureRect/InventorySlots/6"]
 margin_left = 3.0
@@ -315,7 +323,7 @@ margin_left = 106.0
 margin_top = 43.0
 margin_right = 150.0
 margin_bottom = 79.0
-texture = ExtResource( 18 )
+texture = ExtResource( 20 )
 
 [node name="LootButton" type="TextureButton" parent="inventory/TextureRect/InventorySlots/7"]
 margin_left = 2.0
@@ -331,7 +339,7 @@ margin_left = 159.0
 margin_top = 43.0
 margin_right = 203.0
 margin_bottom = 79.0
-texture = ExtResource( 18 )
+texture = ExtResource( 20 )
 
 [node name="LootButton" type="TextureButton" parent="inventory/TextureRect/InventorySlots/8"]
 margin_left = 2.0
