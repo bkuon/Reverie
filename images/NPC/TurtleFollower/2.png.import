@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/1.png-642e7f3f09077bb909b18bc0df798099.stex"
+path="res://.import/2.png-da7323e5953325ce484ab04ea0a9f074.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/NPC/CupcakeFollower/1.png"
-dest_files=[ "res://.import/1.png-642e7f3f09077bb909b18bc0df798099.stex" ]
+source_file="res://images/NPC/TurtleFollower/2.png"
+dest_files=[ "res://.import/2.png-da7323e5953325ce484ab04ea0a9f074.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=false
+flags/filter=true
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
