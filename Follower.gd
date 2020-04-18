@@ -3,6 +3,7 @@ extends KinematicBody2D
 onready var Player = get_node("../MC_Sprite")
 onready var label = get_node("Panel/Label")
 onready var panel = get_node("Panel")
+onready var globals = get_node("/root/Globals")
 const GRAVITY = 10
 const RESISTANCE = Vector2(0,-1)
 const UP = Vector2(0, -1) 
@@ -23,7 +24,9 @@ var max_dis = 50
 func _ready():
 	action_time = OS.get_ticks_msec() #for entering scene
 	print("player position: ", Player.get_position())
-	print("my_position: ", get_position())
+	print("my_position: ", get_position())	
+	var link = globals.followerImage
+	get_node("Sprite").set_texture(load("res://images/NPC/" + str(link) +"/1.png"))
 
 func _input(event):
 	if Input.is_action_just_pressed("ui_accept"):
