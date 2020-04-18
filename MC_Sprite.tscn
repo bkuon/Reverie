@@ -11,10 +11,10 @@
 [ext_resource path="res://images/MC/MC_crawl/MC_Crawl0001.png" type="Texture" id=9]
 [ext_resource path="res://images/MC/MC_crawl/MC_Crawl0002.png" type="Texture" id=10]
 [ext_resource path="res://images/MC/MC_crawl/MC_Crawl0003.png" type="Texture" id=11]
-[ext_resource path="res://images/MC/MC_jump/6.png" type="Texture" id=12]
-[ext_resource path="res://images/MC/MC_jump/7.png" type="Texture" id=13]
-[ext_resource path="res://images/MC/MC-2.png" type="Texture" id=14]
-[ext_resource path="res://images/MC/MC-3.png" type="Texture" id=15]
+[ext_resource path="res://images/MC/MC-2.png" type="Texture" id=12]
+[ext_resource path="res://images/MC/MC-3.png" type="Texture" id=13]
+[ext_resource path="res://images/MC/MC_jump/6.png" type="Texture" id=14]
+[ext_resource path="res://images/MC/MC_jump/7.png" type="Texture" id=15]
 [ext_resource path="res://images/jumpCoin.png" type="Texture" id=16]
 [ext_resource path="res://images/jumpCoinActive.png" type="Texture" id=17]
 [ext_resource path="res://images/crawlCoin0000.png" type="Texture" id=18]
@@ -55,12 +55,8 @@ animations = [ {
 "name": "crawl",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 12 ), ExtResource( 13 ), ExtResource( 2 ) ],
-"loop": true,
-"name": "Fall",
-"speed": 6.0
-}, {
-"frames": [ ExtResource( 2 ), ExtResource( 14 ), ExtResource( 2 ), ExtResource( 15 ) ],
+
+"frames": [ ExtResource( 2 ), ExtResource( 12 ), ExtResource( 2 ), ExtResource( 13 ) ],
 "loop": true,
 "name": "walk",
 "speed": 5.0
@@ -69,6 +65,11 @@ animations = [ {
 "loop": true,
 "name": "duck",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 14 ), ExtResource( 15 ), ExtResource( 2 ) ],
+"loop": true,
+"name": "Fall",
+"speed": 6.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=3]
@@ -116,12 +117,16 @@ animations = [ {
 [node name="MC_Sprite" type="KinematicBody2D" groups=[
 "player",
 ]]
-position = Vector2( 42.3213, 438.226 )
+position = Vector2( 42, 438 )
 z_index = 1
 z_as_relative = false
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Area2D" type="Area2D" parent="."]
+editor/display_folded = true
 position = Vector2( 0, 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
@@ -196,8 +201,8 @@ current = true
 limit_left = 0
 limit_top = 0
 limit_smoothed = true
-offset_h = 0.56
 offset_v = -1.0
+offset_h = 0.56
 drag_margin_left = 0.25
 editor_draw_drag_margin = true
 [connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]

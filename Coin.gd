@@ -26,4 +26,3 @@ func _process(delta):
 			#queue_free()
 	
 	pass
-
