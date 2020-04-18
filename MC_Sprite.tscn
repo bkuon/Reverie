@@ -55,6 +55,7 @@ animations = [ {
 "name": "crawl",
 "speed": 5.0
 }, {
+
 "frames": [ ExtResource( 2 ), ExtResource( 12 ), ExtResource( 2 ), ExtResource( 13 ) ],
 "loop": true,
 "name": "walk",
