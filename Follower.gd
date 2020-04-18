@@ -23,7 +23,7 @@ var max_dis = 50
 func _ready():
 	action_time = OS.get_ticks_msec() #for entering scene
 	print("player position: ", Player.get_position())
-	print("my_position: ", get_position())
+	print("my_position: ", get_position())	
 
 func _input(event):
 	if Input.is_action_just_pressed("ui_accept"):

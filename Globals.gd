@@ -15,6 +15,7 @@ var unlocked = false
 var coinCounter = 0
 var inventory = []
 var mergeableItems = ["greenupper", "greenlower", "greenkey"]
+var followerImage
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -50,4 +51,4 @@ func addToInventory(itemName):
 	inventory.append(itemName)
 	
 func setCompanion(link):
-	print(link)
+	followerImage = link

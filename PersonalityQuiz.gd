@@ -2,7 +2,7 @@ extends Control
 
 var people = [0, 0, 0, 0, 0, 0, 0]
 var names = ["Joshua", "Aram", "Brandon", "Cierra", "Luna", "Patrick", "Kendall"]
-var companions = ["CupcakeFollower", "CatNPC"]
+var companions = ["BookFollower", "AppleFollower", "CatNPC", "CatNPC", "CupcakeFollower", "CatNPC", "TurtleFollower"]
 var button1list = ["06", "0", "0", "0", "014"]
 var button2list = ["15", "1", "1", "1", "23"]
 var button3list = ["23", "2", "24", "2", "56"]
@@ -24,6 +24,7 @@ func _ready():
 	answers.append(["Rewind Time", "Teleportation", "Telepathy", "Being Rich", "Pause Time", "Flight", "Glow in the dark hands"])
 	answers.append(["Spring", "Summer", "Fall"])
 	get_node("Button").visible = false
+	get_node("Button8").visible = false
 	prepareQuestion()
 	
 	
@@ -54,13 +55,14 @@ func hideButtons():
 
 func setCompanion(n):
 	var personName = names[n]
-	var companion = "res://images/NPC/" + companions[0] +"/pq.png"
+	var companion = "res://images/NPC/" + companions[n] +"/pq.png"
 	hideButtons()
 	get_node("Label").visible = false
 	get_node("Label2").text = "Your answers were most like " + personName + "!"
 	get_node("Button").visible = true
+	get_node("Button8").visible = true
 	get_node("Sprite").set_texture(load(companion))
-	globals.setCompanion(companions[0])
+	globals.setCompanion(companions[n])
 
 func _on_Button1_pressed():
 	for n in button1list[index].length():
@@ -111,6 +113,9 @@ func _on_Button7_pressed():
 	index = index + 1
 	prepareQuestion()
 
-
 func _on_Button_pressed():
 	get_tree().change_scene("world.tscn")
+
+
+func _on_Button8_pressed():
+	get_tree().change_scene("PersonalityQuiz.tscn")
