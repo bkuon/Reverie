@@ -5,13 +5,12 @@
   },
   "NPC": {
     "start": [
-      "hi",
-      "I'm Bob!",
-      "Do you have a name?."
+      "Hello! My name is Bob.",
+      "Do you have a name?"
     ],
     "choices": {
-      "I have no name.": "oh no",
-      "I don't wanna say.": "ok?"
+      "I have no name.": ["It's sad that you don't have a name", "I know what will cheer you up!", "Press 2 at the elevator! There's something cool there."],
+      "I don't wanna say.": ["You don't have to tell me your name.", "I will just call you Buddy!", "By the way, Buddy, have you found the pieces to the green key?", "Maybe you should look on another level."],
     },
   },
   "Enemy Puzzle1": {

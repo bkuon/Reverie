@@ -351,7 +351,6 @@ position = Vector2( 203.158, -1123.16 )
 position = Vector2( 398.947, -1301.05 )
 
 [node name="Follower" type="KinematicBody2D" parent="."]
-editor/display_folded = true
 position = Vector2( 15.0139, 230.278 )
 collision_layer = 0
 script = ExtResource( 16 )

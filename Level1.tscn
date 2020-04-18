@@ -77,7 +77,6 @@ position = Vector2( 500, -149.272 )
 position = Vector2( 13, 227.398 )
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
-editor/display_folded = true
 scroll_base_scale = Vector2( 0.5, 0.5 )
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
@@ -89,7 +88,6 @@ scale = Vector2( 0.75, 0.75 )
 texture = ExtResource( 7 )
 
 [node name="keyObject" type="RigidBody2D" parent="."]
-editor/display_folded = true
 collision_layer = 2
 collision_mask = 2
 gravity_scale = 0.0
@@ -98,7 +96,6 @@ script = ExtResource( 8 )
 [node name="greenupper" type="Area2D" parent="keyObject" groups=[
 "inventoryItem",
 ]]
-editor/display_folded = true
 position = Vector2( 193.181, 232.315 )
 gravity_point = true
 gravity_vec = Vector2( 0, 0 )
@@ -118,7 +115,6 @@ shape = SubResource( 1 )
 [node name="greenlower" type="Area2D" parent="keyObject" groups=[
 "inventoryItem",
 ]]
-editor/display_folded = true
 position = Vector2( 284.616, 228.018 )
 gravity_point = true
 gravity_vec = Vector2( 0, 0 )
@@ -136,7 +132,6 @@ position = Vector2( 1.55856, 2.81018 )
 shape = SubResource( 1 )
 
 [node name="jumpItemArea" type="StaticBody2D" parent="."]
-editor/display_folded = true
 script = ExtResource( 11 )
 
 [node name="Label" type="Label" parent="jumpItemArea"]
@@ -158,6 +153,7 @@ __meta__ = {
 
 [node name="jumpItemSprite" type="AnimatedSprite" parent="jumpItemArea/jumpItem"]
 frames = SubResource( 3 )
+frame = 1
 playing = true
 
 [node name="jumpItemBox" type="CollisionShape2D" parent="jumpItemArea/jumpItem"]
@@ -172,7 +168,6 @@ __meta__ = {
 }
 
 [node name="TextureRect2" type="TextureRect" parent="inventory"]
-editor/display_folded = true
 margin_left = 1.07928
 margin_top = 4.02267
 margin_right = 51.0793
@@ -196,7 +191,6 @@ custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "I "
 
 [node name="TextureRect" type="TextureRect" parent="inventory"]
-editor/display_folded = true
 margin_left = 1.29254
 margin_top = 1.09747
 margin_right = 248.293
