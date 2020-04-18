@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=2]
+[gd_scene load_steps=47 format=2]
 
 [ext_resource path="res://world.gd" type="Script" id=1]
 [ext_resource path="res://Minipuzzle_object.gd" type="Script" id=2]
@@ -28,8 +28,7 @@
 [ext_resource path="res://Boundary.tscn" type="PackedScene" id=26]
 [ext_resource path="res://Elevator.tscn" type="PackedScene" id=27]
 [ext_resource path="res://images/Environment/LobbyText.bmp" type="Texture" id=28]
-[ext_resource path="res://FollowerObject.gd" type="Script" id=29]
-[ext_resource path="res://images/Items/cupcake.png" type="Texture" id=30]
+[ext_resource path="res://Follower.tscn" type="PackedScene" id=29]
 [ext_resource path="res://inventory.gd" type="Script" id=31]
 [ext_resource path="res://images/backgrounds/minipaperbg.png" type="Texture" id=32]
 [ext_resource path="res://images/Items/bag.png" type="Texture" id=33]
@@ -70,7 +69,6 @@ extents = Vector2( 26.0112, 29.6226 )
 script = ExtResource( 1 )
 
 [node name="Minipuzzle Pad" type="Area2D" parent="."]
-editor/display_folded = true
 position = Vector2( 2.70752, 9.92749 )
 script = ExtResource( 2 )
 world_scene = "res://Game.tscn"
@@ -97,7 +95,6 @@ position = Vector2( 483.613, 584.536 )
 position = Vector2( 480.755, 528.591 )
 
 [node name="keyObject" type="RigidBody2D" parent="."]
-editor/display_folded = true
 collision_layer = 2
 collision_mask = 2
 gravity_scale = 0.0
@@ -142,7 +139,6 @@ position = Vector2( 1.55856, 2.81018 )
 shape = SubResource( 2 )
 
 [node name="doorObject" type="StaticBody2D" parent="."]
-editor/display_folded = true
 position = Vector2( -26.5928, 160.665 )
 script = ExtResource( 11 )
 __meta__ = {
@@ -179,7 +175,6 @@ format = 1
 tile_data = PoolIntArray( 2424832, 1, 0, 2424833, 1, 0, 2424834, 1, 0, 2424835, 1, 0, 2424836, 1, 0, 2424837, 1, 0, 2424838, 1, 0, 2424839, 1, 0, 2424840, 1, 0, 2424841, 1, 0, 2424842, 1, 0, 2424843, 1, 0, 2424844, 1, 0 )
 
 [node name="button" type="StaticBody2D" parent="."]
-editor/display_folded = true
 script = ExtResource( 14 )
 
 [node name="table_button" type="Area2D" parent="button"]
@@ -215,15 +210,11 @@ position = Vector2( 108, 160.665 )
 position = Vector2( 132.235, 160.254 )
 
 [node name="NPC" type="StaticBody2D" parent="."]
-editor/display_folded = true
 position = Vector2( 43.2133, 4.43213 )
 script = ExtResource( 21 )
 
 [node name="NPC" type="Area2D" parent="NPC"]
 position = Vector2( -1.99352, 160.362 )
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="Sprite" type="Sprite" parent="NPC/NPC"]
 position = Vector2( 602, 399 )
@@ -237,26 +228,8 @@ shape = SubResource( 7 )
 position = Vector2( 695.024, 584.191 )
 
 [node name="DialogueParser" type="Node2D" parent="."]
-editor/display_folded = true
+position = Vector2( 64, -40 )
 script = ExtResource( 24 )
-
-[node name="Panel" type="Panel" parent="DialogueParser"]
-margin_left = 437.874
-margin_top = 456.008
-margin_right = 809.874
-margin_bottom = 516.008
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Label" type="RichTextLabel" parent="DialogueParser/Panel"]
-margin_left = 9.80505
-margin_top = 10.805
-margin_right = 363.805
-margin_bottom = 49.805
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Door" parent="." instance=ExtResource( 25 )]
 position = Vector2( 445.193, 561.314 )
@@ -281,35 +254,6 @@ elevator_3 = "res://Level3.tscn"
 position = Vector2( 331.554, 441.965 )
 scale = Vector2( 3.44418, 2.19299 )
 texture = ExtResource( 28 )
-
-[node name="FollowerObject" type="KinematicBody2D" parent="."]
-editor/display_folded = true
-position = Vector2( 12.6332, 587.902 )
-script = ExtResource( 29 )
-
-[node name="Sprite" type="Sprite" parent="FollowerObject"]
-position = Vector2( 0.351761, -0.746918 )
-texture = ExtResource( 30 )
-
-[node name="Panel" type="Panel" parent="FollowerObject"]
-visible = false
-margin_left = 5.0
-margin_top = -53.0
-margin_right = 124.0
-margin_bottom = -13.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Label" type="Label" parent="FollowerObject/Panel"]
-margin_left = 1.0
-margin_top = 1.0
-margin_right = 117.0
-margin_bottom = 39.0
-align = 1
-valign = 1
-autowrap = true
-clip_text = true
 
 [node name="inventory" type="Control" parent="."]
 margin_right = 40.0
@@ -343,7 +287,6 @@ custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "I "
 
 [node name="TextureRect" type="TextureRect" parent="inventory"]
-editor/display_folded = true
 margin_left = 0.29254
 margin_top = 342.097
 margin_right = 247.293
@@ -377,7 +320,6 @@ margin_bottom = 42.0
 texture = ExtResource( 33 )
 
 [node name="InventorySlots" type="GridContainer" parent="inventory/TextureRect"]
-editor/display_folded = true
 margin_left = 17.0
 margin_top = 53.0
 margin_right = 227.0
@@ -513,7 +455,6 @@ __meta__ = {
 }
 
 [node name="Settings" type="PopupMenu" parent="."]
-editor/display_folded = true
 margin_top = 341.05
 margin_right = 550.0
 margin_bottom = 721.05
@@ -589,13 +530,18 @@ scroll_base_scale = Vector2( 0.5, 0.5 )
 motion_mirroring = Vector2( 750, 0 )
 
 [node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
-position = Vector2( 577.189, 331.914 )
+position = Vector2( 577.189, 330.914 )
 scale = Vector2( 0.4, 0.4 )
 texture = ExtResource( 40 )
+
+[node name="Follower" parent="." instance=ExtResource( 29 )]
+position = Vector2( 14, 585 )
 [connection signal="coinCollected" from="CoinObject" to="CoinCountDisplay/CoinCountLabel" method="_on_CoinObject_coinCollected"]
 [connection signal="coinCollected" from="CoinObject2" to="CoinCountDisplay/CoinCountLabel" method="_on_CoinObject_coinCollected"]
 [connection signal="coinCollected" from="CoinObject3" to="CoinCountDisplay/CoinCountLabel" method="_on_CoinObject_coinCollected"]
 [connection signal="coinCollected" from="CoinObject4" to="CoinCountDisplay/CoinCountLabel" method="_on_CoinObject_coinCollected"]
+[connection signal="body_entered" from="NPC/NPC" to="NPC" method="_on_NPC_body_entered"]
+[connection signal="body_exited" from="NPC/NPC" to="NPC" method="_on_NPC_body_exited"]
 [connection signal="done_talking" from="DialogueParser" to="MC_Sprite" method="_on_DialogueParser_done_talking"]
 [connection signal="end_encounter" from="DialogueParser" to="MC_Sprite" method="_on_DialogueParser_end_encounter"]
 [connection signal="toggled" from="Settings/CenterContainer/VBoxContainer/CheckBox" to="." method="_on_CheckBox_toggled"]
