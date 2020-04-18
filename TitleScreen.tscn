@@ -10,6 +10,7 @@
 [ext_resource path="res://icon.png" type="Texture" id=8]
 
 [node name="TitleScreen" type="Control"]
+editor/display_folded = true
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 1.05264
@@ -27,7 +28,6 @@ position = Vector2( 1.93613, -168.733 )
 texture = ExtResource( 3 )
 
 [node name="Menu" type="VBoxContainer" parent="."]
-editor/display_folded = true
 light_mask = 0
 margin_left = 120.0
 margin_top = 126.56
@@ -61,6 +61,7 @@ margin_bottom = 88.0
 focus_mode = 0
 action_mode = 0
 flat = false
+scene_to_load = "res://PersonalityQuiz.tscn"
 
 [node name="OptionsButton" parent="Menu/CenterRow/Buttons" instance=ExtResource( 5 )]
 margin_top = 108.0

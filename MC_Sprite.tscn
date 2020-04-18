@@ -11,10 +11,10 @@
 [ext_resource path="res://images/MC/MC_crawl/MC_Crawl0001.png" type="Texture" id=9]
 [ext_resource path="res://images/MC/MC_crawl/MC_Crawl0002.png" type="Texture" id=10]
 [ext_resource path="res://images/MC/MC_crawl/MC_Crawl0003.png" type="Texture" id=11]
-[ext_resource path="res://images/MC/MC_jump/6.png" type="Texture" id=12]
-[ext_resource path="res://images/MC/MC_jump/7.png" type="Texture" id=13]
-[ext_resource path="res://images/MC/MC-2.png" type="Texture" id=14]
-[ext_resource path="res://images/MC/MC-3.png" type="Texture" id=15]
+[ext_resource path="res://images/MC/MC-2.png" type="Texture" id=12]
+[ext_resource path="res://images/MC/MC-3.png" type="Texture" id=13]
+[ext_resource path="res://images/MC/MC_jump/6.png" type="Texture" id=14]
+[ext_resource path="res://images/MC/MC_jump/7.png" type="Texture" id=15]
 [ext_resource path="res://images/jumpCoin.png" type="Texture" id=16]
 [ext_resource path="res://images/jumpCoinActive.png" type="Texture" id=17]
 [ext_resource path="res://images/crawlCoin0000.png" type="Texture" id=18]
@@ -55,20 +55,21 @@ animations = [ {
 "name": "crawl",
 "speed": 5.0
 }, {
+
+"frames": [ ExtResource( 2 ), ExtResource( 12 ), ExtResource( 2 ), ExtResource( 13 ) ],
+"loop": true,
+"name": "walk",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 8 ) ],
 "loop": true,
 "name": "duck",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 12 ), ExtResource( 13 ), ExtResource( 2 ) ],
+"frames": [ ExtResource( 14 ), ExtResource( 15 ), ExtResource( 2 ) ],
 "loop": true,
 "name": "Fall",
 "speed": 6.0
-}, {
-"frames": [ ExtResource( 2 ), ExtResource( 14 ), ExtResource( 2 ), ExtResource( 15 ) ],
-"loop": true,
-"name": "walk",
-"speed": 5.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=3]
@@ -194,6 +195,16 @@ volume_db = -22.0
 [node name="Crawl 2" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 29 )
 volume_db = -22.0
+
+[node name="Camera2D2" type="Camera2D" parent="."]
+current = true
+limit_left = 0
+limit_top = 0
+limit_smoothed = true
+offset_v = -1.0
+offset_h = 0.56
+drag_margin_left = 0.25
+editor_draw_drag_margin = true
 [connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]
 [connection signal="area_exited" from="Area2D" to="." method="_on_Area2D_area_exited"]
 [connection signal="animation_finished" from="Sprite" to="." method="_on_Sprite_animation_finished"]

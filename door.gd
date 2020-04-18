@@ -9,7 +9,6 @@ export(String) var nextRoom
 const LOAD_MC = preload("res://MC_Sprite.tscn")
 var loadMC = null
 
-
 #var canvas_layer = null
 
 func spawnMC(loadMC):
