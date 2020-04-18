@@ -13,5 +13,5 @@ var dialogueCanSpeak =[
 var dialogueFinal =["thanks... again..."]
 
 func _ready():
-	#$LivingSculptureSprite.play("default")
+	$LivingSculptureSprite.play("default")
 	pass
