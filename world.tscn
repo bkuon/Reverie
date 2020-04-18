@@ -72,7 +72,6 @@ script = ExtResource( 1 )
 position = Vector2( 40.0732, 567.598 )
 
 [node name="Minipuzzle Pad" type="Area2D" parent="."]
-editor/display_folded = true
 position = Vector2( 2.70752, 9.92749 )
 script = ExtResource( 3 )
 world_scene = "res://Game.tscn"
@@ -140,7 +139,6 @@ position = Vector2( 1.55856, 2.81018 )
 shape = SubResource( 2 )
 
 [node name="doorObject" type="StaticBody2D" parent="."]
-editor/display_folded = true
 position = Vector2( -26.5928, 160.665 )
 script = ExtResource( 11 )
 __meta__ = {
@@ -177,7 +175,6 @@ format = 1
 tile_data = PoolIntArray( 2424832, 1, 0, 2424833, 1, 0, 2424834, 1, 0, 2424835, 1, 0, 2424836, 1, 0, 2424837, 1, 0, 2424838, 1, 0, 2424839, 1, 0, 2424840, 1, 0, 2424841, 1, 0, 2424842, 1, 0, 2424843, 1, 0, 2424844, 1, 0 )
 
 [node name="button" type="StaticBody2D" parent="."]
-editor/display_folded = true
 script = ExtResource( 14 )
 
 [node name="table_button" type="Area2D" parent="button"]
