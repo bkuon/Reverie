@@ -1,9 +1,9 @@
 [gd_scene load_steps=47 format=2]
 
 [ext_resource path="res://world.gd" type="Script" id=1]
-[ext_resource path="res://Minipuzzle_object.gd" type="Script" id=2]
-[ext_resource path="res://minipuzzle_sprite.png" type="Texture" id=3]
-[ext_resource path="res://MC_Sprite.tscn" type="PackedScene" id=4]
+[ext_resource path="res://MC_Sprite.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Minipuzzle_object.gd" type="Script" id=3]
+[ext_resource path="res://minipuzzle_sprite.png" type="Texture" id=4]
 [ext_resource path="res://runItem.tscn" type="PackedScene" id=5]
 [ext_resource path="res://jumpItem.tscn" type="PackedScene" id=6]
 [ext_resource path="res://crawlItem.tscn" type="PackedScene" id=7]
@@ -68,23 +68,23 @@ extents = Vector2( 26.0112, 29.6226 )
 [node name="world" type="Node"]
 script = ExtResource( 1 )
 
+[node name="MC_Sprite" parent="." instance=ExtResource( 2 )]
+position = Vector2( 40.0732, 567.598 )
+
 [node name="Minipuzzle Pad" type="Area2D" parent="."]
 editor/display_folded = true
 position = Vector2( 2.70752, 9.92749 )
-script = ExtResource( 2 )
+script = ExtResource( 3 )
 world_scene = "res://Game.tscn"
 
 [node name="Sprite" type="Sprite" parent="Minipuzzle Pad"]
 position = Vector2( 396.232, 549.516 )
 scale = Vector2( 0.0501219, 0.0477531 )
-texture = ExtResource( 3 )
+texture = ExtResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Minipuzzle Pad"]
 position = Vector2( 396.683, 549.516 )
 shape = SubResource( 1 )
-
-[node name="MC_Sprite" parent="." instance=ExtResource( 4 )]
-position = Vector2( 40.0732, 567.598 )
 
 [node name="runItemArea" parent="." instance=ExtResource( 5 )]
 position = Vector2( 274.097, 585.739 )
@@ -213,7 +213,6 @@ position = Vector2( 108, 160.665 )
 position = Vector2( 132.235, 160.254 )
 
 [node name="NPC" type="StaticBody2D" parent="."]
-editor/display_folded = true
 position = Vector2( 43.2133, 4.43213 )
 script = ExtResource( 21 )
 

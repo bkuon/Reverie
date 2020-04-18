@@ -263,6 +263,7 @@ func _on_Sprite_animation_finished():
 #end dialogue encounter but allows player to approach them again
 func _on_DialogueParser_end_encounter():
 	can_move = true
+	
 # brandon code
 #	var duck = 0
 #

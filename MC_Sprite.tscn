@@ -117,12 +117,16 @@ animations = [ {
 [node name="MC_Sprite" type="KinematicBody2D" groups=[
 "player",
 ]]
-position = Vector2( 42.3213, 438.226 )
+position = Vector2( 42, 438 )
 z_index = 1
 z_as_relative = false
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Area2D" type="Area2D" parent="."]
+editor/display_folded = true
 position = Vector2( 0, 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
