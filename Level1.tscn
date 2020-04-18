@@ -181,10 +181,10 @@ __meta__ = {
 
 [node name="TextureRect2" type="TextureRect" parent="inventory"]
 editor/display_folded = true
-margin_left = 1.07928
-margin_top = 4.02267
-margin_right = 51.0793
-margin_bottom = 40.023
+margin_left = 200.525
+margin_top = 13.995
+margin_right = 250.525
+margin_bottom = 49.9953
 texture = ExtResource( 17 )
 __meta__ = {
 "_edit_group_": true
@@ -205,10 +205,10 @@ text = "I "
 
 [node name="TextureRect" type="TextureRect" parent="inventory"]
 editor/display_folded = true
-margin_left = 1.29254
-margin_top = 1.09747
-margin_right = 248.293
-margin_bottom = 175.098
+margin_left = 202.955
+margin_top = 14.3939
+margin_right = 449.955
+margin_bottom = 188.394
 texture = ExtResource( 19 )
 __meta__ = {
 "_edit_group_": true
