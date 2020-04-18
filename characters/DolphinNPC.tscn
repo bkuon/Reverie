@@ -1,0 +1,27 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://characters/DolphinNPC.gd" type="Script" id=1]
+[ext_resource path="res://images/NPC/DolphinNPC/DolphinNPC.png" type="Texture" id=2]
+[ext_resource path="res://images/NPC/DolphinNPC/DolphinNPC2.png" type="Texture" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 89.7718, 43.5228 )
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 3 ) ],
+"loop": true,
+"name": "default",
+"speed": 1.0
+} ]
+
+[node name="DolphinNPC" type="Area2D"]
+script = ExtResource( 1 )
+
+[node name="DolphinHitBox" type="CollisionShape2D" parent="."]
+position = Vector2( -43.0988, -3.74772 )
+shape = SubResource( 1 )
+
+[node name="DolphinSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 11.2432, 3.74772 )
+frames = SubResource( 2 )

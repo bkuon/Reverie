@@ -12,7 +12,6 @@ script = ExtResource( 1 )
 __meta__ = {
 "_edit_group_": true
 }
-world_scene = "res://world2.tscn"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( -1.11993, 1.35443 )

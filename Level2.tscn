@@ -311,7 +311,6 @@ __meta__ = {
 
 [node name="jumpItemSprite" type="AnimatedSprite" parent="jumpItemArea/jumpItem"]
 frames = SubResource( 2 )
-frame = 1
 playing = true
 
 [node name="jumpItemBox" type="CollisionShape2D" parent="jumpItemArea/jumpItem"]
