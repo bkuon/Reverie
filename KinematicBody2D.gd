@@ -31,6 +31,10 @@ var crawl1CanPlay = true
 var crawl2CanPlay = true
 var landCanPlay = false
 
+onready var initial_pos = Position2D
+
+func kill():
+	Area2D.position = Vector2(initial_pos)
 
 func _physics_process(delta):
 		
@@ -183,7 +187,7 @@ func _physics_process(delta):
 			MC_Globals.isCrawling=true
 			$Sprite.play("crawl")
 			$AbilityLayer/crawlIcon.play("active")
-			print($Sprite.frame)
+			
 			if $Sprite.frame == 1:
 				$"Crawl 2".playing = false
 				if crawl1CanPlay:
@@ -202,7 +206,7 @@ func _physics_process(delta):
 			MC_Globals.isCrawling=true
 			$Sprite.play("crawl")
 			$AbilityLayer/crawlIcon.play("active")
-			print($Sprite.frame)
+			
 			motion.x = -DUCK_SPEED
 			if $Sprite.frame == 1:
 				$"Crawl 2".playing = false
