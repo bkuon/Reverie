@@ -9,14 +9,11 @@ func _ready():
 	text = "Coins: " + String(coins)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
-
-
-func _on_CoinObject_coinCollected():
+func _process(delta):
 	coins = globals.coinCounter
 	text = "Coins: " + String(coins)
+	pass
 
-
-func _on_CoinObject2_coinCollected():
-	pass # Replace with function body.
+#func _on_CoinObject_coinCollected():
+	#coins = globals.coinCounter
+	#text = "Coins: " + String(coins)

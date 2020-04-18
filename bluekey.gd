@@ -15,6 +15,7 @@ func _input(event):
 				var bodies = inv.get_overlapping_bodies()
 				for b in bodies:
 					if b.name == "MC_Sprite":
+						print(inv.name)
 						globals.addToInventory(inv.name) #Add item to inventory using image name
 						remove_child(inv) # Remove that inventory item from view
 
