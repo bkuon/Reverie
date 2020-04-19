@@ -5,7 +5,6 @@
 
 [node name="DialougeBox" type="Control"]
 pause_mode = 2
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = -5.89063
@@ -40,6 +39,9 @@ margin_right = 620.0
 margin_bottom = 115.0
 texture = ExtResource( 2 )
 expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="CharacterName" type="Label" parent="Panel"]
 margin_left = 20.0

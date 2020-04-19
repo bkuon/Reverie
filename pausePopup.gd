@@ -18,3 +18,6 @@ func _on_QuitButton_pressed():
 
 func _on_SaveButton_pressed():
 	print("Save game")
+	var packed_scene = PackedScene.new()
+	packed_scene.pack(get_tree().get_current_scene())
+	ResourceSaver.save("res://my_scene.tscn", packed_scene)
