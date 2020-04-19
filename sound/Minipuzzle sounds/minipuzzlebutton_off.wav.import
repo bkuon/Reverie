@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/minipuzzlebutton_off.wav-978dc9f3ec311ef88d81c2e773dc7acd.sample"
+
+[deps]
+
+source_file="res://sound/Minipuzzle sounds/minipuzzlebutton_off.wav"
+dest_files=[ "res://.import/minipuzzlebutton_off.wav-978dc9f3ec311ef88d81c2e773dc7acd.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
