@@ -42,8 +42,8 @@ func _process(delta):
 		$Label2.show()
 		#$Label1.hide()
 		
-		$jumpItemArea/jumpItem/jumpItemBox.set_disabled(false)
-		$jumpItemArea/jumpItem/jumpItemSprite.show()
+#		$jumpItemArea/jumpItem/jumpItemBox.set_disabled(false)
+#		$jumpItemArea/jumpItem/jumpItemSprite.show()
 			
 		
 	var bodies = get_overlapping_bodies()

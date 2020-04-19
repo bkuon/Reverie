@@ -10,20 +10,29 @@ func ready():
 
 
 func _physics_process(delta):
+	#var bodies = get_colliding_bodies()
 	velocity = get_linear_velocity()
-	#print(velocity.y)
+	#print(velocity.y)  
+	
 	if velocity.y <= 0 or (velocity.y <= 0 and velocity.y >= 1):
 		if $Visibility.is_on_screen():
-			$Sprite.hide()
-	
-	#if state == "touched":
-	#	"the spike touched something"
-	#	get_tree().change_scene("res://Level2.tscn")
-	
+			queue_free()
+			#$Sprite.hide()
+			
+	#for body in bodies:
+	#	if body.get_name() == "MC_Sprite":
+	#		print("hit")
 
 
-
-
-	
+func _on_Spike_body_entered(body):
+	var bodies = get_colliding_bodies()
+	#if body.name == "MC_Sprite":
+	for body in bodies:
+		if body.get_name() == "MC_Sprite":
+			print("hit")
+			body.spike_kill()
+		#if body.get_name() =="BrandonEditTileMap":
+			#$Sprite.hide()
+#		#get_tree().change_scene("Level2.tscn")
 
 

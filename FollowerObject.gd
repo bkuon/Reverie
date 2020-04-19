@@ -1,6 +1,7 @@
 extends KinematicBody2D
 
 onready var Player = get_node("../MC_Sprite")
+onready var globals = get_node("/root/Globals")
 onready var label = get_node("Panel/Label")
 onready var panel = get_node("Panel")
 const GRAVITY = 20
@@ -19,6 +20,8 @@ var pos
 func _ready():
 	action_time = OS.get_ticks_msec() #for entering scene
 	print(Player.position)
+	var link = globals.followerImage
+	get_node("Sprite").set_texture(load("res://images/NPC/" + str(link) +"/1.png"))
 	
 func _input(event):
 	if Input.is_action_just_pressed("ui_accept"):

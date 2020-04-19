@@ -32,6 +32,10 @@ var crawl1CanPlay = true
 var crawl2CanPlay = true
 var landCanPlay = false
 
+onready var initial_pos = Position2D
+
+func kill():
+	Area2D.position = Vector2(initial_pos)
 
 func _physics_process(delta):
 		
@@ -184,7 +188,7 @@ func _physics_process(delta):
 			MC_Globals.isCrawling=true
 			$Sprite.play("crawl")
 			$AbilityLayer/crawlIcon.play("active")
-			print($Sprite.frame)
+			
 			if $Sprite.frame == 1:
 				$"Crawl 2".playing = false
 				if crawl1CanPlay:
@@ -203,7 +207,7 @@ func _physics_process(delta):
 			MC_Globals.isCrawling=true
 			$Sprite.play("crawl")
 			$AbilityLayer/crawlIcon.play("active")
-			print($Sprite.frame)
+			
 			motion.x = -DUCK_SPEED
 			if $Sprite.frame == 1:
 				$"Crawl 2".playing = false
@@ -226,7 +230,11 @@ func _physics_process(delta):
 	motion = move_and_slide(motion, UP)
 	
 	pass
-	
+	##contact spike testing
+	#if get_slide_collision() > 0:
+	#	for i in range(get_slide_count()):
+	#		if "Spike" in get_slide_collision(i).collider.name:
+	#			get_tree().change_scene("Level2.tscn")
 # =======
 	
 #signals when player is touching object. 
@@ -236,7 +244,9 @@ func _on_Area2D_area_entered(area):
 	obj = area.get_parent()
 	if area.name == "Enemy Puzzle1":
 		obj = area
-	
+
+func spike_kill():
+	position = Vector2(40 ,227.397995)
 	
 	
 func _on_Area2D_area_exited(area):
@@ -258,6 +268,7 @@ func _on_Sprite_animation_finished():
 #end dialogue encounter but allows player to approach them again
 func _on_DialogueParser_end_encounter():
 	can_move = true
+	
 # brandon code
 #	var duck = 0
 #
