@@ -372,3 +372,4 @@ func _on_DialogueParser_end_encounter():
 #	#End Duck Function
 #
 #	motion = move_and_slide(motion, UP)
+
