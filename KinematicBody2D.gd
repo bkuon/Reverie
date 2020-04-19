@@ -14,7 +14,8 @@ const MAX_SPEED = 300
 const DUCK_SPEED = 20
 
 const GRAVITY = 20
-const SPEED = 160
+#const SPEED = 160
+var SPEED = 160
 const RESISTANCE = Vector2(0,-1)
 
 var motion = Vector2()
@@ -33,8 +34,8 @@ var landCanPlay = false
 
 onready var initial_pos = Position2D
 
-func kill():
-	Area2D.position = Vector2(initial_pos)
+#func kill():
+#	Area2D.position = Vector2(initial_pos)
 
 func _physics_process(delta):
 		

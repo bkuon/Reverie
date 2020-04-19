@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Ogre.gd" type="Script" id=1]
 [ext_resource path="res://images/NPC/OgreNPC/ogre_idle_anim_f0.png" type="Texture" id=2]
@@ -7,6 +7,8 @@
 [ext_resource path="res://images/NPC/OgreNPC/ogre_idle_anim_f3.png" type="Texture" id=5]
 [ext_resource path="res://sound/Ogre sounds/sound 1.wav" type="AudioStream" id=6]
 [ext_resource path="res://sound/Ogre sounds/sound 2.wav" type="AudioStream" id=7]
+[ext_resource path="res://images/Items/bag.png" type="Texture" id=8]
+[ext_resource path="res://OgreItem.gd" type="Script" id=9]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -45,7 +47,7 @@ margin_top = -69.6131
 margin_right = 258.363
 margin_bottom = -55.6131
 custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "You cannot pass"
+text = "Take bag and go"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -60,5 +62,19 @@ text = "No food, no pass"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="OgreItem" type="StaticBody2D" parent="."]
+position = Vector2( 151.499, -15.4757 )
+scale = Vector2( 0.25, 0.25 )
+script = ExtResource( 9 )
+
+[node name="OgreItemArea" type="Area2D" parent="OgreItem"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="OgreItem/OgreItemArea"]
+
+[node name="Sprite" type="Sprite" parent="OgreItem/OgreItemArea"]
+position = Vector2( 68.2559, 56.8799 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 8 )
 [connection signal="finished" from="audio1" to="." method="_on_audio1_finished"]
 [connection signal="finished" from="audio2" to="." method="_on_audio2_finished"]

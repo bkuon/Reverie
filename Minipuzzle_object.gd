@@ -1,7 +1,5 @@
 
-
 extends Area2D
-
 
 
 export(String, FILE, "*,tscn") var world_scene

@@ -25,5 +25,5 @@ var dialogueFinal =[
 ]
 
 func _ready():
-	#$CollectorSprite.play("default")
+	$CollectorSprite.play("default")
 	pass

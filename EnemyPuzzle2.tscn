@@ -49,6 +49,8 @@ position = Vector2( 1.36038, 0 )
 script = ExtResource( 1 )
 Spike = ExtResource( 13 )
 
+[node name="EnemyPuzzle3Timer" type="Timer" parent="."]
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( -149.753, -2.06278 )
 shape = SubResource( 1 )
