@@ -44,7 +44,6 @@ func _physics_process(delta):
 		if body.name == "MC_Sprite":
 			#Save MC's last position in current scene
 			if Input.is_action_just_pressed("enter_door"):
-
 				#print(MC_Globals.destination)
 				#Change scene
 				get_tree().change_scene(world_scene)	

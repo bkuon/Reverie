@@ -14,7 +14,8 @@ const MAX_SPEED = 300
 const DUCK_SPEED = 20
 
 const GRAVITY = 20
-const SPEED = 160
+#const SPEED = 160
+var SPEED = 160
 const RESISTANCE = Vector2(0,-1)
 
 var motion = Vector2()

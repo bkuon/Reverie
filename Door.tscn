@@ -7,11 +7,12 @@
 extents = Vector2( 26.2919, 31.5248 )
 
 [node name="Door" type="Area2D"]
-position = Vector2( -1.52588e-005, -0.663422 )
+position = Vector2( -1.52588e-05, -0.663422 )
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_group_": true
 }
+world_scene = "res://world.gd"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( -1.11993, 1.35443 )

@@ -6,6 +6,9 @@ export (PackedScene) var Spike
 
 func _ready():
 	$Label.hide()
+	$EnemyPuzzle3Timer.set_wait_time(3)
+	$EnemyPuzzle3Timer.start()
+	$EnemyPuzzle3Timer.is_one_shot() == true
 
 func _physics_process(delta):
 	$AnimatedSprite.set_speed_scale(2)
@@ -14,6 +17,10 @@ func _physics_process(delta):
 	for body in bodies:
 		if body.name == "MC_Sprite":
 			$Label.show()
+	
+	if $EnemyPuzzle3Timer.get_time_left() < 0.1:
+		$Label.hide()
+	
 
 
 #func _on_Spike_Timer_timeout():
