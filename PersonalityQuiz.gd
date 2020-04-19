@@ -2,7 +2,7 @@ extends Control
 
 var people = [0, 0, 0, 0, 0, 0, 0]
 var names = ["Joshua", "Aram", "Brandon", "Cierra", "Luna", "Patrick", "Kendall"]
-var companions = ["BookFollower", "AppleFollower", "CatNPC", "CatNPC", "CupcakeFollower", "CatNPC", "TurtleFollower"]
+var companions = ["BookFollower", "AppleFollower", "TigerFollower", "CatNPC", "CupcakeFollower", "ControllerFollower", "TurtleFollower"]
 var button1list = ["06", "0", "0", "0", "014"]
 var button2list = ["15", "1", "1", "1", "23"]
 var button3list = ["23", "2", "24", "2", "56"]
