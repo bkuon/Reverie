@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://MC_Sprite.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Elevator.tscn" type="PackedScene" id=2]
@@ -19,9 +19,6 @@
 [ext_resource path="res://images/Items/cupcake.png" type="Texture" id=17]
 [ext_resource path="res://images/backgrounds/parallax-background-level-2.jpg" type="Texture" id=18]
 [ext_resource path="res://spawner_spike.tscn" type="PackedScene" id=19]
-[ext_resource path="res://P2NPC.tscn" type="PackedScene" id=20]
-[ext_resource path="res://Level2Area.gd" type="Script" id=21]
-[ext_resource path="res://Level2Keypad.tscn" type="PackedScene" id=22]
 
 [sub_resource type="GDScript" id=1]
 
@@ -45,61 +42,12 @@ position = Vector2( 0, -1 )
 [node name="MC_Sprite" parent="." instance=ExtResource( 1 )]
 position = Vector2( 44.928, 216.012 )
 
-[node name="Level2Area" type="Area2D" parent="."]
-script = ExtResource( 21 )
-
-[node name="TimerForWinning" type="Timer" parent="Level2Area"]
-
-[node name="Elevator" parent="Level2Area" instance=ExtResource( 2 )]
+[node name="Elevator" parent="." instance=ExtResource( 2 )]
 position = Vector2( 58.9329, 202.833 )
 elevator_L = "res://world.tscn"
 elevator_1 = "res://Level1.tscn"
 elevator_2 = "res://Level2.tscn"
 elevator_3 = "res://Level3.tscn"
-
-[node name="Level2Keypad" parent="Level2Area" instance=ExtResource( 22 )]
-
-[node name="Label2" type="Label" parent="Level2Area"]
-margin_left = 531.58
-margin_top = 141.053
-margin_right = 606.58
-margin_bottom = 155.053
-custom_colors/font_color = Color( 0.929412, 0, 0, 1 )
-text = "Ok, you win.
-Here is your prize."
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="TimerForSpeedChange" type="Timer" parent="Level2Area"]
-
-[node name="jumpItemArea" type="StaticBody2D" parent="Level2Area"]
-script = ExtResource( 11 )
-
-[node name="Label" type="Label" parent="Level2Area/jumpItemArea"]
-visible = false
-margin_left = -57.7336
-margin_top = -57.5358
-margin_right = 59.2664
-margin_bottom = -35.5358
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
-text = "Press UP to jump"
-
-[node name="jumpItem" type="Area2D" parent="Level2Area/jumpItemArea"]
-position = Vector2( 525.249, 225.61 )
-script = SubResource( 1 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="jumpItemSprite" type="AnimatedSprite" parent="Level2Area/jumpItemArea/jumpItem"]
-frames = SubResource( 2 )
-frame = 1
-playing = true
-
-[node name="jumpItemBox" type="CollisionShape2D" parent="Level2Area/jumpItemArea/jumpItem"]
-shape = SubResource( 3 )
 
 [node name="Level2Text" type="Sprite" parent="."]
 position = Vector2( 291.5, 75.5 )
@@ -445,10 +393,7 @@ scroll_base_scale = Vector2( 0.5, 0.5 )
 motion_mirroring = Vector2( 600, 0 )
 
 [node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
-position = Vector2( 315.911, 178.223 )
+position = Vector2( 318.919, 180.93 )
 texture = ExtResource( 18 )
-
-[node name="P2NPC" parent="." instance=ExtResource( 20 )]
-position = Vector2( 320.481, 214.169 )
 
 [node name="spawner_spike" parent="." instance=ExtResource( 19 )]
