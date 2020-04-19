@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://MC_Sprite.tscn" type="PackedScene" id=1]
 [ext_resource path="res://images/Environment/woodSolid.png" type="Texture" id=2]
@@ -8,6 +8,9 @@
 [ext_resource path="res://Door.tscn" type="PackedScene" id=6]
 [ext_resource path="res://characters/DolphinNPC.tscn" type="PackedScene" id=7]
 [ext_resource path="res://images/Items/desk.png" type="Texture" id=8]
+[ext_resource path="res://characters/CollectorNPC.tscn" type="PackedScene" id=9]
+[ext_resource path="res://characters/LivingSculptureNPC.tscn" type="PackedScene" id=10]
+[ext_resource path="res://characters/PainterNPC.tscn" type="PackedScene" id=11]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
@@ -68,7 +71,6 @@ extents = Vector2( 22.8116, 26.2958 )
 [node name="LevelZero_Lobby" type="Node2D"]
 
 [node name="MC_Sprite" parent="." instance=ExtResource( 1 )]
-position = Vector2( 42, 438 )
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource( 2 )
@@ -130,4 +132,14 @@ shape = SubResource( 4 )
 
 [node name="Sprite" type="Sprite" parent="desk"]
 texture = ExtResource( 8 )
+
+[node name="CollectorNPC" parent="." instance=ExtResource( 9 )]
+position = Vector2( 406.432, 420.719 )
+
+[node name="LivingSculptureNPC" parent="." instance=ExtResource( 10 )]
+position = Vector2( 307.258, 364.398 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="PainterNPC" parent="." instance=ExtResource( 11 )]
+position = Vector2( 111.36, 415.821 )
 [connection signal="tree_entered" from="." to="Door" method="_on_LevelZero_Lobby_tree_entered"]

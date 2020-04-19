@@ -30,5 +30,5 @@ var responseToRightAnswer=[
 "Brilliant! I shall begin my work this instant!"]
 
 func _ready():
-	pass # Replace with function body.
+	$PainterSprite.play("default")
 
