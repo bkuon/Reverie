@@ -109,6 +109,7 @@ position = Vector2( 178.771, -254.807 )
 position = Vector2( 328.771, -254.807 )
 
 [node name="inventory" type="Control" parent="."]
+editor/display_folded = true
 margin_right = 40.0
 margin_bottom = 40.0
 script = ExtResource( 6 )
@@ -291,6 +292,7 @@ margin_right = 40.0
 margin_bottom = 32.0
 
 [node name="jumpItemArea" type="StaticBody2D" parent="."]
+editor/display_folded = true
 script = ExtResource( 11 )
 
 [node name="Label" type="Label" parent="jumpItemArea"]
@@ -312,7 +314,6 @@ __meta__ = {
 
 [node name="jumpItemSprite" type="AnimatedSprite" parent="jumpItemArea/jumpItem"]
 frames = SubResource( 2 )
-frame = 1
 playing = true
 
 [node name="jumpItemBox" type="CollisionShape2D" parent="jumpItemArea/jumpItem"]
@@ -396,6 +397,3 @@ position = Vector2( 318.919, 180.93 )
 texture = ExtResource( 18 )
 
 [node name="spawner_spike" parent="." instance=ExtResource( 19 )]
-
-[node name="P2NPC" parent="." instance=ExtResource( 20 )]
-position = Vector2( 190.201, 218.808 )
