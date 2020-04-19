@@ -2,8 +2,9 @@
 
 extends Area2D
 
-
-
+func _ready():
+	pass
+	
 export(String, FILE, "*,tscn") var world_scene
 
 func _physics_process(delta):

@@ -37,27 +37,15 @@ func _physics_process(_delta):
 		$PieceMovement.play()
 		$PieceMovement.set_volume_db(-100)
 		
-		if !raycast.is_colliding():
-			target_position = get_position() + direction * grid.get_cell_size()
-			tween.move_char(self, target_position)
-			is_moving = true
-			$PieceMovement.set_volume_db(-9)
+		#if !raycast.is_colliding():
+		target_position = get_position() + direction * grid.get_cell_size()
+		tween.move_char(self, target_position)
+		is_moving = true
+		$PieceMovement.set_volume_db(-9)
 	pass
 	
 func _on_tween_completed(_o, _k):
 	is_moving = false
-	pass
-
-func _on_area_entered(a):
-	if a.get_parent() != $Position2D:
-		print(a)
-		blocks.append(a)
-		is_blocked = true
-	pass
-
-func _on_area_exited(a):
-	blocks.erase(a)
-	is_blocked = blocks.size()
 	pass
 	
 func turn(dir:Vector2):
@@ -69,4 +57,9 @@ func turn(dir:Vector2):
 		raycast=get_node(rayR)
 	else:
 		raycast=get_node(rayD)
+	pass
+
+
+func _on_MinipuzzleButton_hit():
+	print("I Player touched the button")
 	pass
