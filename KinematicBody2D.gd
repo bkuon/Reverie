@@ -34,8 +34,8 @@ var landCanPlay = false
 
 onready var initial_pos = Position2D
 
-func kill():
-	Area2D.position = Vector2(initial_pos)
+#func kill():
+#	Area2D.position = Vector2(initial_pos)
 
 func _physics_process(delta):
 		
