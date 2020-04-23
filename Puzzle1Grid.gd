@@ -1,5 +1,5 @@
 extends TileMap
-export(String, FILE, "*,tscn") var world2
+export(String, FILE, "*,tscn") var puzzle1win
 
 #onready var node = get_node("/root/scene_main_node/node_wanted")
 
@@ -25,89 +25,89 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if $P1B.light == "on":
+	if $P1B1.light == "on":
 		lbs[0] = "on"
 	else:
 		lbs[0] = "off"
-#
-#	if $MPB2.light == "on":
-#		lbs[1] = "on"
-#	else:
-#		lbs[1] = "off"
-#
-#	if $MPB3.light == "on":
-#		lbs[2] = "on"
-#	else:
-#		lbs[2] = "off"
-#
-#	if $MPB4.light == "on":
-#		lbs[3] = "on"
-#	else:
-#		lbs[3] = "off"
-#
-#	if $MPB5.light == "on":
-#		lbs[4] = "on"
-#	else:
-#		lbs[4] = "off"
-#
-#	if $MPB6.light == "on":
-#		lbs[5] = "on"
-#	else:
-#		lbs[5] = "off"
-#
-#	if $MPB7.light == "on":
-#		lbs[6] = "on"
-#	else:
-#		lbs[6] = "off"
-#
-#	if $MPB8.light == "on":
-#		lbs[7] = "on"
-#	else:
-#		lbs[7] = "off"
-#
-#	if $MPB9.light == "on":
-#		lbs[8] = "on"
-#	else:
-#		lbs[8] = "off"
-#
-#	if $MPB10.light == "on":
-#		lbs[9] = "on"
-#	else:
-#		lbs[9] = "off"
-#
-#	if $MPB11.light == "on":
-#		lbs[10] = "on"
-#	else:
-#		lbs[10] = "off"
-#
-#	if $MPB12.light == "on":
-#		lbs[11] = "on"
-#	else:
-#		lbs[11] = "off"
-#
-#	if $MPB13.light == "on":
-#		lbs[12] = "on"
-#	else:
-#		lbs[12] = "off"
-#
-#	if $MPB14.light == "on":
-#		lbs[13] = "on"
-#	else:
-#		lbs[13] = "off"
-#
-#	if $MPB15.light == "on":
-#		lbs[14] = "on"
-#	else:
-#		lbs[14] = "off"
-#
-#	if $MPB16.light == "on":
-#		lbs[15] = "on"
-#	else:
-#		lbs[15] = "off"
-#
-#	if lbs[0] == "on" and lbs[2] == "on" and lbs[3] == "on" and lbs[4] == "on" and lbs[6] == "on" and lbs[8] == "on" and lbs[9] == "on" and lbs[11] == "on" and lbs[12] == "on" and lbs[13] == "on" and lbs[15] == "on":
-#		#print("you won!")
-#		emit_signal("won")
+
+	if $P1B2.light == "on":
+		lbs[1] = "on"
+	else:
+		lbs[1] = "off"
+
+	if $P1B3.light == "on":
+		lbs[2] = "on"
+	else:
+		lbs[2] = "off"
+
+	if $P1B4.light == "on":
+		lbs[3] = "on"
+	else:
+		lbs[3] = "off"
+
+	if $P1B5.light == "on":
+		lbs[4] = "on"
+	else:
+		lbs[4] = "off"
+
+	if $P1B6.light == "on":
+		lbs[5] = "on"
+	else:
+		lbs[5] = "off"
+
+	if $P1B7.light == "on":
+		lbs[6] = "on"
+	else:
+		lbs[6] = "off"
+
+	if $P1B8.light == "on":
+		lbs[7] = "on"
+	else:
+		lbs[7] = "off"
+
+	if $P1B9.light == "on":
+		lbs[8] = "on"
+	else:
+		lbs[8] = "off"
+
+	if $P1B10.light == "on":
+		lbs[9] = "on"
+	else:
+		lbs[9] = "off"
+
+	if $P1B11.light == "on":
+		lbs[10] = "on"
+	else:
+		lbs[10] = "off"
+
+	if $P1B12.light == "on":
+		lbs[11] = "on"
+	else:
+		lbs[11] = "off"
+
+	if $P1B13.light == "on":
+		lbs[12] = "on"
+	else:
+		lbs[12] = "off"
+
+	if $P1B14.light == "on":
+		lbs[13] = "on"
+	else:
+		lbs[13] = "off"
+
+	if $P1B15.light == "on":
+		lbs[14] = "on"
+	else:
+		lbs[14] = "off"
+
+	if $P1B16.light == "on":
+		lbs[15] = "on"
+	else:
+		lbs[15] = "off"
+
+	if lbs[0] == "on" and lbs[3] == "on" and lbs[12] == "on" and lbs[15] == "on":
+		#print("you won!")
+		emit_signal("won")
 	pass
 
 
@@ -118,10 +118,11 @@ func _on_Puzzle1Grid_won():
 	t.start()
 	t.queue_free()
 	#$puzzle_winning_sound.play()
+	
 	#if $puzzle_winning_sound.is_playing() == false:
 	#print("no more sound")
 	emit_signal("showdoor")
-	get_tree().change_scene(world2)
+	get_tree().change_scene(puzzle1win)
 	#doorNode.get_child(1)
 	print("node is")
 	print(doorNode)

@@ -28,7 +28,7 @@ func _physics_process(delta):
 			$AnimatedSprite.flip_h = true
 		
 	
-		$AnimatedSprite.play("idle")
+		$AnimatedSprite.play("default")
 	
 		velocity.y += GRAVITY
 	

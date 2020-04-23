@@ -60,8 +60,6 @@ func turn(dir:Vector2):
 	pass
 
 
-
-
 func _on_Puzzle1Button_hit():
 	print("I Player touched the button")
 	pass

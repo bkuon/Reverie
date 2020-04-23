@@ -10,9 +10,9 @@ func _process(delta):
 			$Label.visible=true
 			MC_Globals.canCrawl=true
 			MC_Globals.victory=true
-			
-			if MC_Globals.isCrawling:
-				$Label.visible=false
-				queue_free()
 	pass
 	
+
+func _on_Timer_timeout():
+	$Label.visible=false
+	queue_free()

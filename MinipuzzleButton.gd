@@ -4,7 +4,7 @@ var currentAnimation
 var state
 var light
 
-var MPB1
+
 
 func _ready():
 	$Sprite.play("off")
@@ -22,7 +22,6 @@ func _physics_process(delta):
 		$Sprite.play("off")
 		$off_sound.play()
 		light = "off"
-	
 	pass
 
 func _on_MinipuzzleButton_area_entered(area):

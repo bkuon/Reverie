@@ -1,17 +1,19 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Puzzle1Button.gd" type="Script" id=1]
-[ext_resource path="res://gameImages/button_on.png" type="Texture" id=2]
-[ext_resource path="res://gameImages/button_off.png" type="Texture" id=3]
+[ext_resource path="res://gameImages/button_off2.png" type="Texture" id=2]
+[ext_resource path="res://gameImages/button_on2.png" type="Texture" id=3]
+[ext_resource path="res://sound/Minipuzzle sounds/minipuzzlebutton_on.wav" type="AudioStream" id=4]
+[ext_resource path="res://sound/Minipuzzle sounds/minipuzzlebutton_off.wav" type="AudioStream" id=5]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 2 ) ],
+"frames": [ ExtResource( 3 ) ],
 "loop": true,
 "name": "on",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 3 ) ],
+"frames": [ ExtResource( 2 ) ],
 "loop": true,
 "name": "off",
 "speed": 5.0
@@ -22,6 +24,9 @@ animations = [ {
 [node name="Puzzle1Button" type="Area2D"]
 position = Vector2( 528.533, 158.449 )
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="Sprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
@@ -29,5 +34,11 @@ animation = "off"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 2 )
+
+[node name="on_sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 4 )
+
+[node name="off_sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 5 )
 [connection signal="area_entered" from="." to="." method="_on_Puzzle1Button_area_entered"]
 [connection signal="area_exited" from="." to="." method="_on_Puzzle1Button_area_exited"]

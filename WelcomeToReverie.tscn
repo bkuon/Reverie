@@ -1,0 +1,50 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://images/backgrounds/titlescreen.png" type="Texture" id=1]
+[ext_resource path="res://welcomeText.gd" type="Script" id=2]
+
+[sub_resource type="DynamicFontData" id=1]
+font_path = "res://fonts/ARLRDBD.TTF"
+
+[sub_resource type="DynamicFont" id=2]
+size = 30
+font_data = SubResource( 1 )
+
+[sub_resource type="DynamicFontData" id=3]
+font_path = "res://fonts/ARLRDBD.TTF"
+
+[sub_resource type="DynamicFont" id=4]
+size = 20
+outline_color = Color( 0.972549, 0.858824, 0.858824, 1 )
+font_data = SubResource( 3 )
+
+[node name="WelcomeToReverie" type="Node2D"]
+pause_mode = 2
+
+[node name="background" type="Sprite" parent="."]
+position = Vector2( 322.429, 239.179 )
+scale = Vector2( 1, 1.02133 )
+texture = ExtResource( 1 )
+
+[node name="welcome" type="RichTextLabel" parent="."]
+margin_left = 22.0
+margin_top = 189.0
+margin_right = 614.0
+margin_bottom = 279.0
+custom_fonts/normal_font = SubResource( 2 )
+custom_colors/default_color = Color( 0.564706, 0.0313726, 0.0313726, 1 )
+bbcode_enabled = true
+script = ExtResource( 2 )
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.03
+autostart = true
+
+[node name="Label" type="Label" parent="."]
+margin_left = 215.549
+margin_top = 451.52
+margin_right = 679.549
+margin_bottom = 651.52
+custom_fonts/font = SubResource( 4 )
+text = "Press Z to proceed"
+[connection signal="timeout" from="Timer" to="welcome" method="_on_Timer_timeout"]

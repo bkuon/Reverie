@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=2]
+[gd_scene load_steps=38 format=2]
 
 [ext_resource path="res://KinematicBody2D.gd" type="Script" id=1]
 [ext_resource path="res://images/MC/MC-1.png" type="Texture" id=2]
@@ -7,12 +7,12 @@
 [ext_resource path="res://images/MC/MC_victory/MC_Victory0000.png" type="Texture" id=5]
 [ext_resource path="res://images/MC/MC_jump/4.png" type="Texture" id=6]
 [ext_resource path="res://images/MC/MC_jump/5.png" type="Texture" id=7]
-[ext_resource path="res://images/MC/MC_crawl/MC_Crawl0000.png" type="Texture" id=8]
-[ext_resource path="res://images/MC/MC_crawl/MC_Crawl0001.png" type="Texture" id=9]
-[ext_resource path="res://images/MC/MC_crawl/MC_Crawl0002.png" type="Texture" id=10]
-[ext_resource path="res://images/MC/MC_crawl/MC_Crawl0003.png" type="Texture" id=11]
-[ext_resource path="res://images/MC/MC-2.png" type="Texture" id=12]
-[ext_resource path="res://images/MC/MC-3.png" type="Texture" id=13]
+[ext_resource path="res://images/MC/MC-2.png" type="Texture" id=8]
+[ext_resource path="res://images/MC/MC-3.png" type="Texture" id=9]
+[ext_resource path="res://images/MC/MC_crawl/MC_Crawl0000.png" type="Texture" id=10]
+[ext_resource path="res://images/MC/MC_crawl/MC_Crawl0001.png" type="Texture" id=11]
+[ext_resource path="res://images/MC/MC_crawl/MC_Crawl0002.png" type="Texture" id=12]
+[ext_resource path="res://images/MC/MC_crawl/MC_Crawl0003.png" type="Texture" id=13]
 [ext_resource path="res://images/MC/MC_jump/6.png" type="Texture" id=14]
 [ext_resource path="res://images/MC/MC_jump/7.png" type="Texture" id=15]
 [ext_resource path="res://images/jumpCoin.png" type="Texture" id=16]
@@ -50,25 +50,14 @@ animations = [ {
 "name": "Jump",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ) ],
-"loop": true,
-"name": "crawl",
-"speed": 5.0
-}, {
-
-"frames": [ ExtResource( 2 ), ExtResource( 12 ), ExtResource( 2 ), ExtResource( 13 ) ],
+"frames": [ ExtResource( 2 ), ExtResource( 8 ), ExtResource( 2 ), ExtResource( 9 ) ],
 "loop": true,
 "name": "walk",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ) ],
+"frames": [ ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ) ],
 "loop": true,
 "name": "crawl",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 6 ), ExtResource( 7 ) ],
-"loop": false,
-"name": "Jump",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 14 ), ExtResource( 15 ), ExtResource( 2 ) ],
@@ -119,16 +108,19 @@ animations = [ {
 "speed": 5.0
 } ]
 
+[sub_resource type="DynamicFontData" id=7]
+font_path = "res://fonts/ARLRDBD.TTF"
+
+[sub_resource type="DynamicFont" id=8]
+size = 25
+font_data = SubResource( 7 )
+
 [node name="MC_Sprite" type="KinematicBody2D" groups=[
 "player",
 ]]
-position = Vector2( 42, 438 )
 z_index = 1
 z_as_relative = false
 script = ExtResource( 1 )
-__meta__ = {
-"_edit_lock_": true
-}
 
 [node name="Area2D" type="Area2D" parent="."]
 editor/display_folded = true
@@ -170,6 +162,14 @@ visible = false
 position = Vector2( 590, 20 )
 frames = SubResource( 6 )
 
+[node name="coinCounter" type="Label" parent="AbilityLayer"]
+margin_left = 381.0
+margin_top = 5.0
+margin_right = 533.0
+margin_bottom = 35.0
+custom_fonts/font = SubResource( 8 )
+custom_colors/font_color = Color( 0.619608, 0.513726, 0.513726, 1 )
+
 [node name="Jump" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 22 )
 volume_db = -20.0
@@ -202,12 +202,11 @@ stream = ExtResource( 29 )
 volume_db = -22.0
 
 [node name="Camera2D2" type="Camera2D" parent="."]
+position = Vector2( 0, -174 )
+offset = Vector2( 0, 50 )
 current = true
 limit_left = 0
-limit_top = 0
 limit_smoothed = true
-offset_v = -1.0
-offset_h = 0.56
 drag_margin_left = 0.25
 editor_draw_drag_margin = true
 [connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]

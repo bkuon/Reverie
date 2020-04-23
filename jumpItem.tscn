@@ -35,7 +35,6 @@ script = SubResource( 1 )
 
 [node name="jumpItemSprite" type="AnimatedSprite" parent="jumpItem"]
 frames = SubResource( 2 )
-frame = 1
 playing = true
 
 [node name="jumpItemBox" type="CollisionShape2D" parent="jumpItem"]

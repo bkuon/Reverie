@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Ogre.gd" type="Script" id=1]
 [ext_resource path="res://images/NPC/OgreNPC/ogre_idle_anim_f0.png" type="Texture" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://sound/Ogre sounds/sound 2.wav" type="AudioStream" id=7]
 [ext_resource path="res://images/Items/bag.png" type="Texture" id=8]
 [ext_resource path="res://OgreItem.gd" type="Script" id=9]
+[ext_resource path="res://keyObject.tscn" type="PackedScene" id=11]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -42,12 +43,12 @@ stream = ExtResource( 6 )
 stream = ExtResource( 7 )
 
 [node name="Response1" type="Label" parent="."]
-margin_left = 155.363
-margin_top = -69.6131
-margin_right = 258.363
-margin_bottom = -55.6131
+margin_left = 165.914
+margin_top = -74.1351
+margin_right = 361.914
+margin_bottom = -9.13513
 custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "Take bag and go"
+text = "BADD in HEX"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -58,7 +59,7 @@ margin_top = -70.3002
 margin_right = 262.8
 margin_bottom = -56.3002
 custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "No food, no pass"
+text = "Take bag and go"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -70,11 +71,15 @@ script = ExtResource( 9 )
 
 [node name="OgreItemArea" type="Area2D" parent="OgreItem"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="OgreItem/OgreItemArea"]
+[node name="keyObject" parent="OgreItem/OgreItemArea" instance=ExtResource( 11 )]
+position = Vector2( -262.132, 68.4176 )
+scale = Vector2( 4, 4 )
 
-[node name="Sprite" type="Sprite" parent="OgreItem/OgreItemArea"]
-position = Vector2( 68.2559, 56.8799 )
-scale = Vector2( 3, 3 )
+[node name="Sprite" type="Sprite" parent="OgreItem/OgreItemArea/keyObject"]
+position = Vector2( 3.84085, -2.79345 )
+scale = Vector2( 0.716299, 0.825415 )
 texture = ExtResource( 8 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="OgreItem/OgreItemArea"]
 [connection signal="finished" from="audio1" to="." method="_on_audio1_finished"]
 [connection signal="finished" from="audio2" to="." method="_on_audio2_finished"]

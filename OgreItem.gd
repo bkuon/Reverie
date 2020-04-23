@@ -6,6 +6,6 @@ func _process(delta):
 	
 	for b in bodies:
 		if b.name == "MC_Sprite":
-			$OgreItemArea/Sprite.visible=false
+			$OgreItemArea/keyObject/Sprite.visible=false
 	pass
 	

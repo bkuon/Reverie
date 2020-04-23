@@ -13,5 +13,5 @@ func _ready():
 
 func _input(ev):
 	if Input.is_key_pressed(KEY_Q):
-		get_tree().change_scene("res://world2.tscn")
+		get_tree().change_scene("res://Level1.tscn")
 

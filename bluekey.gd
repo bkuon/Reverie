@@ -6,6 +6,7 @@ var can_speak = true
 var can_interact = true
 onready var globals = get_node("/root/Globals")
 
+var itemInfo
 
 func _input(event):
 	if event is InputEventKey:

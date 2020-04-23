@@ -5,6 +5,8 @@ const POPUP_SCENE = preload("res://pausePopup.tscn")
 const DIALOGUE_SCENE = preload("res://DialougeBox.tscn")
 const CHOICE_SCENE = preload("res://choicePopup.tscn")
 
+
+
 const WORLD_PATH = "res://world.tscn"
 
 var popup = null
@@ -24,6 +26,7 @@ var char_portrait
 var unlocked = false
 var coinCounter = 0
 var inventory = []
+var inventoryIsOpen=false
 var mergeableItems = ["greenupper", "greenlower", "greenkey"]
 var followerImage
 

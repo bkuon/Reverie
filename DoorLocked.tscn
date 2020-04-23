@@ -1,0 +1,37 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://images/Environment/door.png" type="Texture" id=1]
+[ext_resource path="res://labelTrigger.gd" type="Script" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 5.51099, 7.51422 )
+
+[node name="DoorLocked" type="Area2D"]
+position = Vector2( -18.8228, 22.8257 )
+scale = Vector2( -4.44048, 1 )
+script = ExtResource( 2 )
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="Label" type="Label" parent="."]
+margin_left = 16.2285
+margin_top = -51.6
+margin_right = 214.229
+margin_bottom = -22.6
+rect_scale = Vector2( -0.246219, 1.05118 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "door seems locked"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 3.50586, -0.636841 )
+scale = Vector2( 1, 4.24 )
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 3.427, 1.10321 )
+rotation = -3.14159
+scale = Vector2( 0.557384, -2.47679 )
+texture = ExtResource( 1 )

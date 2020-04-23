@@ -4,17 +4,17 @@ onready var globals = get_node("/root/Globals")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	get_node("TextureRect").set_visible(false)
-	
+	#get_node("TextureRect").set_visible(false)
+	pass
 
 func _physics_process(delta):
-	if Input.is_action_pressed("ui_inventory"):
+	if Globals.inventoryIsOpen:
 		populate()
-		get_node("TextureRect2").set_visible(false)
+		#get_node("TextureRect2").set_visible(false)
 		get_node("TextureRect").set_visible(true)
-	if Input.is_action_pressed("ui_cancel"):
+	if !Globals.inventoryIsOpen:
 		get_node("TextureRect").set_visible(false)
-		get_node("TextureRect2").set_visible(true)
+		#get_node("TextureRect2").set_visible(true)
 	if Input.is_action_pressed("merge"):
 		merge()
 

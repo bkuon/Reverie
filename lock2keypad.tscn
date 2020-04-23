@@ -1,0 +1,225 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://gameImages/basic.png" type="Texture" id=1]
+[ext_resource path="res://Player.gd" type="Script" id=2]
+[ext_resource path="res://PieceMovement.wav" type="AudioStream" id=3]
+[ext_resource path="res://gameImages/player.png" type="Texture" id=4]
+[ext_resource path="res://CharTween.gd" type="Script" id=5]
+[ext_resource path="res://Obstacle.tscn" type="PackedScene" id=6]
+[ext_resource path="res://quit.gd" type="Script" id=7]
+[ext_resource path="res://MinipuzzleButton.tscn" type="PackedScene" id=8]
+[ext_resource path="res://lock2keypadgrid.gd" type="Script" id=9]
+
+[sub_resource type="TileSet" id=1]
+0/name = "basic.png 0"
+0/texture = ExtResource( 1 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 0, 0, 64, 64 )
+0/tile_mode = 0
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shapes = [  ]
+0/z_index = 0
+1/name = "basic.png 1"
+1/texture = ExtResource( 1 )
+1/tex_offset = Vector2( 0, 0 )
+1/modulate = Color( 1, 1, 1, 1 )
+1/region = Rect2( 64, 0, 64, 64 )
+1/tile_mode = 0
+1/occluder_offset = Vector2( 0, 0 )
+1/navigation_offset = Vector2( 0, 0 )
+1/shapes = [  ]
+1/z_index = 0
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 16, 16 )
+
+[node name="lock2keypad" type="Node2D"]
+position = Vector2( 7.59998, -26.5999 )
+
+[node name="lock2keypadgrid" type="TileMap" parent="."]
+position = Vector2( -176.121, -11.1067 )
+tile_set = SubResource( 1 )
+format = 1
+tile_data = PoolIntArray( 65541, 0, 0, 65542, 1, 0, 65543, 0, 0, 65544, 1, 0, 65545, 0, 0, 65546, 1, 0, 131077, 1, 0, 131078, 0, 0, 131079, 0, 0, 131080, 0, 0, 131081, 0, 0, 131082, 0, 0, 196613, 0, 0, 196614, 0, 0, 196615, 0, 0, 196616, 0, 0, 196617, 0, 0, 196618, 1, 0, 262149, 1, 0, 262150, 0, 0, 262151, 0, 0, 262152, 0, 0, 262153, 0, 0, 262154, 0, 0, 327685, 0, 0, 327686, 0, 0, 327687, 0, 0, 327688, 0, 0, 327689, 0, 0, 327690, 1, 0, 393221, 1, 0, 393222, 0, 0, 393223, 1, 0, 393224, 0, 0, 393225, 1, 0, 393226, 0, 0 )
+script = ExtResource( 9 )
+level3 = "res://Level3.tscn"
+
+[node name="MPB1" parent="lock2keypadgrid" instance=ExtResource( 8 )]
+position = Vector2( 419.681, 162.43 )
+
+[node name="MPB2" parent="lock2keypadgrid" instance=ExtResource( 8 )]
+position = Vector2( 480.6, 160.255 )
+
+[node name="MPB3" parent="lock2keypadgrid" instance=ExtResource( 8 )]
+position = Vector2( 544.857, 162.43 )
+
+[node name="MPB4" parent="lock2keypadgrid" instance=ExtResource( 8 )]
+position = Vector2( 606.588, 162.43 )
+
+[node name="MPB5" parent="lock2keypadgrid" instance=ExtResource( 8 )]
+position = Vector2( 417.108, 224.161 )
+
+[node name="MPB6" parent="lock2keypadgrid" instance=ExtResource( 8 )]
+position = Vector2( 479.697, 225.018 )
+
+[node name="MPB7" parent="lock2keypadgrid" instance=ExtResource( 8 )]
+position = Vector2( 544, 224.161 )
+
+[node name="MPB8" parent="lock2keypadgrid" instance=ExtResource( 8 )]
+position = Vector2( 605.731, 224.161 )
+
+[node name="MPB9" parent="lock2keypadgrid" instance=ExtResource( 8 )]
+position = Vector2( 417.966, 285.892 )
+
+[node name="MPB10" parent="lock2keypadgrid" instance=ExtResource( 8 )]
+position = Vector2( 479.917, 287.237 )
+
+[node name="MPB11" parent="lock2keypadgrid" instance=ExtResource( 8 )]
+position = Vector2( 544, 286.749 )
+
+[node name="MPB12" parent="lock2keypadgrid" instance=ExtResource( 8 )]
+position = Vector2( 606.588, 286.749 )
+
+[node name="MPB13" parent="lock2keypadgrid" instance=ExtResource( 8 )]
+position = Vector2( 417.966, 347.623 )
+
+[node name="MPB14" parent="lock2keypadgrid" instance=ExtResource( 8 )]
+position = Vector2( 478.839, 349.337 )
+
+[node name="MPB15" parent="lock2keypadgrid" instance=ExtResource( 8 )]
+position = Vector2( 542.285, 349.337 )
+
+[node name="MPB16" parent="lock2keypadgrid" instance=ExtResource( 8 )]
+position = Vector2( 604.016, 349.337 )
+
+[node name="Player" type="Area2D" parent="lock2keypadgrid"]
+position = Vector2( 416.303, 161.161 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
+rayU = NodePath("../../MinipuzzleGrid/Player/RayUp")
+rayD = NodePath("../../MinipuzzleGrid/Player/RayDown")
+rayL = NodePath("../../MinipuzzleGrid/Player/RayLeft")
+rayR = NodePath("../../MinipuzzleGrid/Player/RayRight")
+
+[node name="PieceMovement" type="AudioStreamPlayer" parent="lock2keypadgrid/Player"]
+stream = ExtResource( 3 )
+volume_db = -9.0
+
+[node name="Sprite" type="Sprite" parent="lock2keypadgrid/Player"]
+position = Vector2( 0.554222, -1.16053 )
+texture = ExtResource( 4 )
+
+[node name="Tween" type="Tween" parent="lock2keypadgrid/Player"]
+script = ExtResource( 5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="lock2keypadgrid/Player"]
+position = Vector2( 0.170074, -0.303154 )
+shape = SubResource( 2 )
+
+[node name="RayUp" type="RayCast2D" parent="lock2keypadgrid/Player"]
+position = Vector2( 0.55423, -32.3032 )
+enabled = true
+exclude_parent = false
+cast_to = Vector2( 0, -32 )
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="RayDown" type="RayCast2D" parent="lock2keypadgrid/Player"]
+position = Vector2( 0.55423, 31.6968 )
+enabled = true
+exclude_parent = false
+cast_to = Vector2( 0, 32 )
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="RayLeft" type="RayCast2D" parent="lock2keypadgrid/Player"]
+position = Vector2( -31.4458, -0.303154 )
+enabled = true
+exclude_parent = false
+cast_to = Vector2( -32, 0 )
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="RayRight" type="RayCast2D" parent="lock2keypadgrid/Player"]
+position = Vector2( 32.5542, -0.303154 )
+enabled = true
+exclude_parent = false
+cast_to = Vector2( 32, 0 )
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="Obstacle" parent="lock2keypadgrid" instance=ExtResource( 6 )]
+position = Vector2( 352, 288 )
+
+[node name="Obstacle2" parent="lock2keypadgrid" instance=ExtResource( 6 )]
+position = Vector2( 352, 224 )
+
+[node name="Obstacle3" parent="lock2keypadgrid" instance=ExtResource( 6 )]
+position = Vector2( 352, 160 )
+
+[node name="Obstacle4" parent="lock2keypadgrid" instance=ExtResource( 6 )]
+position = Vector2( 352, 96 )
+
+[node name="Obstacle5" parent="lock2keypadgrid" instance=ExtResource( 6 )]
+position = Vector2( 416, 96 )
+
+[node name="Obstacle6" parent="lock2keypadgrid" instance=ExtResource( 6 )]
+position = Vector2( 480, 96 )
+
+[node name="Obstacle7" parent="lock2keypadgrid" instance=ExtResource( 6 )]
+position = Vector2( 544, 96 )
+
+[node name="Obstacle8" parent="lock2keypadgrid" instance=ExtResource( 6 )]
+position = Vector2( 608, 96 )
+
+[node name="Obstacle9" parent="lock2keypadgrid" instance=ExtResource( 6 )]
+position = Vector2( 672, 96 )
+
+[node name="Obstacle10" parent="lock2keypadgrid" instance=ExtResource( 6 )]
+position = Vector2( 672, 160 )
+
+[node name="Obstacle11" parent="lock2keypadgrid" instance=ExtResource( 6 )]
+position = Vector2( 672, 224 )
+
+[node name="Obstacle12" parent="lock2keypadgrid" instance=ExtResource( 6 )]
+position = Vector2( 672, 288 )
+
+[node name="Obstacle13" parent="lock2keypadgrid" instance=ExtResource( 6 )]
+position = Vector2( 672, 416 )
+
+[node name="Obstacle14" parent="lock2keypadgrid" instance=ExtResource( 6 )]
+position = Vector2( 608, 416 )
+
+[node name="Obstacle15" parent="lock2keypadgrid" instance=ExtResource( 6 )]
+position = Vector2( 544, 416 )
+
+[node name="Obstacle16" parent="lock2keypadgrid" instance=ExtResource( 6 )]
+position = Vector2( 480, 416 )
+
+[node name="Obstacle17" parent="lock2keypadgrid" instance=ExtResource( 6 )]
+position = Vector2( 416, 416 )
+
+[node name="Obstacle18" parent="lock2keypadgrid" instance=ExtResource( 6 )]
+position = Vector2( 352, 416 )
+
+[node name="Obstacle19" parent="lock2keypadgrid" instance=ExtResource( 6 )]
+position = Vector2( 672, 352 )
+
+[node name="Obstacle20" parent="lock2keypadgrid" instance=ExtResource( 6 )]
+position = Vector2( 352, 352 )
+
+[node name="quit" type="Label" parent="."]
+margin_left = 21.4796
+margin_top = 445.344
+margin_right = 164.48
+margin_bottom = 469.344
+text = "Press Q to quit"
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="won" from="lock2keypadgrid" to="lock2keypadgrid" method="_on_lock2keypadgrid_won"]

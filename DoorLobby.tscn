@@ -3,7 +3,7 @@
 [ext_resource path="res://DoorLobby.gd" type="Script" id=1]
 [ext_resource path="res://images/Environment/door.png" type="Texture" id=2]
 
-[sub_resource type="RectangleShape2D" id=11]
+[sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 25.7475, 31.658 )
 
 [node name="DoorLobby" type="Area2D"]
@@ -15,7 +15,7 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( -0.702637, 1.17769 )
-shape = SubResource( 11 )
+shape = SubResource( 1 )
 
 [node name="door" type="Sprite" parent="."]
 position = Vector2( -0.793182, 1.44168 )

@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://world.tscn" type="PackedScene" id=1]
+[ext_resource path="res://ReverieGame.gd" type="Script" id=2]
+
+[node name="ReverieGame" type="Node"]
+script = ExtResource( 2 )
+
+[node name="world" parent="." instance=ExtResource( 1 )]

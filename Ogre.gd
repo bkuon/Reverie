@@ -4,8 +4,7 @@ func _ready():
 	$Response1.hide()
 	$Response2.hide()
 	$AnimatedSprite.play()
-	$OgreItem/OgreItemArea/Sprite.hide()
-	$OgreItem/OgreItemArea/CollisionShape2D.hide()
+	$OgreItem/OgreItemArea/keyObject/Sprite.hide()
 
 var event
 
@@ -30,5 +29,4 @@ func _on_audio1_finished():
 
 func _on_audio2_finished():
 	$Response2.hide()
-	$OgreItem/OgreItemArea/Sprite.show()
-	$OgreItem/OgreItemArea/CollisionShape2D.show()
+	$OgreItem/OgreItemArea/keyObject/Sprite.show()

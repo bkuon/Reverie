@@ -1,19 +1,26 @@
 extends WindowDialog
 
 func _ready():
+	
 	get_tree().paused=true
 	$ItemsButton.grab_focus()
 	
 func _input(event):
-	if event.is_action_pressed("pause"):
+	if Globals.inventoryIsOpen && event.is_action_pressed("pause"):
+		Globals.inventoryIsOpen = false
+	
+	elif event.is_action_pressed("pause"):
+		Globals.inventoryIsOpen = false
 		get_tree().paused=false
 
 func _on_ItemsButton_pressed():
-	print("items menu")
-
+	Globals.inventoryIsOpen = true
 
 func _on_QuitButton_pressed():
-	print("quit game")
+	get_tree().change_scene("TitleScreen.tscn")
+	Globals.inventoryIsOpen = false
+	Globals.popup.visible=false
+	get_tree().paused=false
 
 
 func _on_SaveButton_pressed():

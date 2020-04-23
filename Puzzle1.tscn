@@ -1,15 +1,15 @@
 [gd_scene load_steps=13 format=2]
 
-[ext_resource path="res://Puzzle1Player.gd" type="Script" id=1]
-[ext_resource path="res://Puzzle1Grid.gd" type="Script" id=2]
-[ext_resource path="res://coin_sound.wav" type="AudioStream" id=3]
+[ext_resource path="res://Puzzle1Grid.gd" type="Script" id=1]
+[ext_resource path="res://Puzzle1Button.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Puzzle1Player.gd" type="Script" id=3]
 [ext_resource path="res://PieceMovement.wav" type="AudioStream" id=4]
 [ext_resource path="res://gameImages/player.png" type="Texture" id=5]
 [ext_resource path="res://CharTween.gd" type="Script" id=6]
 [ext_resource path="res://Obstacle.tscn" type="PackedScene" id=7]
 [ext_resource path="res://ObstaclePuzzle1.tscn" type="PackedScene" id=8]
 [ext_resource path="res://quitpuzzle1.gd" type="Script" id=9]
-[ext_resource path="res://Puzzle1Button.tscn" type="PackedScene" id=10]
+[ext_resource path="res://MC_Sprite.tscn" type="PackedScene" id=10]
 
 [sub_resource type="TileSet" id=1]
 
@@ -22,17 +22,61 @@ extents = Vector2( 16, 16 )
 position = Vector2( -176.121, -11.1067 )
 tile_set = SubResource( 1 )
 format = 1
-script = ExtResource( 2 )
+script = ExtResource( 1 )
+puzzle1win = "res://puzzle1win.tscn"
 
-[node name="P1B" parent="Puzzle1Grid" instance=ExtResource( 10 )]
-position = Vector2( 528.533, 154.449 )
+[node name="P1B1" parent="Puzzle1Grid" instance=ExtResource( 2 )]
+position = Vector2( 402.009, 153.052 )
 
-[node name="P1Bsound" type="AudioStreamPlayer2D" parent="Puzzle1Grid/P1B"]
-stream = ExtResource( 3 )
+[node name="P1B2" parent="Puzzle1Grid" instance=ExtResource( 2 )]
+position = Vector2( 466.103, 153.543 )
+
+[node name="P1B3" parent="Puzzle1Grid" instance=ExtResource( 2 )]
+position = Vector2( 527.318, 153.665 )
+
+[node name="P1B4" parent="Puzzle1Grid" instance=ExtResource( 2 )]
+position = Vector2( 590.469, 153.364 )
+
+[node name="P1B5" parent="Puzzle1Grid" instance=ExtResource( 2 )]
+position = Vector2( 400.007, 222.31 )
+
+[node name="P1B6" parent="Puzzle1Grid" instance=ExtResource( 2 )]
+position = Vector2( 467.417, 222.788 )
+
+[node name="P1B7" parent="Puzzle1Grid" instance=ExtResource( 2 )]
+position = Vector2( 532.929, 222.722 )
+
+[node name="P1B8" parent="Puzzle1Grid" instance=ExtResource( 2 )]
+position = Vector2( 592.645, 224.127 )
+
+[node name="P1B9" parent="Puzzle1Grid" instance=ExtResource( 2 )]
+position = Vector2( 398.283, 285.281 )
+
+[node name="P1B10" parent="Puzzle1Grid" instance=ExtResource( 2 )]
+position = Vector2( 464.642, 283.914 )
+
+[node name="P1B11" parent="Puzzle1Grid" instance=ExtResource( 2 )]
+position = Vector2( 526.943, 285.455 )
+
+[node name="P1B12" parent="Puzzle1Grid" instance=ExtResource( 2 )]
+position = Vector2( 591.338, 286.127 )
+
+[node name="P1B13" parent="Puzzle1Grid" instance=ExtResource( 2 )]
+position = Vector2( 399.6, 348.407 )
+
+[node name="P1B14" parent="Puzzle1Grid" instance=ExtResource( 2 )]
+position = Vector2( 461.42, 346.928 )
+
+[node name="P1B15" parent="Puzzle1Grid" instance=ExtResource( 2 )]
+position = Vector2( 526.934, 346.217 )
+
+[node name="P1B16" parent="Puzzle1Grid" instance=ExtResource( 2 )]
+position = Vector2( 589.989, 349.323 )
 
 [node name="Puzzle1Player" type="Area2D" parent="Puzzle1Grid"]
+editor/display_folded = true
 position = Vector2( 335.671, 90.1683 )
-script = ExtResource( 1 )
+script = ExtResource( 3 )
 
 [node name="PieceMovement" type="AudioStreamPlayer" parent="Puzzle1Grid/Puzzle1Player"]
 stream = ExtResource( 4 )
@@ -82,7 +126,8 @@ collide_with_areas = true
 collide_with_bodies = false
 
 [node name="Obstacle4" parent="Puzzle1Grid" instance=ExtResource( 7 )]
-position = Vector2( 335.131, 94.4911 )
+editor/display_folded = true
+position = Vector2( 331.883, 93.1988 )
 
 [node name="Obstacle" parent="Puzzle1Grid/Obstacle4" instance=ExtResource( 8 )]
 position = Vector2( 0.121002, 59.1067 )
@@ -142,7 +187,7 @@ position = Vector2( 128.121, -4.8933 )
 position = Vector2( 64.121, -4.8933 )
 
 [node name="Obstacle20" parent="Puzzle1Grid/Obstacle4" instance=ExtResource( 8 )]
-position = Vector2( 0.121002, -4.8933 )
+position = Vector2( 0.121002, -4.89331 )
 
 [node name="quit" type="Label" parent="."]
 margin_left = 5.15065
@@ -154,5 +199,9 @@ script = ExtResource( 9 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="MC_Sprite" parent="." instance=ExtResource( 10 )]
+visible = false
+position = Vector2( 204.772, 364.278 )
+script = null
 [connection signal="won" from="Puzzle1Grid" to="Puzzle1Grid" method="_on_Puzzle1Grid_won"]
-[connection signal="area_entered" from="Puzzle1Grid/P1B" to="Puzzle1Grid/P1B" method="_on_P1B_area_entered"]
