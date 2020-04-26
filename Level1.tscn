@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://sound/Music/LobbySong.wav" type="AudioStream" id=1]
 [ext_resource path="res://MC_Sprite.tscn" type="PackedScene" id=2]
@@ -16,30 +16,31 @@
 [ext_resource path="res://DialogueParser.tscn" type="PackedScene" id=14]
 [ext_resource path="res://characters/PainterNPC.tscn" type="PackedScene" id=15]
 [ext_resource path="res://Ice Zombie.tscn" type="PackedScene" id=16]
-[ext_resource path="res://NPCLevel3.tscn" type="PackedScene" id=17]
-[ext_resource path="res://images/NPC/AlienNPCs/alien5npc.png" type="Texture" id=18]
-[ext_resource path="res://images/NPC/AlienNPCs/alien4npc.png" type="Texture" id=19]
-[ext_resource path="res://LabelTrigger.gd" type="Script" id=20]
-[ext_resource path="res://Boundary.tscn" type="PackedScene" id=21]
+[ext_resource path="res://Ice Zombie.gd" type="Script" id=17]
+[ext_resource path="res://images/NPC/IceZombieNPC/skelet_idle_anim_f0.png" type="Texture" id=18]
+[ext_resource path="res://images/NPC/IceZombieNPC/skelet_idle_anim_f1.png" type="Texture" id=19]
+[ext_resource path="res://images/NPC/IceZombieNPC/skelet_idle_anim_f2.png" type="Texture" id=20]
+[ext_resource path="res://images/NPC/IceZombieNPC/skelet_idle_anim_f3.png" type="Texture" id=21]
+[ext_resource path="res://sound/Ice Zombie sounds/sound 1.wav" type="AudioStream" id=22]
+[ext_resource path="res://sound/Ice Zombie sounds/sound 2.wav" type="AudioStream" id=23]
+[ext_resource path="res://images/exclamation_sign.png" type="Texture" id=24]
+[ext_resource path="res://LabelTrigger.gd" type="Script" id=25]
+[ext_resource path="res://Boundary.tscn" type="PackedScene" id=26]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 16.5859, 10.0336 )
 
-[sub_resource type="SpriteFrames" id=2]
+[sub_resource type="SpriteFrames" id=6]
 animations = [ {
-"frames": [ ExtResource( 18 ) ],
+"frames": [ ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ) ],
 "loop": true,
-"name": "default",
+"name": "idle",
 "speed": 5.0
 } ]
 
-[sub_resource type="SpriteFrames" id=3]
-animations = [ {
-"frames": [ ExtResource( 19 ) ],
-"loop": true,
-"name": "default",
-"speed": 5.0
-} ]
+[sub_resource type="CapsuleShape2D" id=7]
+radius = 6.88678
+height = 1.47369
 
 [sub_resource type="CircleShape2D" id=4]
 radius = 28.7867
@@ -117,7 +118,6 @@ scale = Vector2( 0.75, 0.75 )
 texture = ExtResource( 9 )
 
 [node name="keyObject" type="RigidBody2D" parent="."]
-editor/display_folded = true
 collision_layer = 2
 collision_mask = 2
 gravity_scale = 0.0
@@ -127,7 +127,7 @@ script = ExtResource( 10 )
 "inventoryItem",
 ]]
 editor/display_folded = true
-position = Vector2( 978.933, 276.514 )
+position = Vector2( 331.294, 225.741 )
 gravity_point = true
 gravity_vec = Vector2( 0, 0 )
 __meta__ = {
@@ -147,7 +147,7 @@ shape = SubResource( 1 )
 "inventoryItem",
 ]]
 editor/display_folded = true
-position = Vector2( 284.616, 228.018 )
+position = Vector2( 855.613, 276.018 )
 gravity_point = true
 gravity_vec = Vector2( 0, 0 )
 __meta__ = {
@@ -175,30 +175,66 @@ position = Vector2( 792.177, 253.78 )
 [node name="Ice Zombie" parent="." instance=ExtResource( 16 )]
 position = Vector2( 1658.9, 547.542 )
 
-[node name="NPCLevel3_2" parent="." instance=ExtResource( 17 )]
+[node name="Ice Zombie2" type="Area2D" parent="."]
 editor/display_folded = true
-position = Vector2( 1783.13, 546.943 )
+position = Vector2( 1882.18, 548.107 )
+script = ExtResource( 17 )
 
-[node name="AnimatedSprite" type="AnimatedSprite" parent="NPCLevel3_2"]
-position = Vector2( -5.54004, -5.54028 )
-scale = Vector2( 0.256965, 0.256965 )
-frames = SubResource( 2 )
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Ice Zombie2"]
+position = Vector2( -0.399475, -0.295296 )
+scale = Vector2( 1.5, 1.5 )
+frames = SubResource( 6 )
+animation = "idle"
 
-[node name="NPCLevel3" parent="." instance=ExtResource( 17 )]
-editor/display_folded = true
-position = Vector2( 1423.88, 542.274 )
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ice Zombie2"]
+shape = SubResource( 7 )
 
-[node name="AnimatedSprite" type="AnimatedSprite" parent="NPCLevel3"]
-position = Vector2( 0.696777, -1.71472 )
-scale = Vector2( 0.285592, 0.266757 )
-frames = SubResource( 3 )
+[node name="audio1" type="AudioStreamPlayer" parent="Ice Zombie2"]
+stream = ExtResource( 22 )
+
+[node name="audio2" type="AudioStreamPlayer" parent="Ice Zombie2"]
+stream = ExtResource( 23 )
+
+[node name="Oneliner" type="Sprite" parent="Ice Zombie2"]
+visible = false
+position = Vector2( -0.671265, -44.8422 )
+scale = Vector2( 1.69308, 1.91999 )
+texture = ExtResource( 24 )
+
+[node name="Ice Zombie3" type="Area2D" parent="."]
+position = Vector2( 1963.1, 546.52 )
+script = ExtResource( 17 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Ice Zombie3"]
+position = Vector2( -0.399475, -0.295296 )
+scale = Vector2( 1.5, 1.5 )
+frames = SubResource( 6 )
+animation = "idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ice Zombie3"]
+shape = SubResource( 7 )
+
+[node name="audio1" type="AudioStreamPlayer" parent="Ice Zombie3"]
+stream = ExtResource( 22 )
+
+[node name="audio2" type="AudioStreamPlayer" parent="Ice Zombie3"]
+stream = ExtResource( 23 )
+
+[node name="Oneliner" type="Sprite" parent="Ice Zombie3"]
+visible = false
+position = Vector2( -0.671265, -44.8422 )
+scale = Vector2( 1.69308, 1.91999 )
+texture = ExtResource( 24 )
 
 [node name="Labels" type="Node" parent="."]
 editor/display_folded = true
 
 [node name="LabelTrigger1" type="Area2D" parent="Labels"]
 position = Vector2( 196.438, 202.577 )
-script = ExtResource( 20 )
+script = ExtResource( 25 )
 
 [node name="Label" type="Label" parent="Labels/LabelTrigger1"]
 margin_left = 28.0801
@@ -218,7 +254,7 @@ shape = SubResource( 4 )
 
 [node name="LabelTrigger2" type="Area2D" parent="Labels"]
 position = Vector2( 637.369, 234.229 )
-script = ExtResource( 20 )
+script = ExtResource( 25 )
 
 [node name="Label" type="Label" parent="Labels/LabelTrigger2"]
 margin_left = 21.9512
@@ -240,7 +276,7 @@ shape = SubResource( 5 )
 
 [node name="LabelTrigger3" type="Area2D" parent="Labels"]
 position = Vector2( 1197.84, 383.87 )
-script = ExtResource( 20 )
+script = ExtResource( 25 )
 
 [node name="Label" type="Label" parent="Labels/LabelTrigger3"]
 margin_left = 43.7142
@@ -261,7 +297,7 @@ shape = SubResource( 5 )
 
 [node name="LabelTrigger4" type="Area2D" parent="Labels"]
 position = Vector2( 1566.5, 499.502 )
-script = ExtResource( 20 )
+script = ExtResource( 25 )
 
 [node name="Label" type="Label" parent="Labels/LabelTrigger4"]
 margin_left = -1.17834
@@ -282,7 +318,7 @@ shape = SubResource( 5 )
 
 [node name="LabelTrigger5" type="Area2D" parent="Labels"]
 position = Vector2( 2377.24, 524.675 )
-script = ExtResource( 20 )
+script = ExtResource( 25 )
 
 [node name="Label" type="Label" parent="Labels/LabelTrigger5"]
 margin_left = 42.3536
@@ -303,5 +339,9 @@ shape = SubResource( 5 )
 
 [node name="Timer" type="Timer" parent="Labels/LabelTrigger5"]
 
-[node name="BoundaryLeft" parent="." instance=ExtResource( 21 )]
+[node name="BoundaryLeft" parent="." instance=ExtResource( 26 )]
 position = Vector2( -16.6228, 315.569 )
+[connection signal="body_entered" from="Ice Zombie2" to="Ice Zombie2" method="_on_Ice_Zombie_body_entered"]
+[connection signal="body_exited" from="Ice Zombie2" to="Ice Zombie2" method="_on_Ice_Zombie_body_exited"]
+[connection signal="body_entered" from="Ice Zombie3" to="Ice Zombie3" method="_on_Ice_Zombie_body_entered"]
+[connection signal="body_exited" from="Ice Zombie3" to="Ice Zombie3" method="_on_Ice_Zombie_body_exited"]

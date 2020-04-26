@@ -12,12 +12,12 @@
 [ext_resource path="res://images/MC/MC_jump/5.png" type="Texture" id=10]
 [ext_resource path="res://images/MC/MC-2.png" type="Texture" id=11]
 [ext_resource path="res://images/MC/MC-3.png" type="Texture" id=12]
-[ext_resource path="res://images/MC/MC_crawl/MC_Crawl0000.png" type="Texture" id=13]
-[ext_resource path="res://images/MC/MC_crawl/MC_Crawl0001.png" type="Texture" id=14]
-[ext_resource path="res://images/MC/MC_crawl/MC_Crawl0002.png" type="Texture" id=15]
-[ext_resource path="res://images/MC/MC_crawl/MC_Crawl0003.png" type="Texture" id=16]
-[ext_resource path="res://images/MC/MC_jump/6.png" type="Texture" id=17]
-[ext_resource path="res://images/MC/MC_jump/7.png" type="Texture" id=18]
+[ext_resource path="res://images/MC/MC_jump/6.png" type="Texture" id=13]
+[ext_resource path="res://images/MC/MC_jump/7.png" type="Texture" id=14]
+[ext_resource path="res://images/MC/MC_crawl/MC_Crawl0000.png" type="Texture" id=15]
+[ext_resource path="res://images/MC/MC_crawl/MC_Crawl0001.png" type="Texture" id=16]
+[ext_resource path="res://images/MC/MC_crawl/MC_Crawl0002.png" type="Texture" id=17]
+[ext_resource path="res://images/MC/MC_crawl/MC_Crawl0003.png" type="Texture" id=18]
 [ext_resource path="res://images/jumpCoin.png" type="Texture" id=19]
 [ext_resource path="res://images/jumpCoinActive.png" type="Texture" id=20]
 [ext_resource path="res://images/crawlCoin0000.png" type="Texture" id=21]
@@ -72,17 +72,17 @@ animations = [ {
 "name": "walk",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ) ],
-"loop": true,
-"name": "crawl",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 17 ), ExtResource( 18 ), ExtResource( 5 ) ],
+"frames": [ ExtResource( 13 ), ExtResource( 14 ), ExtResource( 5 ) ],
 "loop": true,
 "name": "Fall",
 "speed": 6.0
 }, {
-"frames": [ ExtResource( 13 ) ],
+"frames": [ ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ) ],
+"loop": true,
+"name": "crawl",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 15 ) ],
 "loop": true,
 "name": "duck",
 "speed": 5.0
@@ -471,5 +471,6 @@ position = Vector2( 1910.33, 166.762 )
 position = Vector2( 460.846, 553.604 )
 
 [node name="BoundaryLeft" parent="." instance=ExtResource( 49 )]
+visible = false
 position = Vector2( 3344.15, 250.02 )
 [connection signal="animation_finished" from="MC_Sprite/Sprite" to="MC_Sprite" method="_on_Sprite_animation_finished"]
