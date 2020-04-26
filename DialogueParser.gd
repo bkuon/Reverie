@@ -32,11 +32,9 @@ func _physics_process(delta):
 			#other dialogue
 			globals.words = dictionary[obj_name]["choices"][globals.response]
 			
-			
 		emit_signal("end_encounter")
 		globals.decided = false
-		flags[obj_name]["decided"] = true
-		get_tree().paused=false
+		#flags[obj_name]["decided"] = true
 
 #checks if object has dialogue or choices. 
 func init_dialogue(obj):
@@ -57,6 +55,7 @@ func init_dialogue(obj):
 		
 	else:
 		emit_signal("end_encounter")
+
 
 #initiates DialogueBox through Globals
 func start_dialog(obj):
