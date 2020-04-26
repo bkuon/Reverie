@@ -96,6 +96,8 @@ func _physics_process(delta):
 			run2CanPlay = true
 			crawl1CanPlay = true
 			crawl2CanPlay = true
+			if !Input.is_action_pressed("ui_down"):
+				MC_Globals.isCrawling = false
 			$Sprite.play("idle")
 	#Run Ability alongside jump utilities implemented here.
 	if Input.is_action_pressed("ui_right") and Input.is_key_pressed(KEY_V) and MC_Globals.canRun:
@@ -181,6 +183,7 @@ func _physics_process(delta):
 		$AbilityLayer/crawlIcon.play("active")
 		
 		if Input.is_action_pressed("ui_right"):
+			$Sprite.flip_h = false
 			motion.x = DUCK_SPEED
 			MC_Globals.isCrawling=true
 			$Sprite.play("crawl")
@@ -238,7 +241,8 @@ func _on_Area2D_area_entered(area):
 	if area.name == "Enemy Puzzle1":
 		obj = area
 	
-	
+func spike_kill():
+	position = Vector2(40 ,227.397995)
 	
 func _on_Area2D_area_exited(area):
 	obj = ""

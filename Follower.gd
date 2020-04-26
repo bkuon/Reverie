@@ -22,6 +22,7 @@ var friction
 var max_dis = 50
 
 func _ready():
+#	$Sprite.play("default")
 	action_time = OS.get_ticks_msec() #for entering scene
 	print("player position: ", Player.get_position())
 	print("my_position: ", get_position())	
@@ -40,6 +41,7 @@ func set_direction(target_direction):
 func _physics_process(delta):
 
 	add_collision_exception_with(Player)
+	
 	##########left and right movement Sprint 2##########
 	if Player.position.x < position.x - max_dis:
 		set_direction(-1)

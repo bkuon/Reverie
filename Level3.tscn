@@ -1,58 +1,173 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=64 format=2]
 
 [ext_resource path="res://sound/Music/LobbySong.wav" type="AudioStream" id=1]
 [ext_resource path="res://DoorEnd.tscn" type="PackedScene" id=2]
 [ext_resource path="res://ParallaxBackground.tscn" type="PackedScene" id=3]
-[ext_resource path="res://MC_Sprite.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Elevator.tscn" type="PackedScene" id=5]
-[ext_resource path="res://ElevatorLevel2.gd" type="Script" id=6]
-[ext_resource path="res://images/Environment/Level3Text.bmp" type="Texture" id=7]
-[ext_resource path="res://updatedTileSet.tres" type="TileSet" id=8]
-[ext_resource path="res://characters/LivingSculptureNPC.tscn" type="PackedScene" id=9]
-[ext_resource path="res://CoinObject.tscn" type="PackedScene" id=10]
-[ext_resource path="res://Follower.tscn" type="PackedScene" id=11]
-[ext_resource path="res://NPCLevel3.tscn" type="PackedScene" id=12]
-[ext_resource path="res://images/NPC/AlienNPCs/alien1npc.png" type="Texture" id=13]
-[ext_resource path="res://images/NPC/AlienNPCs/alien3npc.png" type="Texture" id=14]
-[ext_resource path="res://images/NPC/AlienNPCs/alien2npc.png" type="Texture" id=15]
-[ext_resource path="res://StoreObject.tscn" type="PackedScene" id=16]
-[ext_resource path="res://CoinCountDisplay.tscn" type="PackedScene" id=17]
-[ext_resource path="res://LabelTrigger.gd" type="Script" id=18]
-[ext_resource path="res://MinipuzzlePadItem.tscn" type="PackedScene" id=19]
-[ext_resource path="res://DoorLocked.tscn" type="PackedScene" id=20]
-[ext_resource path="res://jumpItem.tscn" type="PackedScene" id=21]
+[ext_resource path="res://KinematicBody2D.gd" type="Script" id=4]
+[ext_resource path="res://images/MC/MC-1.png" type="Texture" id=5]
+[ext_resource path="res://images/MC/MC_victory/MC_Victory0001.png" type="Texture" id=6]
+[ext_resource path="res://images/MC/MC_victory/MC_Victory0002.png" type="Texture" id=7]
+[ext_resource path="res://images/MC/MC_victory/MC_Victory0000.png" type="Texture" id=8]
+[ext_resource path="res://images/MC/MC_jump/4.png" type="Texture" id=9]
+[ext_resource path="res://images/MC/MC_jump/5.png" type="Texture" id=10]
+[ext_resource path="res://images/MC/MC-2.png" type="Texture" id=11]
+[ext_resource path="res://images/MC/MC-3.png" type="Texture" id=12]
+[ext_resource path="res://images/MC/MC_crawl/MC_Crawl0000.png" type="Texture" id=13]
+[ext_resource path="res://images/MC/MC_crawl/MC_Crawl0001.png" type="Texture" id=14]
+[ext_resource path="res://images/MC/MC_crawl/MC_Crawl0002.png" type="Texture" id=15]
+[ext_resource path="res://images/MC/MC_crawl/MC_Crawl0003.png" type="Texture" id=16]
+[ext_resource path="res://images/MC/MC_jump/6.png" type="Texture" id=17]
+[ext_resource path="res://images/MC/MC_jump/7.png" type="Texture" id=18]
+[ext_resource path="res://images/jumpCoin.png" type="Texture" id=19]
+[ext_resource path="res://images/jumpCoinActive.png" type="Texture" id=20]
+[ext_resource path="res://images/crawlCoin0000.png" type="Texture" id=21]
+[ext_resource path="res://images/crawlCoinActive.png" type="Texture" id=22]
+[ext_resource path="res://images/runCoin.png" type="Texture" id=23]
+[ext_resource path="res://images/runCoinActive.png" type="Texture" id=24]
+[ext_resource path="res://Jumping.Wav" type="AudioStream" id=25]
+[ext_resource path="res://Landing.Wav" type="AudioStream" id=26]
+[ext_resource path="res://Walking1.Wav" type="AudioStream" id=27]
+[ext_resource path="res://Walking2.Wav" type="AudioStream" id=28]
+[ext_resource path="res://Running1.Wav" type="AudioStream" id=29]
+[ext_resource path="res://Running2.Wav" type="AudioStream" id=30]
+[ext_resource path="res://Crawling1.Wav" type="AudioStream" id=31]
+[ext_resource path="res://Crawling2.Wav" type="AudioStream" id=32]
+[ext_resource path="res://Elevator.tscn" type="PackedScene" id=33]
+[ext_resource path="res://ElevatorLevel2.gd" type="Script" id=34]
+[ext_resource path="res://images/Environment/Level3Text.bmp" type="Texture" id=35]
+[ext_resource path="res://updatedTileSet.tres" type="TileSet" id=36]
+[ext_resource path="res://characters/LivingSculptureNPC.tscn" type="PackedScene" id=37]
+[ext_resource path="res://CoinObject.tscn" type="PackedScene" id=38]
+[ext_resource path="res://Follower.tscn" type="PackedScene" id=39]
+[ext_resource path="res://NPCLevel3.tscn" type="PackedScene" id=40]
+[ext_resource path="res://images/NPC/AlienNPCs/alien1npc.png" type="Texture" id=41]
+[ext_resource path="res://images/NPC/AlienNPCs/alien3npc.png" type="Texture" id=42]
+[ext_resource path="res://images/NPC/AlienNPCs/alien2npc.png" type="Texture" id=43]
+[ext_resource path="res://StoreObject.tscn" type="PackedScene" id=44]
+[ext_resource path="res://CoinCountDisplay.tscn" type="PackedScene" id=45]
+[ext_resource path="res://LabelTrigger.gd" type="Script" id=46]
+[ext_resource path="res://MinipuzzlePadItem.tscn" type="PackedScene" id=47]
+[ext_resource path="res://DoorLocked.tscn" type="PackedScene" id=48]
+[ext_resource path="res://Boundary.tscn" type="PackedScene" id=49]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
+"frames": [ ExtResource( 5 ) ],
+"loop": true,
+"name": "idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 6 ), ExtResource( 7 ), ExtResource( 6 ), ExtResource( 8 ) ],
+"loop": true,
+"name": "victory",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 9 ), ExtResource( 10 ) ],
+"loop": false,
+"name": "Jump",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 5 ), ExtResource( 11 ), ExtResource( 5 ), ExtResource( 12 ) ],
+"loop": true,
+"name": "walk",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ) ],
+"loop": true,
+"name": "crawl",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 17 ), ExtResource( 18 ), ExtResource( 5 ) ],
+"loop": true,
+"name": "Fall",
+"speed": 6.0
+}, {
 "frames": [ ExtResource( 13 ) ],
 "loop": true,
-"name": "default",
+"name": "duck",
 "speed": 5.0
 } ]
 
-[sub_resource type="SpriteFrames" id=2]
-animations = [ {
-"frames": [ ExtResource( 14 ) ],
-"loop": true,
-"name": "default",
-"speed": 5.0
-} ]
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 11.9885, 16.9722 )
 
 [sub_resource type="SpriteFrames" id=3]
 animations = [ {
-"frames": [ ExtResource( 15 ) ],
+"frames": [ ExtResource( 19 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 20 ) ],
+"loop": true,
+"name": "active",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=4]
+animations = [ {
+"frames": [ ExtResource( 21 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 22 ) ],
+"loop": true,
+"name": "active",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=5]
+animations = [ {
+"frames": [ ExtResource( 23 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 24 ) ],
+"loop": true,
+"name": "active",
+"speed": 5.0
+} ]
+
+[sub_resource type="DynamicFontData" id=6]
+font_path = "res://fonts/ARLRDBD.TTF"
+
+[sub_resource type="DynamicFont" id=7]
+size = 25
+font_data = SubResource( 6 )
+
+[sub_resource type="SpriteFrames" id=8]
+animations = [ {
+"frames": [ ExtResource( 41 ) ],
 "loop": true,
 "name": "default",
 "speed": 5.0
 } ]
 
-[sub_resource type="CircleShape2D" id=4]
+[sub_resource type="SpriteFrames" id=9]
+animations = [ {
+"frames": [ ExtResource( 42 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
 
-[sub_resource type="CircleShape2D" id=5]
+[sub_resource type="SpriteFrames" id=10]
+animations = [ {
+"frames": [ ExtResource( 43 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
 
-[sub_resource type="CircleShape2D" id=6]
+[sub_resource type="CircleShape2D" id=11]
 
-[sub_resource type="CircleShape2D" id=7]
+[sub_resource type="CircleShape2D" id=12]
+
+[sub_resource type="CircleShape2D" id=13]
+
+[sub_resource type="CircleShape2D" id=14]
 
 [node name="Level3" type="Node2D"]
 
@@ -67,100 +182,191 @@ end_scene = "res://Ending.tscn"
 
 [node name="ParallaxBackground" parent="." instance=ExtResource( 3 )]
 
-[node name="MC_Sprite" parent="." instance=ExtResource( 4 )]
+[node name="MC_Sprite" type="KinematicBody2D" parent="." groups=[
+"player",
+]]
+editor/display_folded = true
 position = Vector2( 66.8205, 547.269 )
+z_index = 1
+z_as_relative = false
+script = ExtResource( 4 )
 
-[node name="Elevator" parent="." instance=ExtResource( 5 )]
+[node name="Sprite" type="AnimatedSprite" parent="MC_Sprite"]
+position = Vector2( -0.857391, -0.342987 )
+frames = SubResource( 1 )
+animation = "duck"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MC_Sprite"]
+position = Vector2( -1.30981, 6.884 )
+shape = SubResource( 2 )
+
+[node name="Camera2D" type="Camera2D" parent="MC_Sprite"]
+position = Vector2( 245, -216 )
+limit_left = 0
+limit_top = 0
+limit_right = 640
+offset_h = 0.87
+
+[node name="AbilityLayer" type="CanvasLayer" parent="MC_Sprite"]
+
+[node name="jumpIcon" type="AnimatedSprite" parent="MC_Sprite/AbilityLayer"]
+visible = false
+position = Vector2( 550, 20 )
+frames = SubResource( 3 )
+
+[node name="crawlIcon" type="AnimatedSprite" parent="MC_Sprite/AbilityLayer"]
+visible = false
+position = Vector2( 570, 20 )
+frames = SubResource( 4 )
+
+[node name="runIcon" type="AnimatedSprite" parent="MC_Sprite/AbilityLayer"]
+visible = false
+position = Vector2( 590, 20 )
+frames = SubResource( 5 )
+
+[node name="coinCounter" type="Label" parent="MC_Sprite/AbilityLayer"]
+margin_left = 381.0
+margin_top = 5.0
+margin_right = 533.0
+margin_bottom = 35.0
+custom_fonts/font = SubResource( 7 )
+custom_colors/font_color = Color( 0.619608, 0.513726, 0.513726, 1 )
+
+[node name="Jump" type="AudioStreamPlayer" parent="MC_Sprite"]
+stream = ExtResource( 25 )
+volume_db = -20.0
+
+[node name="Land" type="AudioStreamPlayer" parent="MC_Sprite"]
+stream = ExtResource( 26 )
+
+[node name="Walk 1" type="AudioStreamPlayer" parent="MC_Sprite"]
+stream = ExtResource( 27 )
+volume_db = -11.107
+
+[node name="Walk 2" type="AudioStreamPlayer" parent="MC_Sprite"]
+stream = ExtResource( 28 )
+volume_db = -10.097
+
+[node name="Run 1" type="AudioStreamPlayer" parent="MC_Sprite"]
+stream = ExtResource( 29 )
+volume_db = -10.0
+
+[node name="Run 2" type="AudioStreamPlayer" parent="MC_Sprite"]
+stream = ExtResource( 30 )
+volume_db = -10.0
+
+[node name="Crawl 1" type="AudioStreamPlayer" parent="MC_Sprite"]
+stream = ExtResource( 31 )
+volume_db = -22.0
+
+[node name="Crawl 2" type="AudioStreamPlayer" parent="MC_Sprite"]
+stream = ExtResource( 32 )
+volume_db = -22.0
+
+[node name="Camera2D2" type="Camera2D" parent="MC_Sprite"]
+position = Vector2( 0, -174 )
+offset = Vector2( 0, 50 )
+current = true
+limit_left = 0
+limit_smoothed = true
+drag_margin_left = 0.25
+editor_draw_drag_margin = true
+
+[node name="Elevator" parent="." instance=ExtResource( 33 )]
 position = Vector2( 67.8916, 538.596 )
-script = ExtResource( 6 )
+script = ExtResource( 34 )
 
 [node name="Level3Text" type="Sprite" parent="."]
 position = Vector2( 273.5, 63.5 )
 scale = Vector2( 3.34375, 2.20833 )
-texture = ExtResource( 7 )
+texture = ExtResource( 35 )
 
 [node name="BrandonEditTileMap" type="TileMap" parent="."]
+editor/display_folded = true
 position = Vector2( 118.583, -130.274 )
-tile_set = ExtResource( 8 )
+tile_set = ExtResource( 36 )
 cell_size = Vector2( 16, 16 )
 format = 1
 tile_data = PoolIntArray( 589815, 0, 0, 655351, 0, 0, 720887, 0, 0, 786423, 0, 0, 851959, 0, 0, 917495, 0, 0, 983031, 0, 0, 1048567, 0, 0, 1114103, 0, 0, 1048703, 0, 0, 1048704, 0, 0, 1048705, 0, 0, 1048706, 0, 0, 1048707, 0, 0, 1048708, 0, 0, 1048709, 0, 0, 1048710, 0, 0, 1048711, 0, 0, 1048712, 0, 0, 1048713, 0, 0, 1048714, 0, 0, 1048715, 0, 0, 1048716, 0, 0, 1048717, 0, 0, 1048718, 0, 0, 1048719, 0, 0, 1048720, 0, 0, 1048721, 0, 0, 1048722, 0, 0, 1048723, 0, 0, 1048724, 0, 0, 1048725, 0, 0, 1048726, 0, 0, 1048727, 0, 0, 1048728, 0, 0, 1048729, 0, 0, 1048730, 0, 0, 1048731, 0, 0, 1048732, 0, 0, 1048733, 0, 0, 1048734, 0, 0, 1048735, 0, 0, 1048736, 0, 0, 1048737, 0, 0, 1048738, 0, 0, 1048739, 0, 0, 1048740, 0, 0, 1048741, 0, 0, 1048742, 0, 0, 1048743, 0, 0, 1048744, 0, 0, 1048745, 0, 0, 1048746, 0, 0, 1048747, 0, 0, 1048748, 0, 0, 1048749, 0, 0, 1048750, 0, 0, 1048751, 0, 0, 1048752, 0, 0, 1048753, 0, 0, 1048754, 0, 0, 1048755, 0, 0, 1048756, 0, 0, 1048757, 0, 0, 1048758, 0, 0, 1048759, 0, 0, 1048760, 0, 0, 1048761, 0, 0, 1048762, 0, 0, 1048763, 0, 0, 1048764, 0, 0, 1048765, 0, 0, 1048766, 0, 0, 1048767, 0, 0, 1048768, 0, 0, 1048769, 0, 0, 1048770, 0, 0, 1048771, 0, 0, 1048772, 0, 0, 1048773, 0, 0, 1048774, 0, 0, 1179639, 0, 0, 1245175, 0, 0, 1179772, 0, 0, 1179773, 0, 0, 1179774, 0, 0, 1179775, 0, 0, 1179776, 0, 0, 1179777, 0, 0, 1179778, 0, 0, 1310711, 0, 0, 1376247, 0, 0, 1310841, 0, 0, 1310842, 0, 0, 1310843, 0, 0, 1310844, 0, 0, 1310845, 0, 0, 1310846, 0, 0, 1441783, 0, 0, 1507319, 0, 0, 1441910, 0, 0, 1441911, 0, 0, 1441912, 0, 0, 1441913, 0, 0, 1441914, 0, 0, 1441915, 0, 0, 1572855, 0, 0, 1638391, 0, 0, 1572980, 0, 0, 1572981, 0, 0, 1572982, 0, 0, 1572983, 0, 0, 1572984, 0, 0, 1703927, 0, 0, 1769463, 0, 0, 1704050, 0, 0, 1704051, 0, 0, 1704052, 0, 0, 1704053, 0, 0, 1704054, 0, 0, 1834999, 0, 0, 1900535, 0, 0, 1835120, 0, 0, 1835121, 0, 0, 1835122, 0, 0, 1835123, 0, 0, 1835124, 0, 0, 1835125, 0, 0, 1966071, 0, 0, 2031607, 0, 0, 1966190, 0, 0, 1966191, 0, 0, 1966192, 0, 0, 1966193, 0, 0, 1966194, 0, 0, 1966195, 0, 0, 1966196, 0, 0, 1966197, 0, 0, 2097143, 0, 0, 2162679, 0, 0, 2097260, 0, 0, 2097261, 0, 0, 2097262, 0, 0, 2097263, 0, 0, 2097264, 0, 0, 2097265, 0, 0, 2097266, 0, 0, 2097267, 0, 0, 2228215, 0, 0, 2293751, 0, 0, 2228328, 0, 0, 2228329, 0, 0, 2228330, 0, 0, 2228331, 0, 0, 2228332, 0, 0, 2228333, 0, 0, 2228334, 0, 0, 2228335, 0, 0, 2228336, 0, 0, 2359287, 0, 0, 2424823, 0, 0, 2359397, 0, 0, 2359398, 0, 0, 2359399, 0, 0, 2359400, 0, 0, 2359401, 0, 0, 2359402, 0, 0, 2359403, 0, 0, 2359404, 0, 0, 2359405, 0, 0, 2490359, 0, 0, 2555895, 0, 0, 2490465, 0, 0, 2490466, 0, 0, 2490470, 0, 0, 2490471, 0, 0, 2490472, 0, 0, 2490473, 0, 0, 2490489, 0, 0, 2490490, 0, 0, 2490491, 0, 0, 2490492, 0, 0, 2490493, 0, 0, 2490494, 0, 0, 2490495, 0, 0, 2490496, 0, 0, 2490497, 0, 0, 2490498, 0, 0, 2490499, 0, 0, 2490500, 0, 0, 2490501, 0, 0, 2621431, 0, 0, 2556025, 0, 0, 2556026, 0, 0, 2556027, 0, 0, 2556028, 0, 0, 2556029, 0, 0, 2556030, 0, 0, 2556031, 0, 0, 2556032, 0, 0, 2556033, 0, 0, 2556034, 0, 0, 2556035, 0, 0, 2556036, 0, 0, 2556037, 0, 0, 2686967, 0, 0, 2621532, 0, 0, 2621533, 0, 0, 2621534, 0, 0, 2621535, 0, 0, 2621542, 0, 0, 2621561, 0, 0, 2621562, 0, 0, 2621563, 0, 0, 2621564, 0, 0, 2621565, 0, 0, 2621566, 0, 0, 2621567, 0, 0, 2621568, 0, 0, 2621569, 0, 0, 2621570, 0, 0, 2621571, 0, 0, 2621572, 0, 0, 2621573, 0, 0, 2752503, 0, 0, 2687097, 0, 0, 2687098, 0, 0, 2687099, 0, 0, 2687100, 0, 0, 2687101, 0, 0, 2687102, 0, 0, 2687103, 0, 0, 2687104, 0, 0, 2687105, 0, 0, 2687106, 0, 0, 2687107, 0, 0, 2687108, 0, 0, 2687109, 0, 0, 2818039, 0, 0, 2752598, 0, 0, 2752599, 0, 0, 2752600, 0, 0, 2752601, 0, 0, 2752602, 0, 0, 2752603, 0, 0, 2752604, 0, 0, 2752605, 0, 0, 2752606, 0, 0, 2752607, 0, 0, 2752608, 0, 0, 2752609, 0, 0, 2752610, 0, 0, 2752633, 0, 0, 2752634, 0, 0, 2752635, 0, 0, 2752636, 0, 0, 2752637, 0, 0, 2752638, 0, 0, 2752639, 0, 0, 2752640, 0, 0, 2752641, 0, 0, 2752642, 0, 0, 2752643, 0, 0, 2752644, 0, 0, 2752645, 0, 0, 2883575, 0, 0, 2818169, 0, 0, 2818170, 0, 0, 2818171, 0, 0, 2818172, 0, 0, 2818173, 0, 0, 2818174, 0, 0, 2818175, 0, 0, 2818176, 0, 0, 2818177, 0, 0, 2818178, 0, 0, 2818179, 0, 0, 2818180, 0, 0, 2818181, 0, 0, 2949111, 0, 0, 2949112, 0, 0, 2949113, 0, 0, 2949114, 0, 0, 2949115, 0, 0, 2949116, 0, 0, 2949117, 0, 0, 2949118, 0, 0, 2949119, 0, 0, 2883584, 0, 0, 2883585, 0, 0, 2883586, 0, 0, 2883587, 0, 0, 2883588, 0, 0, 2883589, 0, 0, 2883590, 0, 0, 2883591, 0, 0, 2883592, 0, 0, 2883593, 0, 0, 2883594, 0, 0, 2883595, 0, 0, 2883596, 0, 0, 2883597, 0, 0, 2883598, 0, 0, 2883599, 0, 0, 2883600, 0, 0, 2883601, 0, 0, 2883602, 0, 0, 2883603, 0, 0, 2883604, 0, 0, 2883605, 0, 0, 2883606, 0, 0, 2883607, 0, 0, 2883608, 0, 0, 2883609, 0, 0, 2883610, 0, 0, 2883611, 0, 0, 2883612, 0, 0, 2883613, 0, 0, 2883614, 0, 0, 2883615, 0, 0, 2883616, 0, 0, 2883626, 0, 0, 2883627, 0, 0, 2883628, 0, 0, 2883629, 0, 0, 2883630, 0, 0, 2883631, 0, 0, 2883632, 0, 0, 2883633, 0, 0, 2883634, 0, 0, 2883635, 0, 0, 2883636, 0, 0, 2883637, 0, 0, 2883638, 0, 0, 2883639, 0, 0, 2883640, 0, 0, 2883641, 0, 0, 2883642, 0, 0, 2883643, 0, 0, 2883644, 0, 0, 2883645, 0, 0, 2883646, 0, 0, 2883647, 0, 0, 2883648, 0, 0, 2883649, 0, 0, 2883650, 0, 0, 2883651, 0, 0, 2883652, 0, 0, 2883653, 0, 0, 2883654, 0, 0, 2883655, 0, 0, 2883656, 0, 0, 2883657, 0, 0, 2883658, 0, 0, 2883659, 0, 0, 2883660, 0, 0, 2883661, 0, 0, 2883662, 0, 0, 2883663, 0, 0, 2883664, 0, 0, 2883665, 0, 0, 2883705, 0, 0, 2883706, 0, 0, 2883707, 0, 0, 2883708, 0, 0, 2883709, 0, 0, 2883710, 0, 0, 2883711, 0, 0, 2883712, 0, 0, 2883713, 0, 0, 2883714, 0, 0, 2883715, 0, 0, 2883716, 0, 0, 2883717, 0, 0, 3014647, 0, 0, 3014648, 0, 0, 3014649, 0, 0, 3014650, 0, 0, 3014651, 0, 0, 3014652, 0, 0, 3014653, 0, 0, 3014654, 0, 0, 3014655, 0, 0, 2949120, 0, 0, 2949121, 0, 0, 2949122, 0, 0, 2949123, 0, 0, 2949124, 0, 0, 2949125, 0, 0, 2949126, 0, 0, 2949127, 0, 0, 2949128, 0, 0, 2949129, 0, 0, 2949130, 0, 0, 2949131, 0, 0, 2949132, 0, 0, 2949133, 0, 0, 2949134, 0, 0, 2949135, 0, 0, 2949136, 0, 0, 2949137, 0, 0, 2949138, 0, 0, 2949139, 0, 0, 2949140, 0, 0, 2949141, 0, 0, 2949142, 0, 0, 2949143, 0, 0, 2949144, 0, 0, 2949145, 0, 0, 2949146, 0, 0, 2949147, 0, 0, 2949148, 0, 0, 2949149, 0, 0, 2949150, 0, 0, 2949151, 0, 0, 2949152, 0, 0, 2949153, 0, 0, 2949154, 0, 0, 2949155, 0, 0, 2949159, 0, 0, 2949160, 0, 0, 2949161, 0, 0, 2949162, 0, 0, 2949163, 0, 0, 2949164, 0, 0, 2949165, 0, 0, 2949166, 0, 0, 2949167, 0, 0, 2949168, 0, 0, 2949169, 0, 0, 2949170, 0, 0, 2949171, 0, 0, 2949172, 0, 0, 2949173, 0, 0, 2949174, 0, 0, 2949175, 0, 0, 2949176, 0, 0, 2949177, 0, 0, 2949178, 0, 0, 2949179, 0, 0, 2949180, 0, 0, 2949181, 0, 0, 2949182, 0, 0, 2949183, 0, 0, 2949184, 0, 0, 2949185, 0, 0, 2949186, 0, 0, 2949187, 0, 0, 2949188, 0, 0, 2949189, 0, 0, 2949190, 0, 0, 2949191, 0, 0, 2949192, 0, 0, 2949193, 0, 0, 2949194, 0, 0, 2949195, 0, 0, 2949196, 0, 0, 2949197, 0, 0, 2949198, 0, 0, 2949199, 0, 0, 2949200, 0, 0, 2949201, 0, 0, 2949202, 0, 0, 2949241, 0, 0, 2949242, 0, 0, 2949243, 0, 0, 2949244, 0, 0, 2949245, 0, 0, 2949246, 0, 0, 2949247, 0, 0, 2949248, 0, 0, 2949249, 0, 0, 2949250, 0, 0, 2949251, 0, 0, 2949252, 0, 0, 2949253, 0, 0, 3080183, 0, 0, 3080184, 0, 0, 3080185, 0, 0, 3080186, 0, 0, 3080187, 0, 0, 3080188, 0, 0, 3080189, 0, 0, 3080190, 0, 0, 3080191, 0, 0, 3014656, 0, 0, 3014657, 0, 0, 3014658, 0, 0, 3014659, 0, 0, 3014660, 0, 0, 3014661, 0, 0, 3014662, 0, 0, 3014663, 0, 0, 3014664, 0, 0, 3014665, 0, 0, 3014666, 0, 0, 3014667, 0, 0, 3014668, 0, 0, 3014669, 0, 0, 3014670, 0, 0, 3014671, 0, 0, 3014672, 0, 0, 3014673, 0, 0, 3014674, 0, 0, 3014675, 0, 0, 3014676, 0, 0, 3014677, 0, 0, 3014678, 0, 0, 3014679, 0, 0, 3014680, 0, 0, 3014681, 0, 0, 3014682, 0, 0, 3014683, 0, 0, 3014684, 0, 0, 3014685, 0, 0, 3014686, 0, 0, 3014687, 0, 0, 3014688, 0, 0, 3014689, 0, 0, 3014690, 0, 0, 3014691, 0, 0, 3014692, 0, 0, 3014693, 0, 0, 3014694, 0, 0, 3014695, 0, 0, 3014696, 0, 0, 3014697, 0, 0, 3014698, 0, 0, 3014699, 0, 0, 3014700, 0, 0, 3014701, 0, 0, 3014702, 0, 0, 3014703, 0, 0, 3014704, 0, 0, 3014705, 0, 0, 3014706, 0, 0, 3014707, 0, 0, 3014708, 0, 0, 3014709, 0, 0, 3014710, 0, 0, 3014711, 0, 0, 3014712, 0, 0, 3014713, 0, 0, 3014714, 0, 0, 3014715, 0, 0, 3014716, 0, 0, 3014717, 0, 0, 3014718, 0, 0, 3014719, 0, 0, 3014720, 0, 0, 3014721, 0, 0, 3014722, 0, 0, 3014723, 0, 0, 3014724, 0, 0, 3014725, 0, 0, 3014726, 0, 0, 3014727, 0, 0, 3014728, 0, 0, 3014729, 0, 0, 3014730, 0, 0, 3014731, 0, 0, 3014732, 0, 0, 3014733, 0, 0, 3014734, 0, 0, 3014735, 0, 0, 3014736, 0, 0, 3014737, 0, 0, 3014738, 0, 0, 3014739, 0, 0, 3014777, 0, 0, 3014778, 0, 0, 3014779, 0, 0, 3014780, 0, 0, 3014781, 0, 0, 3014782, 0, 0, 3014783, 0, 0, 3014784, 0, 0, 3014785, 0, 0, 3014786, 0, 0, 3014787, 0, 0, 3014788, 0, 0, 3014789, 0, 0, 3145719, 0, 0, 3145720, 0, 0, 3145721, 0, 0, 3145722, 0, 0, 3145723, 0, 0, 3145724, 0, 0, 3145725, 0, 0, 3145726, 0, 0, 3145727, 0, 0, 3080192, 0, 0, 3080193, 0, 0, 3080194, 0, 0, 3080195, 0, 0, 3080196, 0, 0, 3080197, 0, 0, 3080198, 0, 0, 3080199, 0, 0, 3080200, 0, 0, 3080201, 0, 0, 3080202, 0, 0, 3080203, 0, 0, 3080204, 0, 0, 3080205, 0, 0, 3080206, 0, 0, 3080207, 0, 0, 3080208, 0, 0, 3080209, 0, 0, 3080210, 0, 0, 3080211, 0, 0, 3080212, 0, 0, 3080213, 0, 0, 3080214, 0, 0, 3080215, 0, 0, 3080216, 0, 0, 3080217, 0, 0, 3080218, 0, 0, 3080219, 0, 0, 3080220, 0, 0, 3080221, 0, 0, 3080222, 0, 0, 3080223, 0, 0, 3080224, 0, 0, 3080225, 0, 0, 3080226, 0, 0, 3080227, 0, 0, 3080228, 0, 0, 3080229, 0, 0, 3080230, 0, 0, 3080231, 0, 0, 3080232, 0, 0, 3080233, 0, 0, 3080234, 0, 0, 3080235, 0, 0, 3080236, 0, 0, 3080237, 0, 0, 3080238, 0, 0, 3080239, 0, 0, 3080240, 0, 0, 3080241, 0, 0, 3080242, 0, 0, 3080243, 0, 0, 3080244, 0, 0, 3080245, 0, 0, 3080246, 0, 0, 3080247, 0, 0, 3080248, 0, 0, 3080249, 0, 0, 3080250, 0, 0, 3080251, 0, 0, 3080252, 0, 0, 3080253, 0, 0, 3080254, 0, 0, 3080255, 0, 0, 3080256, 0, 0, 3080257, 0, 0, 3080258, 0, 0, 3080259, 0, 0, 3080260, 0, 0, 3080261, 0, 0, 3080262, 0, 0, 3080263, 0, 0, 3080264, 0, 0, 3080265, 0, 0, 3080266, 0, 0, 3080267, 0, 0, 3080268, 0, 0, 3080269, 0, 0, 3080270, 0, 0, 3080271, 0, 0, 3080272, 0, 0, 3080273, 0, 0, 3080274, 0, 0, 3080275, 0, 0, 3080276, 0, 0, 3080277, 0, 0, 3080278, 0, 0, 3080279, 0, 0, 3080280, 0, 0, 3080313, 0, 0, 3080314, 0, 0, 3080315, 0, 0, 3080316, 0, 0, 3080317, 0, 0, 3080318, 0, 0, 3080319, 0, 0, 3080320, 0, 0, 3080321, 0, 0, 3080322, 0, 0, 3080323, 0, 0, 3080324, 0, 0, 3080325, 0, 0, 3211255, 0, 0, 3211256, 0, 0, 3211257, 0, 0, 3211258, 0, 0, 3211259, 0, 0, 3211260, 0, 0, 3211261, 0, 0, 3211262, 0, 0, 3211263, 0, 0, 3145728, 0, 0, 3145729, 0, 0, 3145730, 0, 0, 3145731, 0, 0, 3145732, 0, 0, 3145733, 0, 0, 3145734, 0, 0, 3145735, 0, 0, 3145736, 0, 0, 3145737, 0, 0, 3145738, 0, 0, 3145739, 0, 0, 3145740, 0, 0, 3145741, 0, 0, 3145742, 0, 0, 3145743, 0, 0, 3145744, 0, 0, 3145745, 0, 0, 3145746, 0, 0, 3145747, 0, 0, 3145748, 0, 0, 3145749, 0, 0, 3145750, 0, 0, 3145751, 0, 0, 3145752, 0, 0, 3145753, 0, 0, 3145754, 0, 0, 3145755, 0, 0, 3145756, 0, 0, 3145757, 0, 0, 3145758, 0, 0, 3145759, 0, 0, 3145760, 0, 0, 3145761, 0, 0, 3145762, 0, 0, 3145763, 0, 0, 3145764, 0, 0, 3145765, 0, 0, 3145766, 0, 0, 3145767, 0, 0, 3145768, 0, 0, 3145769, 0, 0, 3145770, 0, 0, 3145771, 0, 0, 3145772, 0, 0, 3145773, 0, 0, 3145774, 0, 0, 3145775, 0, 0, 3145776, 0, 0, 3145777, 0, 0, 3145778, 0, 0, 3145779, 0, 0, 3145780, 0, 0, 3145781, 0, 0, 3145782, 0, 0, 3145783, 0, 0, 3145784, 0, 0, 3145785, 0, 0, 3145786, 0, 0, 3145787, 0, 0, 3145788, 0, 0, 3145789, 0, 0, 3145790, 0, 0, 3145791, 0, 0, 3145792, 0, 0, 3145793, 0, 0, 3145794, 0, 0, 3145795, 0, 0, 3145796, 0, 0, 3145797, 0, 0, 3145798, 0, 0, 3145799, 0, 0, 3145800, 0, 0, 3145801, 0, 0, 3145802, 0, 0, 3145803, 0, 0, 3145804, 0, 0, 3145805, 0, 0, 3145806, 0, 0, 3145807, 0, 0, 3145808, 0, 0, 3145809, 0, 0, 3145810, 0, 0, 3145811, 0, 0, 3145812, 0, 0, 3145813, 0, 0, 3145814, 0, 0, 3145815, 0, 0, 3145816, 0, 0, 3145817, 0, 0, 3145818, 0, 0, 3145819, 0, 0, 3145820, 0, 0, 3145821, 0, 0, 3145822, 0, 0, 3145823, 0, 0, 3145849, 0, 0, 3145850, 0, 0, 3145851, 0, 0, 3145852, 0, 0, 3145853, 0, 0, 3145854, 0, 0, 3145855, 0, 0, 3145856, 0, 0, 3145857, 0, 0, 3145858, 0, 0, 3145859, 0, 0, 3145860, 0, 0, 3145861, 0, 0, 3276791, 0, 0, 3276792, 0, 0, 3276793, 0, 0, 3276794, 0, 0, 3276795, 0, 0, 3276796, 0, 0, 3276797, 0, 0, 3276798, 0, 0, 3276799, 0, 0, 3211264, 0, 0, 3211265, 0, 0, 3211266, 0, 0, 3211267, 0, 0, 3211268, 0, 0, 3211269, 0, 0, 3211270, 0, 0, 3211271, 0, 0, 3211272, 0, 0, 3211273, 0, 0, 3211274, 0, 0, 3211275, 0, 0, 3211276, 0, 0, 3211277, 0, 0, 3211278, 0, 0, 3211279, 0, 0, 3211280, 0, 0, 3211281, 0, 0, 3211282, 0, 0, 3211283, 0, 0, 3211284, 0, 0, 3211285, 0, 0, 3211286, 0, 0, 3211287, 0, 0, 3211288, 0, 0, 3211289, 0, 0, 3211290, 0, 0, 3211291, 0, 0, 3211292, 0, 0, 3211293, 0, 0, 3211294, 0, 0, 3211295, 0, 0, 3211296, 0, 0, 3211297, 0, 0, 3211298, 0, 0, 3211299, 0, 0, 3211300, 0, 0, 3211301, 0, 0, 3211302, 0, 0, 3211303, 0, 0, 3211304, 0, 0, 3211305, 0, 0, 3211306, 0, 0, 3211307, 0, 0, 3211308, 0, 0, 3211309, 0, 0, 3211310, 0, 0, 3211311, 0, 0, 3211312, 0, 0, 3211313, 0, 0, 3211314, 0, 0, 3211315, 0, 0, 3211316, 0, 0, 3211317, 0, 0, 3211318, 0, 0, 3211319, 0, 0, 3211320, 0, 0, 3211321, 0, 0, 3211322, 0, 0, 3211323, 0, 0, 3211324, 0, 0, 3211325, 0, 0, 3211326, 0, 0, 3211327, 0, 0, 3211328, 0, 0, 3211329, 0, 0, 3211330, 0, 0, 3211331, 0, 0, 3211332, 0, 0, 3211333, 0, 0, 3211334, 0, 0, 3211335, 0, 0, 3211336, 0, 0, 3211337, 0, 0, 3211338, 0, 0, 3211339, 0, 0, 3211340, 0, 0, 3211341, 0, 0, 3211342, 0, 0, 3211343, 0, 0, 3211344, 0, 0, 3211345, 0, 0, 3211346, 0, 0, 3211347, 0, 0, 3211348, 0, 0, 3211349, 0, 0, 3211350, 0, 0, 3211351, 0, 0, 3211352, 0, 0, 3211353, 0, 0, 3211354, 0, 0, 3211355, 0, 0, 3211356, 0, 0, 3211357, 0, 0, 3211358, 0, 0, 3211359, 0, 0, 3211360, 0, 0, 3211385, 0, 0, 3211386, 0, 0, 3211387, 0, 0, 3211388, 0, 0, 3211389, 0, 0, 3211390, 0, 0, 3211391, 0, 0, 3211392, 0, 0, 3211393, 0, 0, 3211394, 0, 0, 3211395, 0, 0, 3211396, 0, 0, 3211397, 0, 0, 3276895, 0, 0, 3276896, 0, 0, 3276897, 0, 0, 3276921, 0, 0, 3276922, 0, 0, 3276923, 0, 0, 3276924, 0, 0, 3276925, 0, 0, 3276926, 0, 0, 3276927, 0, 0, 3276928, 0, 0, 3276929, 0, 0, 3276930, 0, 0, 3276931, 0, 0, 3276932, 0, 0, 3276933, 0, 0, 3342432, 0, 0, 3342433, 0, 0, 3342434, 0, 0, 3342457, 0, 0, 3342458, 0, 0, 3342459, 0, 0, 3342460, 0, 0, 3342461, 0, 0, 3342462, 0, 0, 3342463, 0, 0, 3342464, 0, 0, 3342465, 0, 0, 3342466, 0, 0, 3342467, 0, 0, 3342468, 0, 0, 3342469, 0, 0, 3407969, 0, 0, 3407970, 0, 0, 3407971, 0, 0, 3473506, 0, 0, 3473507, 0, 0, 3473508, 0, 0, 3539043, 0, 0, 3539044, 0, 0, 3539045, 0, 0, 3604580, 0, 0, 3604581, 0, 0, 3604582, 0, 0, 3604583, 0, 0, 3604584, 0, 0, 3604585, 0, 0, 3604586, 0, 0, 3604587, 0, 0, 3604588, 0, 0, 3604589, 0, 0, 3604590, 0, 0, 3604591, 0, 0, 3604592, 0, 0, 3604593, 0, 0, 3604594, 0, 0, 3604595, 0, 0, 3604596, 0, 0, 3604597, 0, 0, 3604598, 0, 0, 3604599, 0, 0, 3604600, 0, 0, 3604601, 0, 0, 3604602, 0, 0, 3604603, 0, 0, 3604604, 0, 0, 3604605, 0, 0, 3604606, 0, 0, 3604607, 0, 0, 3604608, 0, 0, 3604609, 0, 0, 3604610, 0, 0, 3604611, 0, 0, 3604612, 0, 0, 3604613, 0, 0, 3604614, 0, 0, 3604615, 0, 0, 3604616, 0, 0, 3604617, 0, 0, 3604618, 0, 0, 3604619, 0, 0, 3604620, 0, 0, 3604621, 0, 0, 3604622, 0, 0, 3604623, 0, 0, 3604624, 0, 0, 3604625, 0, 0, 3670117, 0, 0, 3670118, 0, 0, 3670119, 0, 0, 3670120, 0, 0, 3670121, 0, 0, 3670122, 0, 0, 3670123, 0, 0, 3670124, 0, 0, 3670125, 0, 0, 3670126, 0, 0, 3670127, 0, 0, 3670128, 0, 0, 3670129, 0, 0, 3670130, 0, 0, 3670131, 0, 0, 3670132, 0, 0, 3670133, 0, 0, 3670134, 0, 0, 3670135, 0, 0, 3670136, 0, 0, 3670137, 0, 0, 3670138, 0, 0, 3670139, 0, 0, 3670140, 0, 0, 3670141, 0, 0, 3670142, 0, 0, 3670143, 0, 0, 3670144, 0, 0, 3670145, 0, 0, 3670146, 0, 0, 3670147, 0, 0, 3670148, 0, 0, 3670149, 0, 0, 3670150, 0, 0, 3670151, 0, 0, 3670152, 0, 0, 3670153, 0, 0, 3670154, 0, 0, 3670155, 0, 0, 3670156, 0, 0, 3670157, 0, 0, 3670158, 0, 0, 3670159, 0, 0, 3670160, 0, 0, 3670161, 0, 0 )
 
-[node name="LivingSculptureNPC" parent="BrandonEditTileMap" instance=ExtResource( 9 )]
+[node name="LivingSculptureNPC" parent="BrandonEditTileMap" instance=ExtResource( 37 )]
 position = Vector2( 1040.37, 530.946 )
 
-[node name="CoinObject" parent="." instance=ExtResource( 10 )]
+[node name="CoinObject" parent="." instance=ExtResource( 38 )]
 position = Vector2( 634.003, 51.3541 )
 
-[node name="CoinObject11" parent="." instance=ExtResource( 10 )]
+[node name="CoinObject11" parent="." instance=ExtResource( 38 )]
 position = Vector2( 634.003, 21.3541 )
 
-[node name="CoinObject9" parent="." instance=ExtResource( 10 )]
+[node name="CoinObject9" parent="." instance=ExtResource( 38 )]
 position = Vector2( 574.003, 91.3541 )
 
-[node name="CoinObject6" parent="." instance=ExtResource( 10 )]
+[node name="CoinObject6" parent="." instance=ExtResource( 38 )]
 position = Vector2( 594.003, 121.354 )
 
-[node name="CoinObject7" parent="." instance=ExtResource( 10 )]
+[node name="CoinObject7" parent="." instance=ExtResource( 38 )]
 position = Vector2( 714.003, 121.354 )
 
-[node name="CoinObject2" parent="." instance=ExtResource( 10 )]
+[node name="CoinObject2" parent="." instance=ExtResource( 38 )]
 position = Vector2( 672.237, 51.3541 )
 
-[node name="CoinObject10" parent="." instance=ExtResource( 10 )]
+[node name="CoinObject10" parent="." instance=ExtResource( 38 )]
 position = Vector2( 672.237, 21.3541 )
 
-[node name="CoinObject8" parent="." instance=ExtResource( 10 )]
+[node name="CoinObject8" parent="." instance=ExtResource( 38 )]
 position = Vector2( 736.43, 91.3541 )
 
-[node name="CoinObject12" parent="." instance=ExtResource( 10 )]
+[node name="CoinObject12" parent="." instance=ExtResource( 38 )]
 position = Vector2( 1572.7, 69.8745 )
 
-[node name="CoinObject13" parent="." instance=ExtResource( 10 )]
+[node name="CoinObject13" parent="." instance=ExtResource( 38 )]
 position = Vector2( 1743.1, -24.6355 )
 
-[node name="CoinObject14" parent="." instance=ExtResource( 10 )]
+[node name="CoinObject14" parent="." instance=ExtResource( 38 )]
 position = Vector2( 1960.76, -216.519 )
 
-[node name="CoinObject3" parent="." instance=ExtResource( 10 )]
+[node name="CoinObject3" parent="." instance=ExtResource( 38 )]
 position = Vector2( 624.003, 131.354 )
 
-[node name="CoinObject4" parent="." instance=ExtResource( 10 )]
+[node name="CoinObject4" parent="." instance=ExtResource( 38 )]
 position = Vector2( 654.003, 131.354 )
 
-[node name="CoinObject5" parent="." instance=ExtResource( 10 )]
+[node name="CoinObject5" parent="." instance=ExtResource( 38 )]
 position = Vector2( 684.003, 131.354 )
 
-[node name="Follower" parent="." instance=ExtResource( 11 )]
+[node name="Follower" parent="." instance=ExtResource( 39 )]
 position = Vector2( 19.1622, 563.689 )
 
-[node name="NPCLevel3" parent="." instance=ExtResource( 12 )]
+[node name="NPCLevel3" parent="." instance=ExtResource( 40 )]
+editor/display_folded = true
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="NPCLevel3"]
 position = Vector2( -0.814453, -0.407227 )
 scale = Vector2( 0.21153, 0.215249 )
-frames = SubResource( 1 )
+frames = SubResource( 8 )
 
-[node name="NPCLevel3_3" parent="." instance=ExtResource( 12 )]
+[node name="NPCLevel3_3" parent="." instance=ExtResource( 40 )]
+editor/display_folded = true
 position = Vector2( 1318.99, 557.228 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="NPCLevel3_3"]
 position = Vector2( -3.07764, -2.87085 )
 scale = Vector2( 0.176798, 0.191173 )
-frames = SubResource( 2 )
+frames = SubResource( 9 )
 
-[node name="NPCLevel3_2" parent="." instance=ExtResource( 12 )]
+[node name="NPCLevel3_2" parent="." instance=ExtResource( 40 )]
+editor/display_folded = true
 position = Vector2( 594.669, 556.829 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="NPCLevel3_2"]
 position = Vector2( -2.49072, -0.855618 )
 scale = Vector2( 0.192874, 0.201551 )
-frames = SubResource( 3 )
+frames = SubResource( 10 )
 
-[node name="StoreObject" parent="." instance=ExtResource( 16 )]
+[node name="StoreObject" parent="." instance=ExtResource( 44 )]
 position = Vector2( 354.683, 512.679 )
 
-[node name="CoinCountDisplay" parent="." instance=ExtResource( 17 )]
+[node name="CoinCountDisplay" parent="." instance=ExtResource( 45 )]
 margin_left = 231.711
 margin_top = 539.292
 margin_right = 441.711
@@ -180,7 +386,7 @@ __meta__ = {
 
 [node name="LabelTrigger1" type="Area2D" parent="Labels"]
 position = Vector2( 184.592, 541.814 )
-script = ExtResource( 18 )
+script = ExtResource( 46 )
 
 [node name="Label" type="Label" parent="Labels/LabelTrigger1"]
 margin_left = -81.6526
@@ -194,13 +400,13 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Labels/LabelTrigger1"]
-shape = SubResource( 4 )
+shape = SubResource( 11 )
 
 [node name="Timer" type="Timer" parent="Labels/LabelTrigger1"]
 
 [node name="LabelTrigger2" type="Area2D" parent="Labels"]
 position = Vector2( 1354.51, 540.454 )
-script = ExtResource( 18 )
+script = ExtResource( 46 )
 
 [node name="Label" type="Label" parent="Labels/LabelTrigger2"]
 margin_left = 18.6676
@@ -214,13 +420,13 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Labels/LabelTrigger2"]
-shape = SubResource( 5 )
+shape = SubResource( 12 )
 
 [node name="Timer" type="Timer" parent="Labels/LabelTrigger2"]
 
 [node name="LabelTrigger3" type="Area2D" parent="Labels"]
 position = Vector2( 1856.49, 325.515 )
-script = ExtResource( 18 )
+script = ExtResource( 46 )
 
 [node name="Label" type="Label" parent="Labels/LabelTrigger3"]
 margin_left = 0.280151
@@ -234,13 +440,13 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Labels/LabelTrigger3"]
-shape = SubResource( 6 )
+shape = SubResource( 13 )
 
 [node name="Timer" type="Timer" parent="Labels/LabelTrigger3"]
 
 [node name="LabelTrigger4" type="Area2D" parent="Labels"]
 position = Vector2( 2690.71, 106.257 )
-script = ExtResource( 18 )
+script = ExtResource( 46 )
 
 [node name="Label" type="Label" parent="Labels/LabelTrigger4"]
 margin_left = 44.5437
@@ -254,15 +460,16 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Labels/LabelTrigger4"]
-shape = SubResource( 7 )
+shape = SubResource( 14 )
 
 [node name="Timer" type="Timer" parent="Labels/LabelTrigger4"]
 
-[node name="Minipuzzle Pad" parent="." instance=ExtResource( 19 )]
+[node name="Minipuzzle Pad" parent="." instance=ExtResource( 47 )]
 position = Vector2( 1910.33, 166.762 )
 
-[node name="DoorLocked" parent="Minipuzzle Pad" instance=ExtResource( 20 )]
+[node name="DoorLocked" parent="Minipuzzle Pad" instance=ExtResource( 48 )]
 position = Vector2( 460.846, 553.604 )
 
-[node name="jumpItemArea" parent="." instance=ExtResource( 21 )]
-position = Vector2( 128.532, 560.667 )
+[node name="BoundaryLeft" parent="." instance=ExtResource( 49 )]
+position = Vector2( 3344.15, 250.02 )
+[connection signal="animation_finished" from="MC_Sprite/Sprite" to="MC_Sprite" method="_on_Sprite_animation_finished"]

@@ -20,7 +20,7 @@
 [ext_resource path="res://images/NPC/AlienNPCs/alien5npc.png" type="Texture" id=18]
 [ext_resource path="res://images/NPC/AlienNPCs/alien4npc.png" type="Texture" id=19]
 [ext_resource path="res://LabelTrigger.gd" type="Script" id=20]
-[ext_resource path="res://jumpItem.tscn" type="PackedScene" id=21]
+[ext_resource path="res://Boundary.tscn" type="PackedScene" id=21]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 16.5859, 10.0336 )
@@ -56,6 +56,7 @@ autoplay = true
 
 [node name="MC_Sprite" parent="." instance=ExtResource( 2 )]
 position = Vector2( 48.7952, 214.272 )
+z_as_relative = true
 
 [node name="Elevator" parent="." instance=ExtResource( 3 )]
 position = Vector2( 56.701, 204.344 )
@@ -302,5 +303,5 @@ shape = SubResource( 5 )
 
 [node name="Timer" type="Timer" parent="Labels/LabelTrigger5"]
 
-[node name="jumpItemArea" parent="." instance=ExtResource( 21 )]
-position = Vector2( 128.966, 229.447 )
+[node name="BoundaryLeft" parent="." instance=ExtResource( 21 )]
+position = Vector2( -16.6228, 315.569 )

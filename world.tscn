@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=2]
+[gd_scene load_steps=48 format=2]
 
 [ext_resource path="res://world.gd" type="Script" id=1]
 [ext_resource path="res://sound/Music/LobbySong.wav" type="AudioStream" id=2]
@@ -32,6 +32,7 @@
 [ext_resource path="res://fonts/opensans_30.tres" type="DynamicFont" id=30]
 [ext_resource path="res://images/backgrounds/skybackground.png" type="Texture" id=31]
 [ext_resource path="res://LabelTrigger.gd" type="Script" id=32]
+[ext_resource path="res://globalFont.tres" type="DynamicFont" id=33]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 16.5859, 10.0336 )
@@ -258,9 +259,11 @@ position = Vector2( 64, -40 )
 script = ExtResource( 23 )
 
 [node name="Boundary" parent="." instance=ExtResource( 24 )]
+visible = false
 position = Vector2( -31.0879, 568.351 )
 
 [node name="Boundary2" parent="." instance=ExtResource( 24 )]
+visible = false
 position = Vector2( 6296.93, 605.136 )
 
 [node name="Elevator" parent="." instance=ExtResource( 25 )]
@@ -362,7 +365,6 @@ scale = Vector2( 2.34621, 2.5 )
 texture = ExtResource( 31 )
 
 [node name="Labels" type="Node" parent="."]
-editor/display_folded = true
 
 [node name="LabelTrigger" type="Area2D" parent="Labels"]
 position = Vector2( 174.128, 552.244 )
@@ -379,7 +381,9 @@ margin_left = 22.5551
 margin_top = -44.85
 margin_right = 212.555
 margin_bottom = -30.85
-custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 33 )
+custom_colors/font_color = Color( 0.482353, 0.47451, 0.521569, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
 text = "Welcome to your dreamworld"
 __meta__ = {
 "_edit_use_anchors_": true
@@ -401,7 +405,9 @@ margin_left = 39.1526
 margin_top = -41.4542
 margin_right = 187.153
 margin_bottom = -27.4542
-custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 33 )
+custom_colors/font_color = Color( 0.482353, 0.47451, 0.521569, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
 text = "Don't try to understand"
 __meta__ = {
 "_edit_use_anchors_": true
@@ -421,7 +427,9 @@ margin_left = 26.3298
 margin_top = -44.5358
 margin_right = 134.33
 margin_bottom = -30.5358
-custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 33 )
+custom_colors/font_color = Color( 0.482353, 0.47451, 0.521569, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
 text = "just appreciate it"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -441,7 +449,9 @@ margin_left = 11.9955
 margin_top = -44.703
 margin_right = 250.995
 margin_bottom = -30.703
-custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 33 )
+custom_colors/font_color = Color( 0.482353, 0.47451, 0.521569, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
 text = "try interacting with your surroundings"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -461,7 +471,9 @@ margin_left = 25.0476
 margin_top = -43.1867
 margin_right = 208.048
 margin_bottom = -29.1867
-custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 33 )
+custom_colors/font_color = Color( 0.482353, 0.47451, 0.521569, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
 text = "there is more for you to see "
 __meta__ = {
 "_edit_use_anchors_": false
@@ -481,7 +493,9 @@ margin_left = 15.6948
 margin_top = -41.7514
 margin_right = 175.695
 margin_bottom = -27.7514
-custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 33 )
+custom_colors/font_color = Color( 0.482353, 0.47451, 0.521569, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
 text = "and your next ride awaits"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -501,7 +515,9 @@ margin_left = 82.9742
 margin_top = -45.7074
 margin_right = 280.974
 margin_bottom = -31.7074
-custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 33 )
+custom_colors/font_color = Color( 0.482353, 0.47451, 0.521569, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
 text = "just a little bit more"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -523,7 +539,9 @@ margin_top = -56.6088
 margin_right = 191.511
 margin_bottom = -27.6088
 rect_scale = Vector2( -0.246219, 1.05118 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 33 )
+custom_colors/font_color = Color( 0.482353, 0.47451, 0.521569, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
 text = "the elevator is fast, don't worry"
 __meta__ = {
 "_edit_use_anchors_": false

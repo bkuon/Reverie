@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://images/backgrounds/parallax-background-level-3.png" type="Texture" id=1]
-[ext_resource path="res://images/backgrounds/parallax_mountain_pack/layers/parallax-mountain-mountains.png" type="Texture" id=2]
-[ext_resource path="res://images/backgrounds/parallax_mountain_pack/layers/parallax-mountain-montain-far.png" type="Texture" id=3]
+[ext_resource path="res://images/backgrounds/parallax_mountain_pack/layers/parallax-mountain-montain-far.png" type="Texture" id=2]
+[ext_resource path="res://images/backgrounds/parallax_mountain_pack/layers/parallax-mountain-mountains.png" type="Texture" id=3]
 [ext_resource path="res://images/backgrounds/parallax_mountain_pack/layers/parallax-mountain-trees.png" type="Texture" id=4]
 
 [node name="ParallaxBackground" type="ParallaxBackground"]
@@ -12,7 +12,7 @@ scroll_base_scale = Vector2( 0.5, 0.5 )
 motion_mirroring = Vector2( 680, 0 )
 
 [node name="Sprite" type="Sprite" parent="ParallaxLayer"]
-position = Vector2( 0, -153.968 )
+position = Vector2( 0, -332.077 )
 scale = Vector2( 2.51565, 2.57937 )
 texture = ExtResource( 1 )
 centered = false
@@ -21,12 +21,12 @@ offset = Vector2( 0, 50 )
 [node name="Sprite2" type="Sprite" parent="ParallaxLayer"]
 position = Vector2( 341.974, 380.837 )
 scale = Vector2( 2.49754, 2.49754 )
-texture = ExtResource( 3 )
+texture = ExtResource( 2 )
 
 [node name="Sprite4" type="Sprite" parent="ParallaxLayer"]
 position = Vector2( 336.617, 471.42 )
 scale = Vector2( 1.41395, 1.41395 )
-texture = ExtResource( 2 )
+texture = ExtResource( 3 )
 
 [node name="Sprite3" type="Sprite" parent="ParallaxLayer"]
 position = Vector2( 296.877, 467.524 )
